@@ -345,6 +345,37 @@
     }
     .bento-card.flagship .card-title { font-size: 1.5rem; }
   }
+
+  /* ============ SERVICES ============ */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .service-card {
+    padding: 1.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+  }
+  .service-num {
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    color: var(--accent-2);
+    margin-bottom: .75rem;
+    letter-spacing: 0.1em;
+  }
+  .service-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: .5rem;
+  }
+  .service-card p {
+    color: var(--text-dim);
+    font-size: .92rem;
+  }
+  @media (max-width: 800px) {
+    .services { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -485,7 +516,29 @@
       </div>
     </section>
 
-    <!-- services strip goes here in Task 9 -->
+    <section class="section container" id="services">
+      <p class="section-eyebrow">What I do</p>
+      <h2 class="section-title">Three ways I help businesses ship.</h2>
+
+      <div class="services">
+        <div class="service-card">
+          <p class="service-num">01</p>
+          <h3>Custom business applications</h3>
+          <p>Desktop, web, or single-file — built around the workflow you actually have, not the one a SaaS pricing page assumes.</p>
+        </div>
+        <div class="service-card">
+          <p class="service-num">02</p>
+          <h3>AI workflows &amp; agent systems</h3>
+          <p>Agentic OSes, automation pipelines, and observability for AI-driven processes. Teach the agents your domain once; let them work the rest.</p>
+        </div>
+        <div class="service-card">
+          <p class="service-num">03</p>
+          <h3>Excel &amp; ERP automation</h3>
+          <p>Add-ins, D365 Finance &amp; Ops tooling, and templates that replace the spreadsheet pain finance and ops teams have been suffering through.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- about goes here in Task 10 -->
     <!-- contact + footer go here in Task 11 -->
 
