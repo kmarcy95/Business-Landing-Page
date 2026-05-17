@@ -40,7 +40,7 @@ Desktop = 4-column grid (12 columns mathematically). Mobile = single column, car
 | # | Project | Desktop size | Description (final copy) | Tech tags |
 |---|---|---|---|---|
 | 1 | **D365 ERP Manager Web** | 2 cols × 2 rows (flagship) | Blazor app that generates ERP implementation timelines, project templates, and user stories for D365 Finance & Ops rollouts. | `Blazor`, `C#`, `.NET 8` |
-| 2 | **Codex Job Tracking App** | 2 cols × 1 row (wide) | AI-powered job tracking application with automated workflows, built on OpenAI Codex. *In progress.* | `OpenAI Codex`, `AI`, `Workflows` |
+| 2 | **Codex Job Tracking App** | 2 cols × 1 row (wide) | Full-stack AI job-search command center — aggregates listings, ranks fit, tailors résumés, monitors Gmail + Outlook, and runs approval-gated auto-apply via Playwright. Multi-agent CrewAI backbone. *In progress.* | `Next.js`, `FastAPI`, `CrewAI` |
 | 3 | **Agent Dashboard** | 1 col × 1 row | An agentic OS to view every AI automation in one place — active workflows, skill usage, and token consumption across projects. | `Python`, `Agents`, `Observability` |
 | 4 | **Creator Dashboard** | 1 col × 1 row | A single-file shell app helping social media creators grow their digital footprint — scheduling, link-in-bio, analytics, promo. | `HTML`, `JS`, `LocalStorage` |
 | 5 | **Housing-Price ML Models** | 4 cols × 1 row (full-width banner) | Predicting residential sale prices with ensemble methods (XGBoost, Gradient Boosting, Linear Regression). Feature engineering, EDA, and model comparison. | `Python`, `XGBoost`, `scikit-learn` |

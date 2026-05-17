@@ -661,15 +661,15 @@ git commit -m "Add bento grid container and flagship D365 ERP Web card"
 ```html
 <!-- Card 2: Codex Job Tracking App (wide 2x1, in-progress) -->
 <div class="bento-card wide" aria-label="Codex Job Tracking App — in progress">
-  <p class="card-label">OPENAI CODEX / AI / IN PROGRESS</p>
+  <p class="card-label">NEXT.JS / FASTAPI / CREWAI</p>
   <h3 class="card-title">Codex Job Tracking App</h3>
   <p class="card-desc">
-    AI-powered job-tracking application with automated workflows, built on OpenAI Codex. Pulls postings, drafts tailored materials, and tracks every step of the pipeline so nothing falls through.
+    Full-stack AI job-search command center. Aggregates listings from public boards, ranks fit with OpenAI, tailors résumés, monitors Gmail &amp; Outlook for recruiter replies, and runs approval-gated auto-apply via Playwright — orchestrated by a CrewAI multi-agent backbone.
   </p>
   <div class="tag-row">
-    <span class="tag">OpenAI Codex</span>
-    <span class="tag">AI</span>
-    <span class="tag">Workflows</span>
+    <span class="tag">Next.js</span>
+    <span class="tag">FastAPI</span>
+    <span class="tag">CrewAI</span>
   </div>
   <div class="card-foot">
     <span></span>
