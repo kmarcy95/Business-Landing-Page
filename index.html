@@ -223,6 +223,128 @@
   .btn-ghost:hover { background: var(--surface-2); border-color: var(--border-strong); }
   .btn-arrow { transition: transform .15s ease; }
   .btn:hover .btn-arrow { transform: translateX(3px); }
+
+  /* ============ SECTION HEADING ============ */
+  .section-eyebrow {
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: .5rem;
+  }
+  .section-title {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    max-width: 28ch;
+  }
+
+  /* ============ BENTO GRID ============ */
+  .bento {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 1rem;
+  }
+  .bento-card {
+    display: flex; flex-direction: column;
+    padding: 1.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-lg);
+    transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; color: inherit;
+  }
+  .bento-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: var(--grad-accent);
+    opacity: 0; transition: opacity .25s ease;
+    z-index: 0; pointer-events: none;
+    mix-blend-mode: overlay;
+  }
+  .bento-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--border-strong);
+    box-shadow: 0 16px 50px -20px rgba(var(--accent-glow), 0.4);
+  }
+  .bento-card:hover::before { opacity: 0.06; }
+  .bento-card > * { position: relative; z-index: 1; }
+  .bento-card.flagship { grid-column: span 2; grid-row: span 2; }
+  .bento-card.wide { grid-column: span 2; }
+  .bento-card.banner { grid-column: span 4; }
+
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: .68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: .85rem;
+  }
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: .55rem;
+  }
+  .bento-card.flagship .card-title { font-size: 2rem; }
+  .card-desc {
+    color: var(--text-dim);
+    font-size: .95rem;
+    margin-bottom: 1.15rem;
+    flex: 1;
+  }
+  .tag-row { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1.15rem; }
+  .tag {
+    font-size: .72rem; font-weight: 500;
+    padding: .25rem .55rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-dim);
+  }
+  .card-foot {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: .85rem; font-weight: 600;
+  }
+  .card-foot .view {
+    color: var(--accent-2);
+    transition: gap .15s ease;
+    display: inline-flex; align-items: center; gap: .35rem;
+  }
+  .bento-card:hover .card-foot .view { gap: .6rem; }
+  .pill-progress {
+    font-size: .68rem; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: .25rem .55rem;
+    border-radius: 999px;
+    background: rgba(94,234,212,0.1);
+    border: 1px solid rgba(94,234,212,0.3);
+    color: var(--accent-2);
+  }
+
+  /* swatch — abstract accent block used in cards instead of screenshots in v1 */
+  .swatch {
+    height: 80px;
+    border-radius: var(--r-md);
+    margin-bottom: 1.15rem;
+    background: linear-gradient(135deg, rgba(124,92,255,0.4), rgba(94,234,212,0.2));
+    border: 1px solid var(--border);
+  }
+  .bento-card.flagship .swatch { height: 160px; }
+  .bento-card.banner .swatch { height: 100px; }
+
+  @media (max-width: 900px) {
+    .bento { grid-template-columns: 1fr; }
+    .bento-card.flagship,
+    .bento-card.wide,
+    .bento-card.banner {
+      grid-column: span 1;
+      grid-row: span 1;
+    }
+    .bento-card.flagship .card-title { font-size: 1.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -266,7 +388,35 @@
       </div>
     </section>
 
-    <!-- bento grid goes here in Tasks 5-8 -->
+    <section class="section container" id="work">
+      <p class="section-eyebrow">Selected Work</p>
+      <h2 class="section-title">Things I've built for finance, ops, and creative teams.</h2>
+
+      <div class="bento">
+
+        <!-- Card 1: D365 ERP Manager Web (flagship 2x2) -->
+        <a class="bento-card flagship" href="#" aria-label="D365 ERP Manager Web — case study">
+          <p class="card-label">D365 / BLAZOR / .NET 8</p>
+          <h3 class="card-title">D365 ERP Manager Web</h3>
+          <div class="swatch" aria-hidden="true"></div>
+          <p class="card-desc">
+            Blazor app that generates ERP implementation timelines, project templates, and user stories for D365 Finance &amp; Ops rollouts. Built so consultants can stop rebuilding the same spreadsheet on every engagement.
+          </p>
+          <div class="tag-row">
+            <span class="tag">Blazor</span>
+            <span class="tag">C#</span>
+            <span class="tag">.NET 8</span>
+          </div>
+          <div class="card-foot">
+            <span class="view">View case study <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
+
+        <!-- More cards in Tasks 6, 7, 8 -->
+
+      </div>
+    </section>
+
     <!-- services strip goes here in Task 9 -->
     <!-- about goes here in Task 10 -->
     <!-- contact + footer go here in Task 11 -->
