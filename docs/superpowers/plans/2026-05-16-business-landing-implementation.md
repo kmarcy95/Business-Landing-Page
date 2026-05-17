@@ -769,7 +769,7 @@ git commit -m "Add Agent Dashboard and Creator Dashboard cards"
 
 ```html
 <!-- Card 5: Housing-Price ML Models (banner — full 4 cols) -->
-<a class="bento-card banner" href="#" aria-label="Housing-Price ML Models — case study">
+<a class="bento-card banner" href="#work" aria-label="Housing-Price ML Models — case study">
   <p class="card-label">DATA SCIENCE / SCIKIT-LEARN / XGBOOST</p>
   <h3 class="card-title">Housing-Price ML Models</h3>
   <p class="card-desc">
