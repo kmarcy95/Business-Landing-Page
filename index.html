@@ -376,6 +376,43 @@
   @media (max-width: 800px) {
     .services { grid-template-columns: 1fr; }
   }
+
+  /* ============ ABOUT ============ */
+  .about {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-bio p { color: var(--text-dim); margin-bottom: 1rem; font-size: 1.02rem; }
+  .about-bio p:last-child { margin-bottom: 0; }
+  .skills-card {
+    padding: 1.5rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+  }
+  .skills-card h3 {
+    font-size: .9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+  .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .skill {
+    padding: .45rem .8rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: .85rem;
+    font-weight: 500;
+  }
+  @media (max-width: 800px) {
+    .about { grid-template-columns: 1fr; gap: 2rem; }
+  }
 </style>
 </head>
 <body>
@@ -539,7 +576,34 @@
       </div>
     </section>
 
-    <!-- about goes here in Task 10 -->
+    <section class="section container" id="about">
+      <p class="section-eyebrow">About</p>
+      <h2 class="section-title">From the ERP trenches to shipping the fixes.</h2>
+
+      <div class="about">
+        <div class="about-bio">
+          <p>
+            I started out implementing Dynamics 365 Finance &amp; Operations for businesses ranging from scrappy mid-market to enterprise rollouts. Spent years watching teams paper over ERP gaps with spreadsheets, ad-hoc scripts, and tribal knowledge that walked out the door every time someone left.
+          </p>
+          <p>
+            Now I build the tooling those teams actually need — Blazor apps, AI-driven workflows, Excel add-ins, agentic systems that wire it all together. The bias is always toward shipping something useful, not delivering another deck.
+          </p>
+          <p>
+            Based in the US. Working with select clients through KM Consulting. Open to senior implementation, solutions-engineering, and applied-AI roles where the work actually ships.
+          </p>
+        </div>
+        <aside class="skills-card" aria-label="Core skills">
+          <h3>Core skills</h3>
+          <div class="skill-list">
+            <span class="skill">D365 Finance &amp; Ops</span>
+            <span class="skill">AI / Agents</span>
+            <span class="skill">Excel automation</span>
+            <span class="skill">Full-stack</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <!-- contact + footer go here in Task 11 -->
 
   </main>
