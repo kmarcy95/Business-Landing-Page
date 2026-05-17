@@ -119,6 +119,47 @@
       scroll-behavior: auto !important;
     }
   }
+
+  /* ============ NAV ============ */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(12px);
+    background: rgba(10,10,18,0.72);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .brand {
+    display: flex; align-items: center; gap: .55rem;
+    font-family: var(--font-display); font-weight: 700; font-size: 1.05rem;
+  }
+  .brand-orb {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--grad-accent);
+    box-shadow: 0 0 18px rgba(var(--accent-glow), 0.55);
+  }
+  .nav-links {
+    display: flex; align-items: center; gap: 1.5rem;
+    list-style: none; padding: 0; margin: 0;
+  }
+  .nav-links a {
+    font-size: .9rem; color: var(--text-dim); font-weight: 500;
+    transition: color .15s ease;
+  }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta {
+    padding: .5rem .9rem; border-radius: var(--r-sm);
+    background: var(--surface-2); border: 1px solid var(--border);
+    font-size: .85rem; font-weight: 600; color: var(--text) !important;
+    transition: background .15s ease, border-color .15s ease;
+  }
+  .nav-cta:hover { background: var(--surface); border-color: var(--border-strong); }
+
+  @media (max-width: 640px) {
+    .nav-links li:not(:last-child) { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -126,7 +167,20 @@
   <div class="bg-mesh" aria-hidden="true"></div>
   <div class="bg-grain" aria-hidden="true"></div>
 
-  <!-- nav goes here in Task 3 -->
+  <header class="nav" role="banner">
+    <nav class="container nav-inner" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="Keystone Marcy — home">
+        <span class="brand-orb" aria-hidden="true"></span>
+        <span>KM Consulting</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a class="nav-cta" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
   <!-- hero goes here in Task 4 -->
   <!-- bento grid goes here in Tasks 5-8 -->
   <!-- services strip goes here in Task 9 -->
