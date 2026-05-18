@@ -336,6 +336,22 @@
   .bento-card.flagship .swatch { height: 160px; }
   .bento-card.banner .swatch { height: 100px; }
 
+  /* real-screenshot images (when available) replace the gradient swatch */
+  .card-image {
+    display: block;
+    width: 100%;
+    height: 100px;
+    border-radius: var(--r-md);
+    margin-bottom: 1.15rem;
+    object-fit: cover;
+    object-position: top center;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+  }
+  .bento-card.flagship .card-image { height: 180px; }
+  .bento-card.wide .card-image     { height: 130px; }
+  .bento-card.banner .card-image   { height: 160px; object-position: center; }
+
   @media (max-width: 900px) {
     .bento { grid-template-columns: 1fr; }
     .bento-card.flagship,
@@ -573,6 +589,7 @@
         <a class="bento-card reveal" href="#work" aria-label="Creator Dashboard — case study" style="transition-delay: 180ms">
           <p class="card-label">HTML / VANILLA JS</p>
           <h3 class="card-title">Creator Dashboard</h3>
+          <img class="card-image" src="images/proj-creator.png" alt="Creator Dashboard interface — dark UI with KPI cards (streams logged, followers, tips, hours) and a growth-principles checklist" loading="lazy" width="1440" height="900" />
           <p class="card-desc">
             A single-file shell application helping social media creators grow their digital footprint — scheduling, link-in-bio, analytics, and promo tools.
           </p>
@@ -590,6 +607,7 @@
         <a class="bento-card banner reveal" href="#work" aria-label="Housing-Price ML Models — case study" style="transition-delay: 240ms">
           <p class="card-label">DATA SCIENCE / SCIKIT-LEARN / XGBOOST</p>
           <h3 class="card-title">Housing-Price ML Models</h3>
+          <img class="card-image" src="images/proj-ml.png" alt="Predicted vs. actual sale price scatter plot for the Gradient Boosting model — points cluster tightly around the diagonal reference line, indicating accurate predictions" loading="lazy" width="1000" height="600" />
           <p class="card-desc">
             Predicting residential sale prices with ensemble methods — XGBoost, Gradient Boosting, and Linear Regression compared head-to-head. Includes feature engineering, exploratory analysis, and predicted-vs-actual diagnostics.
           </p>
