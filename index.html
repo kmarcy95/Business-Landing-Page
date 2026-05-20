@@ -309,8 +309,10 @@
   }
   .uv-marquee-row {
     display: flex;
+    justify-content: center;
     gap: 1rem;
     width: max-content;
+    margin-inline: auto;
     animation: uv-marquee-scroll linear infinite;
     will-change: transform;
   }
@@ -361,6 +363,8 @@
   .uv-stat {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 0.6rem;
   }
   .uv-stat-number {
@@ -573,6 +577,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
+    text-align: center;
   }
   .skills-card h3 {
     font-size: .9rem;
@@ -583,7 +588,7 @@
     font-family: var(--font-mono);
     font-weight: 500;
   }
-  .skill-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .skill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
   .skill {
     padding: .45rem .8rem;
     background: var(--surface-2);
@@ -604,7 +609,7 @@
     object-fit: cover;
     border-radius: var(--r-md);
     border: 1px solid var(--border-strong);
-    align-self: flex-start;
+    align-self: center;
     display: block;
   }
   .certs {
@@ -612,6 +617,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
+    text-align: center;
   }
   .certs h3 {
     font-size: 0.85rem;
@@ -625,6 +631,7 @@
   .cert-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.4rem;
   }
   .cert {
@@ -639,6 +646,58 @@
   @media (max-width: 800px) {
     .about { grid-template-columns: 1fr; gap: 2rem; }
     .about-headshot { max-width: 220px; align-self: center; }
+  }
+
+  /* ============ EXPERIENCE ============ */
+  .xp-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .xp-item {
+    display: grid;
+    grid-template-columns: 0.85fr 2fr;
+    gap: 1.5rem;
+    padding: 1.6rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+    transition: transform .2s ease, border-color .2s ease;
+  }
+  .xp-item:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+  .xp-company {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: .35rem;
+  }
+  .xp-meta {
+    font-family: var(--font-mono);
+    font-size: .7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    line-height: 1.5;
+  }
+  .xp-role {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: .7rem;
+  }
+  .xp-points {
+    margin: 0;
+    padding-left: 1.1rem;
+    color: var(--text-dim);
+    font-size: .95rem;
+    display: flex;
+    flex-direction: column;
+    gap: .45rem;
+  }
+  @media (max-width: 800px) {
+    .xp-item { grid-template-columns: 1fr; gap: .65rem; }
   }
 
   /* ============ CONTACT ============ */
@@ -711,6 +770,7 @@
         <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
         <li><a class="nav-cta" href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -750,30 +810,35 @@
     <section class="uv-social-proof container reveal" aria-label="Past employers">
       <p class="uv-social-proof-label">Trusted by teams at</p>
       <p class="uv-social-proof-list">
+        C.H. Guenther &amp; Son <span class="sep">·</span>
         Lancer Worldwide <span class="sep">·</span>
         H-E-B <span class="sep">·</span>
-        Alliance Bernstein
+        AllianceBernstein
       </p>
     </section>
 
     <section class="uv-marquee reveal" aria-label="Skills and tools">
       <div class="uv-marquee-row row-1">
         <span class="uv-marquee-item">D365 Finance &amp; Ops</span>
+        <span class="uv-marquee-item">SAP Analytics Cloud</span>
+        <span class="uv-marquee-item">SAP DataSphere</span>
         <span class="uv-marquee-item">Excel VBA</span>
         <span class="uv-marquee-item">Power Query</span>
-        <span class="uv-marquee-item">NetSuite</span>
-        <span class="uv-marquee-item">Prophix</span>
+        <span class="uv-marquee-item">NetSuite (Essbase)</span>
         <span class="uv-marquee-item">Hyperion</span>
+        <span class="uv-marquee-item">Prophix</span>
         <span class="uv-marquee-item">MicroStrategy</span>
-        <span class="uv-marquee-item">SharePoint</span>
+        <span class="uv-marquee-item">R</span>
         <span class="uv-marquee-item" aria-hidden="true">D365 Finance &amp; Ops</span>
+        <span class="uv-marquee-item" aria-hidden="true">SAP Analytics Cloud</span>
+        <span class="uv-marquee-item" aria-hidden="true">SAP DataSphere</span>
         <span class="uv-marquee-item" aria-hidden="true">Excel VBA</span>
         <span class="uv-marquee-item" aria-hidden="true">Power Query</span>
-        <span class="uv-marquee-item" aria-hidden="true">NetSuite</span>
-        <span class="uv-marquee-item" aria-hidden="true">Prophix</span>
+        <span class="uv-marquee-item" aria-hidden="true">NetSuite (Essbase)</span>
         <span class="uv-marquee-item" aria-hidden="true">Hyperion</span>
+        <span class="uv-marquee-item" aria-hidden="true">Prophix</span>
         <span class="uv-marquee-item" aria-hidden="true">MicroStrategy</span>
-        <span class="uv-marquee-item" aria-hidden="true">SharePoint</span>
+        <span class="uv-marquee-item" aria-hidden="true">R</span>
       </div>
       <div class="uv-marquee-row row-2">
         <span class="uv-marquee-item">CrewAI</span>
@@ -898,20 +963,20 @@
 
     <section class="uv-stats container reveal" aria-label="By the numbers">
       <div class="uv-stat">
-        <div class="uv-stat-number">7 yrs</div>
-        <div class="uv-stat-label">Finance + Accounting</div>
+        <div class="uv-stat-number">$450M</div>
+        <div class="uv-stat-label">Segment P&amp;L Owned</div>
       </div>
       <div class="uv-stat">
-        <div class="uv-stat-number">2</div>
-        <div class="uv-stat-label">ERP Implementations</div>
+        <div class="uv-stat-number">$500K</div>
+        <div class="uv-stat-label">Saved via AI Automation</div>
       </div>
       <div class="uv-stat">
-        <div class="uv-stat-number">$1.5M</div>
-        <div class="uv-stat-label">Inventory Managed</div>
+        <div class="uv-stat-number">99%</div>
+        <div class="uv-stat-label">Analytics Efficiency Gain</div>
       </div>
       <div class="uv-stat">
         <div class="uv-stat-number">92%</div>
-        <div class="uv-stat-label">Loss Reduction</div>
+        <div class="uv-stat-label">Shrinkage Reduction</div>
       </div>
     </section>
 
@@ -945,13 +1010,13 @@
       <div class="about reveal">
         <div class="about-bio">
           <p>
-            I started out implementing Dynamics 365 Finance &amp; Operations for businesses ranging from scrappy mid-market to enterprise rollouts. Spent years watching teams paper over ERP gaps with spreadsheets, ad-hoc scripts, and tribal knowledge that walked out the door every time someone left.
+            I'm a finance and FP&amp;A leader — full P&amp;L ownership, forecasting, standard costing, and executive reporting across manufacturing, retail, distribution, and asset management. Years spent turning messy operational data into decision-ready insight for senior leadership at companies like C.H. Guenther &amp; Son, Lancer Worldwide, H-E-B, and AllianceBernstein.
           </p>
           <p>
-            Now I build the tooling those teams actually need — Blazor apps, AI-driven workflows, Excel add-ins, agentic systems that wire it all together. The bias is always toward shipping something useful, not delivering another deck.
+            Along the way I kept hitting the same wall: teams papering over ERP and reporting gaps with spreadsheets, ad-hoc scripts, and tribal knowledge that walked out the door whenever someone left. So I started building the tooling those teams actually need — AI-enabled reporting, Blazor apps, Excel add-ins, and agentic workflows that wire it all together.
           </p>
           <p>
-            Based in the US. Working with select clients through KM Consulting. Open to senior implementation, solutions-engineering, and applied-AI roles where the work actually ships.
+            Based in San Antonio, Texas. Currently Financial Analysis Manager at C.H. Guenther &amp; Son, and taking on select consulting through KM Consulting — where the bias is always toward shipping something useful, not delivering another deck.
           </p>
         </div>
         <aside class="about-aside" aria-label="Headshot, core skills, and credentials">
@@ -959,23 +1024,92 @@
           <div class="skills-card">
             <h3>Core skills</h3>
             <div class="skill-list">
-              <span class="skill">D365 Finance &amp; Ops</span>
-              <span class="skill">AI / Agents</span>
-              <span class="skill">Excel automation</span>
-              <span class="skill">Full-stack</span>
+              <span class="skill">FP&amp;A &amp; Strategic Finance</span>
+              <span class="skill">Cost &amp; Standard Costing</span>
+              <span class="skill">AI-Enabled Reporting</span>
+              <span class="skill">Forecasting &amp; Budgeting</span>
+              <span class="skill">ERP Implementation</span>
+              <span class="skill">Executive Dashboards</span>
+              <span class="skill">Excel / VBA Automation</span>
+              <span class="skill">Full-Stack Builds</span>
             </div>
           </div>
           <div class="certs">
             <h3>Certifications &amp; Education</h3>
             <div class="cert-list">
-              <span class="cert">AMA&reg;</span>
-              <span class="cert">ChFM&reg;</span>
-              <span class="cert">GAFM Advisor</span>
-              <span class="cert">MA Economics &mdash; UTSA (Fall 2026)</span>
-              <span class="cert">BS Finance &mdash; Evansville</span>
+              <span class="cert">AMA &mdash; Accredited Management Accountant</span>
+              <span class="cert">CFM &mdash; Chartered Financial Manager (GAFM)</span>
+              <span class="cert">M.S. Economics &mdash; UTSA (Expected Fall 2026)</span>
+              <span class="cert">B.S. Finance &mdash; University of Evansville</span>
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section container" id="experience">
+      <p class="section-eyebrow">Experience</p>
+      <h2 class="section-title">A finance career across manufacturing, retail, and asset management.</h2>
+
+      <div class="xp-list">
+        <article class="xp-item reveal">
+          <div class="xp-head">
+            <div class="xp-company">C.H. Guenther &amp; Son</div>
+            <div class="xp-meta">2024 — Present<br />San Antonio, TX</div>
+          </div>
+          <div class="xp-body">
+            <p class="xp-role">Financial Analysis Manager</p>
+            <ul class="xp-points">
+              <li>Lead FP&amp;A, rolling forecasts, budgeting, long-range planning, and executive reporting for a retail segment exceeding $450M in annual revenue.</li>
+              <li>Architected AI-enabled reporting and validation that saved ~$500K annually, lifted analytics efficiency 99%, and cut reporting cycle time 33%.</li>
+              <li>Support a $2B company-wide transformation using SAP analytics, dashboard automation, and integrated reporting.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="xp-item reveal">
+          <div class="xp-head">
+            <div class="xp-company">Lancer Worldwide</div>
+            <div class="xp-meta">2022 — 2024<br />Hoshizaki Group</div>
+          </div>
+          <div class="xp-body">
+            <p class="xp-role">Senior Cost Accountant</p>
+            <ul class="xp-points">
+              <li>Directed standard costing, variance analysis, and inventory governance; owned finance for $5M–$10M R&amp;D projects.</li>
+              <li>Supported a multi-entity ERP implementation transforming Lancer's $200M business, aligned to its $5B parent.</li>
+              <li>Maintained J-SOX compliance documentation and audit readiness for a publicly traded parent organization.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="xp-item reveal">
+          <div class="xp-head">
+            <div class="xp-company">H-E-B</div>
+            <div class="xp-meta">2019 — 2022<br />San Antonio, TX</div>
+          </div>
+          <div class="xp-body">
+            <p class="xp-role">Cost Accounting Manager · Lead P&amp;L Accounting Analyst</p>
+            <ul class="xp-points">
+              <li>Managed a $1.5M inventory portfolio; cut shrinkage 92% and drove ~$300K in annual facility savings.</li>
+              <li>Owned warehouse &amp; transportation P&amp;L analytics, labor modeling, and executive dashboards across large-scale logistics.</li>
+              <li>Strengthened close governance and analytical controls, improving reporting reliability for operational stakeholders.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="xp-item reveal">
+          <div class="xp-head">
+            <div class="xp-company">AllianceBernstein</div>
+            <div class="xp-meta">2018 — 2019<br />~$867B AUM</div>
+          </div>
+          <div class="xp-body">
+            <p class="xp-role">Proxy &amp; Securities Reference Associate</p>
+            <ul class="xp-points">
+              <li>Maintained global security-master data integrity across equities, fixed income, derivatives, and class actions.</li>
+              <li>Delivered accurate, compliance-sensitive reporting and reference-data support for institutional investment portfolios.</li>
+            </ul>
+          </div>
+        </article>
       </div>
     </section>
 
