@@ -272,6 +272,34 @@
   .btn-arrow { transition: transform .15s ease; }
   .btn:hover .btn-arrow { transform: translateX(3px); }
 
+  /* ============ SOCIAL PROOF ============ */
+  .uv-social-proof {
+    text-align: center;
+    padding-block: clamp(1.5rem, 3vw, 2.5rem);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .uv-social-proof-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+  }
+  .uv-social-proof-list {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-dim);
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 0.04em;
+  }
+  .uv-social-proof-list .sep {
+    color: var(--text-muted);
+    margin: 0 0.6em;
+    opacity: 0.6;
+  }
+
   /* ============ SECTION HEADING ============ */
   .section-eyebrow {
     font-family: var(--font-mono);
@@ -582,6 +610,15 @@
           <img src="images/headshot-hero.jpg" alt="Keystone Marcy — portrait" width="1024" height="1024" loading="eager" fetchpriority="high" />
         </div>
       </div>
+    </section>
+
+    <section class="uv-social-proof container reveal" aria-label="Past employers">
+      <p class="uv-social-proof-label">Trusted by teams at</p>
+      <p class="uv-social-proof-list">
+        Lancer Worldwide <span class="sep">·</span>
+        H-E-B <span class="sep">·</span>
+        Alliance Bernstein
+      </p>
     </section>
 
     <section class="section container" id="work">
