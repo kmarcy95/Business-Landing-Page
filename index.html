@@ -592,8 +592,53 @@
     font-size: .85rem;
     font-weight: 500;
   }
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .about-headshot {
+    width: 100%;
+    max-width: 280px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--r-md);
+    border: 1px solid var(--border-strong);
+    align-self: flex-start;
+    display: block;
+  }
+  .certs {
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--r-md);
+  }
+  .certs h3 {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+    font-family: var(--font-mono);
+    font-weight: 500;
+  }
+  .cert-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .cert {
+    padding: 0.35rem 0.7rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-dim);
+  }
   @media (max-width: 800px) {
     .about { grid-template-columns: 1fr; gap: 2rem; }
+    .about-headshot { max-width: 220px; align-self: center; }
   }
 
   /* ============ CONTACT ============ */
@@ -909,13 +954,26 @@
             Based in the US. Working with select clients through KM Consulting. Open to senior implementation, solutions-engineering, and applied-AI roles where the work actually ships.
           </p>
         </div>
-        <aside class="skills-card" aria-label="Core skills">
-          <h3>Core skills</h3>
-          <div class="skill-list">
-            <span class="skill">D365 Finance &amp; Ops</span>
-            <span class="skill">AI / Agents</span>
-            <span class="skill">Excel automation</span>
-            <span class="skill">Full-stack</span>
+        <aside class="about-aside" aria-label="Headshot, core skills, and credentials">
+          <img class="about-headshot" src="images/headshot-about.jpg" alt="Keystone Marcy" width="1024" height="1024" loading="lazy" />
+          <div class="skills-card">
+            <h3>Core skills</h3>
+            <div class="skill-list">
+              <span class="skill">D365 Finance &amp; Ops</span>
+              <span class="skill">AI / Agents</span>
+              <span class="skill">Excel automation</span>
+              <span class="skill">Full-stack</span>
+            </div>
+          </div>
+          <div class="certs">
+            <h3>Certifications &amp; Education</h3>
+            <div class="cert-list">
+              <span class="cert">AMA&reg;</span>
+              <span class="cert">ChFM&reg;</span>
+              <span class="cert">GAFM Advisor</span>
+              <span class="cert">MA Economics &mdash; UTSA (Fall 2026)</span>
+              <span class="cert">BS Finance &mdash; Evansville</span>
+            </div>
           </div>
         </aside>
       </div>
