@@ -179,12 +179,59 @@
     content: ''; width: 6px; height: 6px; border-radius: 50%;
     background: var(--accent-2); box-shadow: 0 0 8px var(--accent-2);
   }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: center;
+  }
   .hero-title {
-    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    font-size: clamp(2.8rem, 7vw, 5.6rem);
     font-weight: 700;
-    letter-spacing: -0.035em;
-    max-width: 18ch;
-    margin-bottom: 1.25rem;
+    letter-spacing: -0.04em;
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    max-width: none;
+  }
+  .hero-line { display: block; }
+  .hero-portrait {
+    position: relative;
+    justify-self: end;
+    max-width: 480px;
+    width: 100%;
+  }
+  .hero-portrait::before {
+    content: '';
+    position: absolute;
+    inset: -24px;
+    border-radius: calc(var(--r-lg) + 24px);
+    background: var(--grad-accent);
+    opacity: 0.35;
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+  }
+  .hero-portrait img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--r-lg);
+    border: 1px solid var(--border-strong);
+    display: block;
+  }
+  @media (max-width: 800px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .hero-portrait {
+      max-width: 280px;
+      justify-self: center;
+      order: -1;
+    }
+    .hero-title {
+      font-size: clamp(2.4rem, 9vw, 3.4rem);
+    }
   }
   .hero-title .accent {
     background: var(--grad-accent);
@@ -509,21 +556,31 @@
   <main id="main">
 
     <section class="section hero container reveal" id="top">
-      <span class="hero-eyebrow">Available for select consulting work</span>
-      <h1 class="hero-title">
-        ERP consultant turned <span class="accent">builder</span>.
-      </h1>
-      <p class="hero-sub">
-        Apps, AI workflows, and Excel add-ins for the way finance &amp; ops teams actually work.
-        I ship the tooling your spreadsheets and processes have been waiting for.
-      </p>
-      <div class="hero-ctas">
-        <a class="btn btn-primary" href="#work">
-          See my work <span class="btn-arrow" aria-hidden="true">→</span>
-        </a>
-        <a class="btn btn-ghost" href="#contact">
-          Get in touch
-        </a>
+      <div class="hero-grid">
+        <div class="hero-text">
+          <span class="hero-eyebrow">Available for select consulting work</span>
+          <h1 class="hero-title">
+            <span class="hero-line">ERP</span>
+            <span class="hero-line">consultant</span>
+            <span class="hero-line">turned</span>
+            <span class="hero-line accent">builder.</span>
+          </h1>
+          <p class="hero-sub">
+            Apps, AI workflows, and Excel add-ins for the way finance &amp; ops teams actually work.
+            I ship the tooling your spreadsheets and processes have been waiting for.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn btn-primary" href="#work">
+              See my work <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a class="btn btn-ghost" href="#contact">
+              Get in touch
+            </a>
+          </div>
+        </div>
+        <div class="hero-portrait">
+          <img src="images/headshot-hero.jpg" alt="Keystone Marcy — portrait" width="1024" height="1024" loading="eager" fetchpriority="high" />
+        </div>
       </div>
     </section>
 
