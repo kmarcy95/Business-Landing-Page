@@ -300,6 +300,57 @@
     opacity: 0.6;
   }
 
+  /* ============ MARQUEE ============ */
+  .uv-marquee {
+    overflow: hidden;
+    padding-block: clamp(1.5rem, 3vw, 2.5rem);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+  .uv-marquee-row {
+    display: flex;
+    gap: 1rem;
+    width: max-content;
+    animation: uv-marquee-scroll linear infinite;
+    will-change: transform;
+  }
+  .uv-marquee-row.row-1 { animation-duration: 40s; }
+  .uv-marquee-row.row-2 {
+    animation-duration: 55s;
+    margin-top: 1rem;
+    animation-direction: reverse;
+  }
+  .uv-marquee:hover .uv-marquee-row {
+    animation-play-state: paused;
+  }
+  .uv-marquee-item {
+    flex: none;
+    padding: 0.5rem 1rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--r-sm);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  @keyframes uv-marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .uv-marquee {
+      -webkit-mask-image: none;
+              mask-image: none;
+    }
+    .uv-marquee-row {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+
   /* ============ SECTION HEADING ============ */
   .section-eyebrow {
     font-family: var(--font-mono);
@@ -619,6 +670,47 @@
         H-E-B <span class="sep">·</span>
         Alliance Bernstein
       </p>
+    </section>
+
+    <section class="uv-marquee reveal" aria-label="Skills and tools">
+      <div class="uv-marquee-row row-1">
+        <span class="uv-marquee-item">D365 Finance &amp; Ops</span>
+        <span class="uv-marquee-item">Excel VBA</span>
+        <span class="uv-marquee-item">Power Query</span>
+        <span class="uv-marquee-item">NetSuite</span>
+        <span class="uv-marquee-item">Prophix</span>
+        <span class="uv-marquee-item">Hyperion</span>
+        <span class="uv-marquee-item">MicroStrategy</span>
+        <span class="uv-marquee-item">SharePoint</span>
+        <span class="uv-marquee-item" aria-hidden="true">D365 Finance &amp; Ops</span>
+        <span class="uv-marquee-item" aria-hidden="true">Excel VBA</span>
+        <span class="uv-marquee-item" aria-hidden="true">Power Query</span>
+        <span class="uv-marquee-item" aria-hidden="true">NetSuite</span>
+        <span class="uv-marquee-item" aria-hidden="true">Prophix</span>
+        <span class="uv-marquee-item" aria-hidden="true">Hyperion</span>
+        <span class="uv-marquee-item" aria-hidden="true">MicroStrategy</span>
+        <span class="uv-marquee-item" aria-hidden="true">SharePoint</span>
+      </div>
+      <div class="uv-marquee-row row-2">
+        <span class="uv-marquee-item">CrewAI</span>
+        <span class="uv-marquee-item">Next.js</span>
+        <span class="uv-marquee-item">FastAPI</span>
+        <span class="uv-marquee-item">Blazor</span>
+        <span class="uv-marquee-item">.NET 8</span>
+        <span class="uv-marquee-item">Python</span>
+        <span class="uv-marquee-item">XGBoost</span>
+        <span class="uv-marquee-item">scikit-learn</span>
+        <span class="uv-marquee-item">Playwright</span>
+        <span class="uv-marquee-item" aria-hidden="true">CrewAI</span>
+        <span class="uv-marquee-item" aria-hidden="true">Next.js</span>
+        <span class="uv-marquee-item" aria-hidden="true">FastAPI</span>
+        <span class="uv-marquee-item" aria-hidden="true">Blazor</span>
+        <span class="uv-marquee-item" aria-hidden="true">.NET 8</span>
+        <span class="uv-marquee-item" aria-hidden="true">Python</span>
+        <span class="uv-marquee-item" aria-hidden="true">XGBoost</span>
+        <span class="uv-marquee-item" aria-hidden="true">scikit-learn</span>
+        <span class="uv-marquee-item" aria-hidden="true">Playwright</span>
+      </div>
     </section>
 
     <section class="section container" id="work">
