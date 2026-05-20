@@ -351,6 +351,45 @@
     }
   }
 
+  /* ============ STATS BAND ============ */
+  .uv-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(1rem, 3vw, 2rem);
+    padding-block: clamp(2rem, 5vw, 4rem);
+  }
+  .uv-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .uv-stat-number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    letter-spacing: -0.03em;
+    line-height: 1;
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .uv-stat-label {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+  @media (max-width: 800px) {
+    .uv-stats { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .uv-stats { grid-template-columns: 1fr; }
+  }
+
   /* ============ SECTION HEADING ============ */
   .section-eyebrow {
     font-family: var(--font-mono);
@@ -809,6 +848,25 @@
           </div>
         </a>
 
+      </div>
+    </section>
+
+    <section class="uv-stats container reveal" aria-label="By the numbers">
+      <div class="uv-stat">
+        <div class="uv-stat-number">7 yrs</div>
+        <div class="uv-stat-label">Finance + Accounting</div>
+      </div>
+      <div class="uv-stat">
+        <div class="uv-stat-number">2</div>
+        <div class="uv-stat-label">ERP Implementations</div>
+      </div>
+      <div class="uv-stat">
+        <div class="uv-stat-number">$1.5M</div>
+        <div class="uv-stat-label">Inventory Managed</div>
+      </div>
+      <div class="uv-stat">
+        <div class="uv-stat-number">92%</div>
+        <div class="uv-stat-label">Loss Reduction</div>
       </div>
     </section>
 
