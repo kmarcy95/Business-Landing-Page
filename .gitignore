@@ -15,3 +15,7 @@ lighthouse-report.report.json
 
 # Local Netlify folder
 .netlify
+
+# Stray local databases / caches (must never be deployed publicly)
+*.db
+ruvector.db
