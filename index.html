@@ -43,7 +43,7 @@
     /* ink */
     --text: #16171c;
     --text-dim: #44464f;
-    --text-muted: #6c6e7a;
+    --text-muted: #5b5d68;
 
     /* accent */
     --accent-1: #1e40af;
@@ -646,16 +646,6 @@
     flex-direction: column;
     gap: 1.25rem;
   }
-  .about-headshot {
-    width: 100%;
-    max-width: 280px;
-    aspect-ratio: 1 / 1;
-    object-fit: cover;
-    border-radius: var(--r-md);
-    border: 1px solid var(--border-strong);
-    align-self: center;
-    display: block;
-  }
   .certs {
     padding: 1.25rem;
     background: var(--surface);
@@ -690,7 +680,6 @@
   }
   @media (max-width: 800px) {
     .about { grid-template-columns: 1fr; gap: 2rem; }
-    .about-headshot { max-width: 220px; align-self: center; }
   }
 
   /* ============ EXPERIENCE ============ */
@@ -842,11 +831,65 @@
   .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity .6s ease, transform .6s ease;
+    transition: opacity .35s ease-out, transform .35s ease-out;
   }
   .reveal.in {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  /* ============ HERO CURRENT ROLE + CTA NOTE ============ */
+  .hero-current {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin: -.4rem 0 1.4rem;
+  }
+  .hero-current strong { color: var(--text); font-weight: 700; }
+  .hero-cta-note {
+    font-size: .95rem;
+    color: var(--text-muted);
+    margin-top: .9rem;
+    max-width: 60ch;
+  }
+  .hero-cta-note a { color: var(--accent-1); font-weight: 600; }
+  .hero-cta-note a:hover { text-decoration: underline; }
+
+  /* ============ SERVICES NICHE ============ */
+  .services-niche {
+    font-size: 1.15rem;
+    color: var(--text-dim);
+    max-width: 70ch;
+    margin: -1.25rem 0 2.5rem;
+  }
+  .services-niche strong { color: var(--text); font-weight: 700; }
+
+  /* ============ STICKY CTA ============ */
+  .sticky-cta {
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 60;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: .7rem clamp(1rem, 4vw, 2rem);
+    background: rgba(255,255,255,0.88);
+    -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -6px 24px -12px rgba(22,23,28,0.28);
+    transform: translateY(110%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .3s ease, opacity .3s ease, visibility .3s;
+  }
+  .sticky-cta.show { transform: translateY(0); opacity: 1; visibility: visible; }
+  .sticky-cta-text {
+    font-family: var(--font-display); font-weight: 600;
+    font-size: .95rem; color: var(--text);
+  }
+  .sticky-cta-actions { display: flex; gap: .5rem; flex: none; }
+  .sticky-cta .btn { padding: .55rem 1rem; font-size: .9rem; }
+  @media (max-width: 560px) {
+    .sticky-cta-text { display: none; }
+    .sticky-cta { justify-content: center; }
   }
 </style>
 
@@ -895,6 +938,7 @@
             <span class="hero-line">ships the</span>
             <span class="hero-line accent">fixes.</span>
           </h1>
+          <p class="hero-current">Currently <strong>Financial Analysis Manager</strong> at C.H. Guenther &amp; Son</p>
           <p class="hero-sub">
             Full P&amp;L ownership, forecasting, and executive reporting across manufacturing, retail, and asset management —
             plus the apps, AI workflows, and Excel add-ins I build so finance &amp; ops teams stop fighting their spreadsheets.
@@ -907,15 +951,15 @@
               Download résumé <span class="btn-arrow" aria-hidden="true">&darr;</span>
             </a>
             <a class="btn btn-ghost" href="#contact">
-              Get in touch
-            </a>
-            <a class="btn btn-ghost" href="#work">
-              See my work <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span>
             </a>
           </div>
+          <p class="hero-cta-note">
+            Recruiters — grab the résumé. Hiring or exploring consulting? <a href="#contact">Reach out</a> (replies within a day) <span class="dot">·</span> <a href="#work">see my work</a>
+          </p>
         </div>
         <div class="hero-portrait">
-          <img src="images/headshot-hero.jpg" alt="Keystone Marcy — portrait" width="1024" height="1024" loading="eager" fetchpriority="high" />
+          <img src="images/headshot-about.jpg" alt="Keystone Marcy — portrait" width="1024" height="1024" loading="eager" fetchpriority="high" />
         </div>
       </div>
     </section>
@@ -1066,8 +1110,8 @@
 
       <div class="bento">
 
-        <!-- Card 1: D365 ERP Manager Web (flagship 2x2) -->
-        <a class="bento-card flagship reveal" href="#work" aria-label="D365 ERP Manager Web — case study" style="transition-delay: 0ms">
+        <!-- Card 1: D365 ERP Manager Web (flagship 2x2) — display-only -->
+        <article class="bento-card flagship reveal" aria-label="D365 ERP Manager Web" style="transition-delay: 0ms">
           <p class="card-label">D365 / BLAZOR / .NET 8</p>
           <h3 class="card-title">D365 ERP Manager Web</h3>
           <div class="swatch" aria-hidden="true"></div>
@@ -1079,10 +1123,7 @@
             <span class="tag">C#</span>
             <span class="tag">.NET 8</span>
           </div>
-          <div class="card-foot">
-            <span class="view">View case study <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
+        </article>
 
         <!-- Card 2: Codex Job Tracking App (wide 2x1) -->
         <a class="bento-card wide reveal" href="https://kmcaijobtracker.netlify.app" target="_blank" rel="noopener" aria-label="AI Job Tracker — open live app in new tab" style="transition-delay: 60ms">
@@ -1102,8 +1143,8 @@
           </div>
         </a>
 
-        <!-- Card 3: Agent Dashboard (1x1) -->
-        <a class="bento-card reveal" href="#work" aria-label="Agent Dashboard — case study" style="transition-delay: 120ms">
+        <!-- Card 3: Agent Dashboard (1x1) — display-only -->
+        <article class="bento-card reveal" aria-label="Agent Dashboard" style="transition-delay: 120ms">
           <p class="card-label">PYTHON / AGENTS</p>
           <h3 class="card-title">Agent Dashboard</h3>
           <p class="card-desc">
@@ -1114,13 +1155,10 @@
             <span class="tag">Agents</span>
             <span class="tag">Observability</span>
           </div>
-          <div class="card-foot">
-            <span class="view">View <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 4: Creator Dashboard (1x1) -->
-        <a class="bento-card reveal" href="#work" aria-label="Creator Dashboard — case study" style="transition-delay: 180ms">
+        <!-- Card 4: Creator Dashboard (1x1) — display-only -->
+        <article class="bento-card reveal" aria-label="Creator Dashboard" style="transition-delay: 180ms">
           <p class="card-label">HTML / VANILLA JS</p>
           <h3 class="card-title">Creator Dashboard</h3>
           <img class="card-image" src="images/proj-creator.png" alt="Creator Dashboard interface — dark UI with KPI cards (streams logged, followers, tips, hours) and a growth-principles checklist" loading="lazy" width="1440" height="900" />
@@ -1132,13 +1170,10 @@
             <span class="tag">JS</span>
             <span class="tag">LocalStorage</span>
           </div>
-          <div class="card-foot">
-            <span class="view">View <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 5: Housing-Price ML Models (banner — full 4 cols) -->
-        <a class="bento-card banner reveal" href="#work" aria-label="Housing-Price ML Models — case study" style="transition-delay: 240ms">
+        <!-- Card 5: Housing-Price ML Models (banner — full 4 cols) — display-only -->
+        <article class="bento-card banner reveal" aria-label="Housing-Price ML Models" style="transition-delay: 240ms">
           <p class="card-label">DATA SCIENCE / SCIKIT-LEARN / XGBOOST</p>
           <h3 class="card-title">Housing-Price ML Models</h3>
           <img class="card-image" src="images/proj-ml.png" alt="Predicted vs. actual sale price scatter plot for the Gradient Boosting model — points cluster tightly around the diagonal reference line, indicating accurate predictions" loading="lazy" width="1000" height="600" />
@@ -1151,10 +1186,7 @@
             <span class="tag">scikit-learn</span>
             <span class="tag">EDA</span>
           </div>
-          <div class="card-foot">
-            <span class="view">View case study <span aria-hidden="true">→</span></span>
-          </div>
-        </a>
+        </article>
 
       </div>
     </section>
@@ -1162,6 +1194,7 @@
     <section class="section container" id="services">
       <p class="section-eyebrow">What I do</p>
       <h2 class="section-title">Three ways I help businesses ship.</h2>
+      <p class="services-niche">Who I work with: <strong>finance &amp; ops leaders</strong> at growth-stage manufacturers, retailers, distributors, and asset managers — teams losing time to spreadsheets, manual reporting, and ERP gaps.</p>
 
       <div class="services">
         <div class="service-card reveal" style="transition-delay: 0ms">
@@ -1198,8 +1231,7 @@
             Based in San Antonio, Texas. Currently Financial Analysis Manager at C.H. Guenther &amp; Son, and taking on select consulting through KM Consulting — where the bias is always toward shipping something useful, not delivering another deck.
           </p>
         </div>
-        <aside class="about-aside" aria-label="Headshot, core skills, and credentials">
-          <img class="about-headshot" src="images/headshot-about.jpg" alt="Keystone Marcy" width="1024" height="1024" loading="lazy" />
+        <aside class="about-aside" aria-label="Core skills and credentials">
           <div class="skills-card">
             <h3>Core skills</h3>
             <div class="skill-list">
@@ -1292,6 +1324,14 @@
     </div>
   </footer>
 
+  <div class="sticky-cta" id="stickyCta">
+    <span class="sticky-cta-text">Keystone Marcy — FP&amp;A leader who ships the fixes</span>
+    <span class="sticky-cta-actions">
+      <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>Résumé</a>
+      <a class="btn btn-ghost" href="#contact">Contact</a>
+    </span>
+  </div>
+
   <script>
     (function () {
       var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1310,6 +1350,25 @@
           });
         }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
         targets.forEach(function (el) { io.observe(el); });
+      }
+
+      /* ===== Sticky CTA: show after hero scrolls out, hide over contact ===== */
+      var sticky = document.getElementById('stickyCta');
+      if (sticky && 'IntersectionObserver' in window) {
+        var heroEl = document.getElementById('top');
+        var contactEl = document.getElementById('contact');
+        var pastHero = false, atContact = false;
+        var syncSticky = function () { sticky.classList.toggle('show', pastHero && !atContact); };
+        if (heroEl) {
+          new IntersectionObserver(function (e) {
+            pastHero = !e[0].isIntersecting; syncSticky();
+          }, { rootMargin: '-40% 0px 0px 0px' }).observe(heroEl);
+        }
+        if (contactEl) {
+          new IntersectionObserver(function (e) {
+            atContact = e[0].isIntersecting; syncSticky();
+          }, { threshold: 0.1 }).observe(contactEl);
+        }
       }
 
       /* ===== Magnetic hover on hero CTAs (skip on touch / reduced motion) ===== */
