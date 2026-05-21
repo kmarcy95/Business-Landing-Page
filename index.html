@@ -4,23 +4,53 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#ffffff" />
-  <meta name="description" content="Keystone Marcy — FP&A and finance leader who ships software. Full P&L ownership, forecasting, and executive reporting across manufacturing, retail, and asset management, plus the apps, AI workflows, and Excel tooling finance teams need." />
+  <meta name="description" content="Keystone Marcy — FP&A and strategic finance leader who builds finance tooling. Full P&L ownership, forecasting, and executive reporting across manufacturing, retail, and asset management, plus the apps, AI workflows, and Excel/ERP automation finance teams need." />
+  <link rel="canonical" href="https://keystonemarcy.netlify.app/" />
+  <link rel="preload" as="image" href="images/headshot-about.jpg" fetchpriority="high" />
   <meta name="author" content="Keystone Marcy" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Keystone Marcy — KM Consulting" />
   <meta property="og:description" content="FP&A and finance leader who ships the fixes — P&L ownership, forecasting, and executive reporting, plus the apps, AI workflows, and Excel tooling finance teams need." />
-  <!-- SVG OG image. Most modern scrapers accept SVG; if Twitter/Facebook misbehave, generate images/og.png from this SVG and switch the path. -->
-  <meta property="og:image" content="images/og.svg" />
+  <meta property="og:image" content="https://keystonemarcy.netlify.app/images/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://keystonemarcy.netlify.app/" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Keystone Marcy — KM Consulting" />
   <meta name="twitter:description" content="FP&A and finance leader who ships the fixes — P&L ownership, forecasting, and executive reporting, plus the apps, AI workflows, and Excel tooling finance teams need." />
-  <meta name="twitter:image" content="images/og.svg" />
+  <meta name="twitter:image" content="https://keystonemarcy.netlify.app/images/og.png" />
 
-  <title>Keystone Marcy — KM Consulting</title>
+  <title>Keystone Marcy — FP&amp;A &amp; Strategic Finance Leader | KM Consulting</title>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Keystone Marcy",
+      "jobTitle": "Financial Analysis Manager",
+      "description": "FP&A and strategic finance leader who builds finance tooling — apps, AI workflows, and Excel/ERP automation.",
+      "url": "https://keystonemarcy.netlify.app/",
+      "image": "https://keystonemarcy.netlify.app/images/og.png",
+      "address": { "@type": "PostalAddress", "addressLocality": "San Antonio", "addressRegion": "TX", "addressCountry": "US" },
+      "worksFor": { "@type": "Organization", "name": "C.H. Guenther & Son" },
+      "alumniOf": [
+        { "@type": "CollegeOrUniversity", "name": "The University of Texas at San Antonio" },
+        { "@type": "CollegeOrUniversity", "name": "University of Evansville" }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/keystone-marcy-a1040522b/",
+        "https://github.com/kmarcy95"
+      ],
+      "knowsAbout": ["FP&A", "Strategic Finance", "Cost Accounting", "Standard Costing", "ERP Implementation", "AI-enabled Reporting", "Financial Modeling", "Executive Reporting"]
+    }
+  }
+  </script>
 
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231e40af'/%3E%3Cstop offset='1' stop-color='%231e3a8a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3C/svg%3E" />
 
@@ -48,7 +78,7 @@
     /* accent */
     --accent-1: #1e40af;
     --accent-2: #1e3a8a;
-    --grad-accent: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    --grad-accent: linear-gradient(135deg, #2f5be0 0%, #1e3a8a 100%);
     --accent-glow: 30, 64, 175;
 
     /* shadows */
@@ -107,6 +137,17 @@
   /* ============ LAYOUT ============ */
   .container { max-width: var(--container); margin-inline: auto; padding-inline: clamp(1rem, 3vw, 2rem); }
   .section { padding-block: clamp(3rem, 8vw, 6rem); }
+  .section-tint { position: relative; }
+  .section-tint::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 100vw;
+    margin-left: -50vw;
+    background: var(--surface-2);
+  }
 
   /* ============ A11Y ============ */
   :focus-visible { outline: 2px solid var(--accent-1); outline-offset: 3px; border-radius: 4px; }
@@ -153,10 +194,20 @@
     list-style: none; padding: 0; margin: 0;
   }
   .nav-links a {
+    position: relative;
     font-size: .95rem; color: var(--text-dim); font-weight: 500;
     transition: color .15s ease;
   }
   .nav-links a:hover { color: var(--text); }
+  .nav-links a.active { color: var(--text); }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0; bottom: -6px;
+    height: 2px;
+    background: var(--accent-1);
+    border-radius: 2px;
+  }
   .nav-cta {
     padding: .5rem .9rem; border-radius: var(--r-sm);
     background: var(--accent-1); border: 1px solid var(--accent-1);
@@ -254,16 +305,6 @@
     max-width: 60ch;
     margin-bottom: 1.25rem;
   }
-  .hero-meta {
-    font-family: var(--font-mono);
-    font-size: 1.02rem;
-    letter-spacing: .03em;
-    color: var(--text-dim);
-    margin-bottom: 1.9rem;
-    line-height: 1.7;
-  }
-  .hero-meta strong { color: var(--accent-2); font-weight: 700; }
-  .hero-meta .dot { color: var(--border-strong); margin: 0 .15em; }
   .hero-ctas { display: flex; flex-wrap: wrap; gap: .75rem; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
@@ -332,6 +373,15 @@
   .logo-chip:hover { color: var(--accent-1); border-color: var(--border-strong); }
 
   /* ============ MARQUEE ============ */
+  .uv-marquee-cap {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: .75rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 1.1rem;
+  }
   .uv-marquee {
     overflow: hidden;
     max-width: var(--container);
@@ -426,6 +476,14 @@
     font-size: 0.72rem;
     line-height: 1.4;
   }
+  .uv-stats-note {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    margin-top: .75rem;
+  }
   @media (max-width: 800px) {
     .uv-stats { grid-template-columns: repeat(2, 1fr); }
   }
@@ -458,7 +516,7 @@
   }
   .bento-card {
     display: flex; flex-direction: column;
-    padding: 1.4rem;
+    padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-lg);
@@ -580,11 +638,18 @@
     gap: 1rem;
   }
   .service-card {
-    padding: 1.6rem;
+    padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
     box-shadow: var(--shadow-sm);
+    transition: border-color .2s ease, box-shadow .25s ease;
+  }
+  .service-card:hover,
+  .skills-card:hover,
+  .certs:hover {
+    border-color: var(--border-strong);
+    box-shadow: var(--shadow-md);
   }
   .service-num {
     font-family: var(--font-mono);
@@ -607,11 +672,9 @@
 
   /* ============ ABOUT ============ */
   .about {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 3rem;
-    align-items: start;
+    display: block;
   }
+  .about-bio { max-width: 70ch; }
   .about-bio p { color: var(--text-dim); margin-bottom: 1rem; font-size: 1.2rem; }
   .about-bio p:last-child { margin-bottom: 0; }
   .skills-card {
@@ -620,6 +683,7 @@
     border: 1px solid var(--border);
     border-radius: var(--r-md);
     box-shadow: var(--shadow-sm);
+    transition: border-color .2s ease, box-shadow .25s ease;
     text-align: center;
   }
   .skills-card h3 {
@@ -642,16 +706,19 @@
     color: var(--accent-2);
   }
   .about-aside {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+    align-items: start;
   }
   .certs {
-    padding: 1.25rem;
+    padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
     box-shadow: var(--shadow-sm);
+    transition: border-color .2s ease, box-shadow .25s ease;
     text-align: center;
   }
   .certs h3 {
@@ -679,36 +746,68 @@
     color: var(--text-dim);
   }
   @media (max-width: 800px) {
-    .about { grid-template-columns: 1fr; gap: 2rem; }
+    .about-aside { grid-template-columns: 1fr; }
   }
 
-  /* ============ EXPERIENCE ============ */
+  /* ============ EXPERIENCE (timeline rail) ============ */
   .xp-list {
+    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2.25rem;
+    padding-left: 2.1rem;
+  }
+  .xp-list::before {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: .5rem;
+    bottom: .5rem;
+    width: 2px;
+    background: linear-gradient(var(--accent-1), rgba(30,64,175,0.15));
   }
   .xp-item {
-    display: grid;
-    grid-template-columns: 0.85fr 2fr;
-    gap: 1.5rem;
-    padding: 1.6rem;
+    position: relative;
+    display: block;
+    padding: 1.5rem;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--r-md);
     box-shadow: var(--shadow-sm);
-    transition: transform .2s ease, border-color .2s ease, box-shadow .25s ease;
+    transition: border-color .2s ease, box-shadow .25s ease;
   }
   .xp-item:hover {
-    transform: translateY(-2px);
     border-color: var(--border-strong);
     box-shadow: var(--shadow-md);
+  }
+  .xp-item::before {
+    content: '';
+    position: absolute;
+    left: -2.1rem;
+    top: 1.7rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-1);
+    border: 3px solid var(--bg-0);
+    box-shadow: 0 0 0 1px var(--border);
+    transition: transform .2s ease;
+  }
+  .xp-item:hover::before { transform: scale(1.18); }
+  .xp-item:hover .xp-company { color: var(--accent-1); }
+  .xp-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: .5rem;
   }
   .xp-company {
     font-family: var(--font-display);
     font-weight: 600;
     font-size: 1.35rem;
-    margin-bottom: .35rem;
+    transition: color .2s ease;
   }
   .xp-meta {
     font-family: var(--font-mono);
@@ -717,12 +816,20 @@
     text-transform: uppercase;
     color: var(--accent-2);
     line-height: 1.5;
+    text-align: right;
   }
   .xp-role {
     font-weight: 600;
     font-size: 1.12rem;
     color: var(--text);
     margin-bottom: .7rem;
+  }
+  .xp-role-2 { margin-top: 1.3rem; }
+  .xp-desc {
+    color: var(--text-muted);
+    font-size: .92rem;
+    line-height: 1.5;
+    margin: 0 0 .9rem;
   }
   .xp-points {
     margin: 0;
@@ -736,7 +843,8 @@
   .xp-points strong { color: var(--accent-2); font-weight: 700; }
   .xp-points li::marker { color: var(--accent-1); }
   @media (max-width: 800px) {
-    .xp-item { grid-template-columns: 1fr; gap: .65rem; }
+    .xp-list { padding-left: 1.8rem; }
+    .xp-item::before { left: -1.8rem; }
   }
 
   /* ============ INSIGHTS ============ */
@@ -800,6 +908,41 @@
     max-width: 50ch;
     margin: 0 auto 2rem auto;
   }
+  .contact-form {
+    max-width: 520px;
+    margin: 0 auto 2.25rem;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .contact-form .field { display: flex; flex-direction: column; gap: .35rem; }
+  .contact-form label { font-size: .9rem; font-weight: 600; color: var(--text-dim); }
+  .contact-form input,
+  .contact-form textarea {
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--r-sm);
+    padding: .7rem .85rem;
+    width: 100%;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-1);
+    box-shadow: 0 0 0 3px rgba(30,64,175,0.15);
+  }
+  .contact-form textarea { resize: vertical; min-height: 110px; }
+  .contact-form button { align-self: flex-start; margin-top: .25rem; }
+  .contact-form .hidden-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .contact-or {
+    font-size: .9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
   .contact-ctas { display: flex; justify-content: center; flex-wrap: wrap; gap: .75rem; }
   .icon-btn {
     display: inline-flex; align-items: center; justify-content: center;
@@ -821,10 +964,31 @@
   /* ============ FOOTER ============ */
   .footer {
     border-top: 1px solid var(--border);
-    padding-block: 2rem;
-    text-align: center;
-    font-size: .85rem;
+    padding-block: 2.5rem 2rem;
+    font-size: .9rem;
     color: var(--text-muted);
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-brand {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-family: var(--font-display); font-weight: 700; color: var(--text);
+  }
+  .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .footer-links a { color: var(--text-dim); transition: color .15s ease; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-top { color: var(--accent-1); font-weight: 600; }
+  .footer-top:hover { text-decoration: underline; }
+  .footer-copy {
+    border-top: 1px solid var(--border);
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    text-align: center;
   }
 
   /* ============ MOTION ============ */
@@ -847,6 +1011,7 @@
   }
   .hero-cta-note a { color: var(--accent-1); font-weight: 600; }
   .hero-cta-note a:hover { text-decoration: underline; }
+  .hero-cta-note strong { color: var(--text-dim); font-weight: 700; }
 
   /* ============ SERVICES NICHE ============ */
   .services-niche {
@@ -925,7 +1090,7 @@
     <section class="section hero container reveal" id="top">
       <div class="hero-grid">
         <div class="hero-text">
-          <span class="hero-eyebrow">Available for select consulting work</span>
+          <span class="hero-eyebrow">Open to finance-leadership roles &amp; select consulting</span>
           <h1 class="hero-title">
             <span class="hero-line">Finance</span>
             <span class="hero-line">strategy,</span>
@@ -936,19 +1101,16 @@
             Full P&amp;L ownership, forecasting, and executive reporting across manufacturing, retail, and asset management —
             plus the apps, AI workflows, and Excel add-ins I build so finance &amp; ops teams stop fighting their spreadsheets.
           </p>
-          <p class="hero-meta">
-            8+ yrs FP&amp;A &amp; Strategic Finance <span class="dot">·</span> Manufacturing <span class="dot">·</span> Retail <span class="dot">·</span> Asset Management <span class="dot">·</span> <strong>San Antonio / Remote</strong>
-          </p>
           <div class="hero-ctas">
             <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>
               Download résumé <span class="btn-arrow" aria-hidden="true">&darr;</span>
             </a>
             <a class="btn btn-ghost" href="#contact">
-              Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+              Start a conversation <span class="btn-arrow" aria-hidden="true">&rarr;</span>
             </a>
           </div>
           <p class="hero-cta-note">
-            Recruiters — grab the résumé. Hiring or exploring consulting? <a href="#contact">Reach out</a> (replies within a day) <span class="dot">·</span> <a href="#work">see my work</a>
+            <strong>Recruiters:</strong> grab the résumé. <strong>Teams &amp; founders:</strong> <a href="#contact">tell me what's broken</a> (replies within a day) <span class="dot">·</span> <a href="#work">see my work</a>
           </p>
         </div>
         <div class="hero-portrait">
@@ -967,6 +1129,7 @@
       </div>
     </section>
 
+    <p class="uv-marquee-cap container">The stack — finance &amp; ERP up top, the engineering I build with below.</p>
     <section class="uv-marquee reveal" aria-label="Skills and tools">
       <div class="uv-marquee-row row-1">
         <span class="uv-marquee-item">D365 Finance &amp; Ops</span>
@@ -1014,25 +1177,26 @@
 
     <section class="uv-stats container reveal" aria-label="By the numbers">
       <div class="uv-stat">
-        <div class="uv-stat-number">$450M</div>
+        <div class="uv-stat-number" data-target="450" data-prefix="$" data-suffix="M">$450M</div>
         <div class="uv-stat-label">Segment P&amp;L Owned</div>
       </div>
       <div class="uv-stat">
-        <div class="uv-stat-number">$500K</div>
+        <div class="uv-stat-number" data-target="500" data-prefix="$" data-suffix="K">$500K</div>
         <div class="uv-stat-label">Saved via AI Automation</div>
       </div>
       <div class="uv-stat">
-        <div class="uv-stat-number">99%</div>
+        <div class="uv-stat-number" data-target="99" data-suffix="%">99%</div>
         <div class="uv-stat-label">Analytics Efficiency Gain</div>
       </div>
       <div class="uv-stat">
-        <div class="uv-stat-number">92%</div>
+        <div class="uv-stat-number" data-target="92" data-suffix="%">92%</div>
         <div class="uv-stat-label">Shrinkage Reduction</div>
       </div>
+      <p class="uv-stats-note">Figures drawn from finance roles at C.H. Guenther &amp; Son, H-E-B, and Lancer Worldwide.</p>
     </section>
 
     <section class="section container" id="experience">
-      <p class="section-eyebrow">Experience</p>
+      <p class="section-eyebrow">Experience · for hiring teams</p>
       <h2 class="section-title">A finance career across manufacturing, retail, and asset management.</h2>
 
       <div class="xp-list">
@@ -1042,11 +1206,13 @@
             <div class="xp-meta">2024 — Present<br />San Antonio, TX</div>
           </div>
           <div class="xp-body">
+            <p class="xp-desc">Privately held global diversified food manufacturer — 30 plants across 5 countries, 4,500 employees, 2,500+ SKUs, and 2,400+ customers across retail, foodservice, and commercial channels.</p>
             <p class="xp-role">Financial Analysis Manager</p>
             <ul class="xp-points">
-              <li>Lead FP&amp;A, rolling forecasts, budgeting, long-range planning, and executive reporting for a retail segment exceeding <strong>$450M</strong> in annual revenue.</li>
-              <li>Architected AI-enabled reporting and validation that saved <strong>~$500K</strong> annually, lifted analytics efficiency <strong>99%</strong>, and cut reporting cycle time <strong>33%</strong>.</li>
-              <li>Support a <strong>$2B</strong> company-wide transformation using SAP analytics, dashboard automation, and integrated reporting.</li>
+              <li>Lead financial planning, rolling forecasts, annual budgeting, long-range planning, and executive reporting for a retail business segment exceeding <strong>$450M</strong> in annual revenue.</li>
+              <li>Architected AI-enabled reporting, financial insight, and validation processes that generated approximately <strong>$500K</strong> in annual savings, improved analytics efficiency by <strong>99%</strong>, and reduced reporting cycle time by <strong>33%</strong> — accelerating executive decision-making.</li>
+              <li>Facilitate essential support for a <strong>$2B</strong> company-wide corporate transformation using SAP analytics, financial dashboard automation, and integrated reporting to improve visibility, efficiency, and decision support.</li>
+              <li>Provide scenario modeling, risk assessments, and profit-improvement recommendations that guide senior-leadership decisions on volume, pricing, and resource allocation.</li>
             </ul>
           </div>
         </article>
@@ -1054,14 +1220,16 @@
         <article class="xp-item reveal">
           <div class="xp-head">
             <div class="xp-company">Lancer Worldwide</div>
-            <div class="xp-meta">2022 — 2024<br />Hoshizaki Group</div>
+            <div class="xp-meta">2022 — 2024<br />San Antonio, TX · Hoshizaki Group</div>
           </div>
           <div class="xp-body">
+            <p class="xp-desc">Global beverage-dispensing equipment manufacturer serving multinational foodservice and hospitality customers; part of Hoshizaki Group (¥485.9B in FY2025 net sales, 17,000+ employees worldwide).</p>
             <p class="xp-role">Senior Cost Accountant</p>
             <ul class="xp-points">
-              <li>Directed standard costing, variance analysis, and inventory governance; owned finance for <strong>$5M–$10M</strong> R&amp;D projects.</li>
-              <li>Supported a multi-entity ERP implementation transforming Lancer's <strong>$200M</strong> business, aligned to its <strong>$5B</strong> parent.</li>
-              <li>Maintained J-SOX compliance documentation and audit readiness for a publicly traded parent organization.</li>
+              <li>Directed standard costing, variance analysis, inventory governance, and manufacturing finance while owning financial oversight for <strong>$5M–$10M</strong> R&amp;D projects.</li>
+              <li>Provided essential support for multinational gross-margin and product-profitability analyses that informed pricing strategy and improved decision support for commercial leadership.</li>
+              <li>Facilitated a large-scale, multi-entity ERP implementation that helped transform Lancer's <strong>$200M</strong> business and align with its <strong>$5B</strong> parent company.</li>
+              <li>Maintained J-SOX compliance documentation and enhanced audit readiness for a publicly traded parent organization.</li>
             </ul>
           </div>
         </article>
@@ -1072,11 +1240,17 @@
             <div class="xp-meta">2019 — 2022<br />San Antonio, TX</div>
           </div>
           <div class="xp-body">
-            <p class="xp-role">Cost Accounting Manager · Lead P&amp;L Accounting Analyst</p>
+            <p class="xp-desc">One of the nation's largest independently owned grocery retailers — more than <strong>$50B</strong> in annual sales and 455+ stores across Texas and Mexico, with extensive warehouse, transportation, manufacturing, and retail operations.</p>
+            <p class="xp-role">Lead P&amp;L Accounting Analyst</p>
             <ul class="xp-points">
-              <li>Managed a <strong>$1.5M</strong> inventory portfolio; cut shrinkage <strong>92%</strong> and drove <strong>~$300K</strong> in annual facility savings.</li>
-              <li>Owned warehouse &amp; transportation P&amp;L analytics, labor modeling, and executive dashboards across large-scale logistics.</li>
-              <li>Strengthened close governance and analytical controls, improving reporting reliability for operational stakeholders.</li>
+              <li>Owned warehouse and transportation P&amp;L analytics, labor modeling, and cost-driver reporting to improve financial transparency across large-scale logistics operations.</li>
+              <li>Developed executive dashboards that highlighted margin leakage, labor trends, and cost-optimization opportunities for leadership review.</li>
+              <li>Strengthened close governance and analytical controls, improving reporting reliability and decision support for operational stakeholders.</li>
+            </ul>
+            <p class="xp-role xp-role-2">Cost Accounting Manager</p>
+            <ul class="xp-points">
+              <li>Managed a <strong>$1.5M</strong> inventory portfolio and implemented cost controls that reduced shrinkage by <strong>92%</strong> and generated approximately <strong>$300K</strong> in annual facility savings through project implementations and process improvements.</li>
+              <li>Facilitated ERP implementation and cross-functional finance modernization initiatives that improved process consistency and reporting visibility.</li>
             </ul>
           </div>
         </article>
@@ -1084,12 +1258,13 @@
         <article class="xp-item reveal">
           <div class="xp-head">
             <div class="xp-company">AllianceBernstein</div>
-            <div class="xp-meta">2018 — 2019<br />~$867B AUM</div>
+            <div class="xp-meta">2018 — 2019<br />San Antonio, TX</div>
           </div>
           <div class="xp-body">
+            <p class="xp-desc">Leading global investment-management and research firm — approximately <strong>$867B</strong> in assets under management, 4,468 employees, and operations across 53 locations in 27 countries (as of Dec 31, 2025).</p>
             <p class="xp-role">Proxy &amp; Securities Reference Associate</p>
             <ul class="xp-points">
-              <li>Maintained global security-master data integrity across equities, fixed income, derivatives, and class actions for <strong>~$867B</strong> in assets.</li>
+              <li>Maintained the integrity of global security-master data across equities, fixed income, derivatives, and class actions in a controlled environment.</li>
               <li>Delivered accurate, compliance-sensitive reporting and reference-data support for institutional investment portfolios.</li>
             </ul>
           </div>
@@ -1097,9 +1272,9 @@
       </div>
     </section>
 
-    <section class="section container" id="work">
+    <section class="section container section-tint" id="work">
       <p class="section-eyebrow">Selected Work</p>
-      <h2 class="section-title">Things I've built for finance, ops, and creative teams.</h2>
+      <h2 class="section-title">Things I've built — finance &amp; ops tooling, plus a few experiments.</h2>
 
       <div class="bento">
 
@@ -1185,8 +1360,8 @@
     </section>
 
     <section class="section container" id="services">
-      <p class="section-eyebrow">What I do</p>
-      <h2 class="section-title">Three ways I help businesses ship.</h2>
+      <p class="section-eyebrow">Services · for finance &amp; ops teams</p>
+      <h2 class="section-title">Three ways I help finance &amp; ops teams work faster.</h2>
       <p class="services-niche">Who I work with: <strong>finance &amp; ops leaders</strong> at growth-stage manufacturers, retailers, distributors, and asset managers — teams losing time to spreadsheets, manual reporting, and ERP gaps.</p>
 
       <div class="services">
@@ -1208,32 +1383,38 @@
       </div>
     </section>
 
-    <section class="section container" id="about">
+    <section class="section container section-tint" id="about">
       <p class="section-eyebrow">About</p>
-      <h2 class="section-title">From the ERP trenches to shipping the fixes.</h2>
+      <h2 class="section-title">From reading the numbers to building the tools.</h2>
 
       <div class="about reveal">
         <div class="about-bio">
           <p>
-            I'm a finance and FP&amp;A leader — full P&amp;L ownership, forecasting, standard costing, and executive reporting across manufacturing, retail, distribution, and asset management. Years spent turning messy operational data into decision-ready insight for senior leadership at companies like C.H. Guenther &amp; Son, Lancer Worldwide, H-E-B, and AllianceBernstein.
+            I'm a finance and FP&amp;A leader — full P&amp;L ownership, forecasting, standard costing, and executive reporting across manufacturing, retail, distribution, and asset management. My job has always been to turn messy operational data into decisions senior leaders can act on, at companies like C.H. Guenther &amp; Son, Lancer Worldwide, H-E-B, and AllianceBernstein.
           </p>
           <p>
-            Along the way I kept hitting the same wall: teams papering over ERP and reporting gaps with spreadsheets, ad-hoc scripts, and tribal knowledge that walked out the door whenever someone left. So I started building the tooling those teams actually need — AI-enabled reporting, Blazor apps, Excel add-ins, and agentic workflows that wire it all together.
+            What sets me apart is what happens after the analysis. Most teams paper over ERP and reporting gaps with spreadsheets, ad-hoc scripts, and tribal knowledge that walks out the door when someone leaves. I close those gaps for good — building the AI-enabled reporting, Blazor apps, Excel add-ins, and agentic workflows the team actually needs. Finance judgment plus the ability to build the fix myself is a rare pairing, and it's where I do my best work.
           </p>
           <p>
-            Based in San Antonio, Texas. Currently Financial Analysis Manager at C.H. Guenther &amp; Son, and taking on select consulting through KM Consulting — where the bias is always toward shipping something useful, not delivering another deck.
+            Based in San Antonio. Currently Financial Analysis Manager at C.H. Guenther &amp; Son — open to senior finance-leadership roles, and taking on select consulting through KM Consulting. If you're hiring, the résumé is a click away; if your team needs the tooling, let's talk.
           </p>
         </div>
         <aside class="about-aside" aria-label="Core skills and credentials">
           <div class="skills-card">
-            <h3>Core skills</h3>
+            <h3>Core competencies</h3>
             <div class="skill-list">
               <span class="skill">FP&amp;A &amp; Strategic Finance</span>
-              <span class="skill">Cost &amp; Standard Costing</span>
-              <span class="skill">AI-Enabled Reporting</span>
-              <span class="skill">Forecasting &amp; Budgeting</span>
-              <span class="skill">ERP Implementation</span>
-              <span class="skill">Executive Dashboards</span>
+              <span class="skill">Full P&amp;L Ownership</span>
+              <span class="skill">AI-Enabled Reporting Automation</span>
+              <span class="skill">Cost Accounting &amp; Standard Costing</span>
+              <span class="skill">Forecasting, Budgeting &amp; Long-Range Planning</span>
+              <span class="skill">Executive Reporting &amp; Dashboards</span>
+              <span class="skill">Margin Expansion &amp; Pricing Analysis</span>
+              <span class="skill">Scenario Modeling &amp; Decision Support</span>
+              <span class="skill">ERP Implementations &amp; Process Improvement</span>
+              <span class="skill">Business Intelligence &amp; Data Governance</span>
+              <span class="skill">Inventory Controls &amp; Manufacturing Finance</span>
+              <span class="skill">Global Reporting &amp; Compliance</span>
               <span class="skill">Excel / VBA Automation</span>
               <span class="skill">Full-Stack Builds</span>
             </div>
@@ -1242,9 +1423,9 @@
             <h3>Certifications &amp; Education</h3>
             <div class="cert-list">
               <span class="cert">AMA &mdash; Accredited Management Accountant</span>
-              <span class="cert">CFM &mdash; Chartered Financial Manager (GAFM)</span>
-              <span class="cert">M.S. Economics &mdash; UTSA (Expected Fall 2026)</span>
-              <span class="cert">B.S. Finance &mdash; University of Evansville</span>
+              <span class="cert">CFM &mdash; Chartered Financial Manager (GAFM Advisory Designation)</span>
+              <span class="cert">M.S. Economics, Financial Economics (in progress) &mdash; UT San Antonio</span>
+              <span class="cert">B.S. Business Administration &mdash; Finance major, Economics minor, Accounting focus &mdash; University of Evansville</span>
             </div>
           </div>
         </aside>
@@ -1252,15 +1433,14 @@
     </section>
 
     <section class="section container reveal" id="insights">
-      <p class="section-eyebrow">Insights</p>
-      <h2 class="section-title">I write about FP&amp;A, AI in finance, and ERP transformation.</h2>
+      <p class="section-eyebrow">Connect</p>
+      <h2 class="section-title">Let's trade notes on FP&amp;A, AI in finance, and ERP.</h2>
       <div class="insights-card">
         <p>
-          From AI-enabled reporting and standard costing to multi-entity ERP rollouts, I share what's
-          actually working (and what isn't) from inside the finance function.
+          I'm active on LinkedIn, comparing notes on AI-enabled reporting, standard costing, and multi-entity ERP rollouts &mdash; from inside the finance function. Follow along or say hello.
         </p>
         <a class="btn btn-primary" href="https://www.linkedin.com/in/keystone-marcy-a1040522b/" target="_blank" rel="noopener">
-          Read my posts on LinkedIn <span class="btn-arrow" aria-hidden="true">&#8599;</span>
+          Connect on LinkedIn <span class="btn-arrow" aria-hidden="true">&#8599;</span>
         </a>
       </div>
     </section>
@@ -1284,21 +1464,40 @@
     </section>
     -->
 
-    <section class="section container contact reveal" id="contact">
+    <section class="section container contact reveal section-tint" id="contact">
       <h2 class="contact-title">Let's build something useful.</h2>
       <p class="contact-sub">
-        Hiring, consulting, or just want to compare notes on FP&amp;A, D365, and AI in finance? Email is the fastest way to reach me.
+        Hiring, consulting, or just want to compare notes on FP&amp;A, D365, and AI in finance? Send a message below &mdash; or reach me directly.
       </p>
       <p class="contact-availability">Open to Senior FP&amp;A &middot; Finance Manager &middot; Director roles &mdash; San Antonio or remote.</p>
+
+      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden-field" aria-hidden="true">
+          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
+        </p>
+        <div class="field">
+          <label for="cf-name">Name</label>
+          <input id="cf-name" type="text" name="name" autocomplete="name" required />
+        </div>
+        <div class="field">
+          <label for="cf-email">Email</label>
+          <input id="cf-email" type="email" name="email" autocomplete="email" required />
+        </div>
+        <div class="field">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send message <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
+      </form>
+
+      <p class="contact-or">Prefer email, my résumé, or socials?</p>
       <div class="contact-ctas">
         <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>
           Download résumé <span class="btn-arrow" aria-hidden="true">&darr;</span>
         </a>
         <a class="btn btn-ghost" href="mailto:kmarcy@KMConsulting995.onmicrosoft.com?subject=Hello%20Keystone">
-          Email Keystone (business) <span class="btn-arrow" aria-hidden="true">&rarr;</span>
-        </a>
-        <a class="btn btn-ghost" href="mailto:keystone.marcy@outlook.com?subject=Hello%20Keystone">
-          Personal email
+          Email me <span class="btn-arrow" aria-hidden="true">&rarr;</span>
         </a>
         <a class="icon-btn" href="https://github.com/kmarcy95" target="_blank" rel="noopener" aria-label="GitHub">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.66.5 12.04c0 5.1 3.29 9.42 7.86 10.95.58.11.79-.25.79-.56 0-.27-.01-1-.02-1.97-3.2.7-3.87-1.54-3.87-1.54-.52-1.34-1.28-1.7-1.28-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.27 3.36.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.29-5.24-5.74 0-1.27.45-2.31 1.18-3.12-.12-.3-.51-1.49.11-3.1 0 0 .97-.31 3.18 1.19a11 11 0 0 1 5.79 0c2.21-1.5 3.18-1.19 3.18-1.19.62 1.61.23 2.8.11 3.1.73.81 1.18 1.85 1.18 3.12 0 4.46-2.69 5.44-5.25 5.73.41.36.78 1.06.78 2.14 0 1.54-.01 2.78-.01 3.16 0 .31.21.68.8.56C20.22 21.46 23.5 17.13 23.5 12.04 23.5 5.66 18.35.5 12 .5z"/></svg>
@@ -1312,13 +1511,25 @@
   </main>
 
   <footer class="footer">
-    <div class="container">
-      © 2026 KM Consulting · built by Keystone
+    <div class="container footer-inner">
+      <a class="footer-brand" href="#top" aria-label="KM Consulting — back to top">
+        <span class="brand-orb" aria-hidden="true"></span>
+        <span>KM Consulting</span>
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="footer-top" href="#top">Back to top <span aria-hidden="true">&uarr;</span></a>
     </div>
+    <div class="container footer-copy">© 2026 KM Consulting · built by Keystone</div>
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <span class="sticky-cta-text">Keystone Marcy — FP&amp;A leader who ships the fixes</span>
+    <span class="sticky-cta-text">Keystone Marcy — FP&amp;A &amp; strategic finance</span>
     <span class="sticky-cta-actions">
       <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>Résumé</a>
       <a class="btn btn-ghost" href="#contact">Contact</a>
@@ -1362,6 +1573,58 @@
             atContact = e[0].isIntersecting; syncSticky();
           }, { threshold: 0.1 }).observe(contactEl);
         }
+      }
+
+      /* ===== Stat count-up (skip on reduced motion) ===== */
+      var statSection = document.querySelector('.uv-stats');
+      if (statSection && !reduced && 'IntersectionObserver' in window) {
+        var nums = statSection.querySelectorAll('.uv-stat-number');
+        nums.forEach(function (el) {
+          el.textContent = (el.dataset.prefix || '') + '0' + (el.dataset.suffix || '');
+        });
+        var counted = false;
+        var countIO = new IntersectionObserver(function (entries) {
+          if (!entries[0].isIntersecting || counted) return;
+          counted = true;
+          countIO.disconnect();
+          nums.forEach(function (el) {
+            var target = parseFloat(el.dataset.target) || 0;
+            var prefix = el.dataset.prefix || '';
+            var suffix = el.dataset.suffix || '';
+            var dur = 1400, startTime = 0;
+            function tick(now) {
+              if (!startTime) startTime = now;
+              var t = Math.min((now - startTime) / dur, 1);
+              var eased = 1 - Math.pow(1 - t, 3);
+              el.textContent = prefix + Math.round(target * eased) + suffix;
+              if (t < 1) requestAnimationFrame(tick);
+              else el.textContent = prefix + target + suffix;
+            }
+            requestAnimationFrame(tick);
+          });
+        }, { threshold: 0.3 });
+        countIO.observe(statSection);
+      }
+
+      /* ===== Scrollspy: highlight active section in nav ===== */
+      var spyLinks = {};
+      document.querySelectorAll('.nav-links a[href^="#"]').forEach(function (a) {
+        if (a.classList.contains('nav-cta')) return;
+        spyLinks[a.getAttribute('href').slice(1)] = a;
+      });
+      var spyIds = Object.keys(spyLinks);
+      if (spyIds.length && 'IntersectionObserver' in window) {
+        var spyIO = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            spyIds.forEach(function (id) { spyLinks[id].classList.remove('active'); });
+            if (spyLinks[e.target.id]) spyLinks[e.target.id].classList.add('active');
+          });
+        }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+        spyIds.forEach(function (id) {
+          var sec = document.getElementById(id);
+          if (sec) spyIO.observe(sec);
+        });
       }
 
       /* ===== Magnetic hover on hero CTAs (skip on touch / reduced motion) ===== */
