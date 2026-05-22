@@ -78,7 +78,7 @@
     /* accent */
     --accent-1: #1e40af;
     --accent-2: #1e3a8a;
-    --grad-accent: linear-gradient(135deg, #2f5be0 0%, #1e3a8a 100%);
+    --grad-accent: linear-gradient(135deg, #2747c9 0%, #1e3a8a 100%);
     --accent-glow: 30, 64, 175;
 
     /* shadows */
@@ -217,8 +217,28 @@
   }
   .nav-cta:hover { background: var(--accent-2); border-color: var(--accent-2); }
 
+  .nav-toggle { display: none; flex-direction: column; gap: 4px; padding: 8px; }
+  .nav-toggle-bar { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] .nav-toggle-bar:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
   @media (max-width: 640px) {
-    .nav-links li:not(:last-child) { display: none; }
+    .nav-toggle { display: flex; order: 3; }
+    .nav-links {
+      position: absolute; top: 64px; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: rgba(255,255,255,0.97);
+      -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-md);
+      padding: .5rem 1rem 1rem;
+      max-height: 0; overflow: hidden; visibility: hidden;
+      transition: max-height .25s ease, visibility .25s;
+    }
+    .nav-links.open { max-height: 380px; visibility: visible; }
+    .nav-links li { width: 100%; }
+    .nav-links a { display: block; padding: .75rem .25rem; min-height: 44px; }
+    .nav-links .nav-cta { display: inline-block; margin-top: .5rem; }
   }
 
   /* ============ HERO ============ */
@@ -293,11 +313,11 @@
     }
   }
   .hero-title .accent {
+    color: var(--accent-2);
     background: var(--grad-accent);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
   }
   .hero-sub {
     font-size: clamp(1.2rem, 2vw, 1.5rem);
@@ -462,11 +482,11 @@
     font-size: clamp(2.6rem, 5vw, 4.2rem);
     letter-spacing: -0.03em;
     line-height: 1;
+    color: var(--accent-2);
     background: var(--grad-accent);
     -webkit-background-clip: text;
             background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent;
   }
   .uv-stat-label {
     font-family: var(--font-mono);
@@ -1075,12 +1095,17 @@
         <span class="brand-orb" aria-hidden="true"></span>
         <span>KM Consulting</span>
       </a>
-      <ul class="nav-links">
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a class="nav-cta" href="#contact">Contact</a></li>
+        <li><a class="nav-cta" href="#contact" data-cta="nav_contact">Contact</a></li>
       </ul>
     </nav>
   </header>
@@ -1090,27 +1115,26 @@
     <section class="section hero container reveal" id="top">
       <div class="hero-grid">
         <div class="hero-text">
-          <span class="hero-eyebrow">Open to finance-leadership roles &amp; select consulting</span>
+          <span class="hero-eyebrow">FP&amp;A &amp; Strategic Finance Leader · Open to roles</span>
           <h1 class="hero-title">
-            <span class="hero-line">Finance</span>
-            <span class="hero-line">strategy,</span>
-            <span class="hero-line">shipped as</span>
-            <span class="hero-line accent">software.</span>
+            <span class="hero-line">I lead FP&amp;A</span>
+            <span class="hero-line">and build the</span>
+            <span class="hero-line accent">software that delivers it.</span>
           </h1>
           <p class="hero-sub">
             Full P&amp;L ownership, forecasting, and executive reporting across manufacturing, retail, and asset management —
             plus the apps, AI workflows, and Excel add-ins I build so finance &amp; ops teams stop fighting their spreadsheets.
           </p>
           <div class="hero-ctas">
-            <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>
+            <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download data-resume-download data-cta="hero_resume">
               Download résumé <span class="btn-arrow" aria-hidden="true">&darr;</span>
             </a>
-            <a class="btn btn-ghost" href="#contact">
-              Start a conversation <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            <a class="btn btn-ghost" href="#contact" data-cta="hero_contact">
+              Get in touch <span class="btn-arrow" aria-hidden="true">&rarr;</span>
             </a>
           </div>
           <p class="hero-cta-note">
-            <strong>Recruiters:</strong> grab the résumé. <strong>Teams &amp; founders:</strong> <a href="#contact">tell me what's broken</a> (replies within a day) <span class="dot">·</span> <a href="#work">see my work</a>
+            <strong>Recruiters &amp; hiring managers:</strong> the résumé is one click away. Prefer to talk first? <a href="#contact">Get in touch</a> — I reply within a day. <a href="#work">See selected work &rarr;</a>
           </p>
         </div>
         <div class="hero-portrait">
@@ -1120,7 +1144,7 @@
     </section>
 
     <section class="uv-social-proof container reveal" aria-label="Past employers">
-      <p class="uv-social-proof-label">Trusted by finance &amp; ops teams at</p>
+      <p class="uv-social-proof-label">Finance &amp; accounting roles across</p>
       <div class="logo-wall">
         <span class="logo-chip">C.H. Guenther &amp; Son</span>
         <span class="logo-chip">Lancer Worldwide</span>
@@ -1185,8 +1209,8 @@
         <div class="uv-stat-label">Saved via AI Automation</div>
       </div>
       <div class="uv-stat">
-        <div class="uv-stat-number" data-target="99" data-suffix="%">99%</div>
-        <div class="uv-stat-label">Analytics Efficiency Gain</div>
+        <div class="uv-stat-number" data-target="33" data-suffix="%">33%</div>
+        <div class="uv-stat-label">Faster Reporting Cycle</div>
       </div>
       <div class="uv-stat">
         <div class="uv-stat-number" data-target="92" data-suffix="%">92%</div>
@@ -1209,10 +1233,10 @@
             <p class="xp-desc">Privately held global diversified food manufacturer — 30 plants across 5 countries, 4,500 employees, 2,500+ SKUs, and 2,400+ customers across retail, foodservice, and commercial channels.</p>
             <p class="xp-role">Financial Analysis Manager</p>
             <ul class="xp-points">
-              <li>Lead financial planning, rolling forecasts, annual budgeting, long-range planning, and executive reporting for a retail business segment exceeding <strong>$450M</strong> in annual revenue.</li>
-              <li>Architected AI-enabled reporting, financial insight, and validation processes that generated approximately <strong>$500K</strong> in annual savings, improved analytics efficiency by <strong>99%</strong>, and reduced reporting cycle time by <strong>33%</strong> — accelerating executive decision-making.</li>
-              <li>Facilitate essential support for a <strong>$2B</strong> company-wide corporate transformation using SAP analytics, financial dashboard automation, and integrated reporting to improve visibility, efficiency, and decision support.</li>
-              <li>Provide scenario modeling, risk assessments, and profit-improvement recommendations that guide senior-leadership decisions on volume, pricing, and resource allocation.</li>
+              <li>Own FP&amp;A — rolling forecasts, annual budget, long-range planning, and executive reporting — for a <strong>$450M</strong> retail segment.</li>
+              <li>Built AI-enabled reporting and validation that saved <strong>~$500K</strong>/yr and cut reporting cycle time <strong>33%</strong>, accelerating executive decisions.</li>
+              <li>Support a <strong>$2B</strong> company-wide transformation with SAP analytics, dashboard automation, and integrated reporting.</li>
+              <li>Deliver scenario modeling and profit-improvement analysis that guides leadership on volume, pricing, and resource allocation.</li>
             </ul>
           </div>
         </article>
@@ -1226,10 +1250,10 @@
             <p class="xp-desc">Global beverage-dispensing equipment manufacturer serving multinational foodservice and hospitality customers; part of Hoshizaki Group (¥485.9B in FY2025 net sales, 17,000+ employees worldwide).</p>
             <p class="xp-role">Senior Cost Accountant</p>
             <ul class="xp-points">
-              <li>Directed standard costing, variance analysis, inventory governance, and manufacturing finance while owning financial oversight for <strong>$5M–$10M</strong> R&amp;D projects.</li>
-              <li>Provided essential support for multinational gross-margin and product-profitability analyses that informed pricing strategy and improved decision support for commercial leadership.</li>
-              <li>Facilitated a large-scale, multi-entity ERP implementation that helped transform Lancer's <strong>$200M</strong> business and align with its <strong>$5B</strong> parent company.</li>
-              <li>Maintained J-SOX compliance documentation and enhanced audit readiness for a publicly traded parent organization.</li>
+              <li>Directed standard costing, variance analysis, and inventory governance; owned finance for <strong>$5M–$10M</strong> R&amp;D projects.</li>
+              <li>Ran gross-margin and product-profitability analysis that shaped pricing strategy for commercial leadership.</li>
+              <li>Drove a multi-entity ERP implementation transforming Lancer's <strong>$200M</strong> business, aligned to its <strong>$5B</strong> parent.</li>
+              <li>Maintained J-SOX compliance documentation and audit readiness for a publicly traded parent.</li>
             </ul>
           </div>
         </article>
@@ -1243,14 +1267,14 @@
             <p class="xp-desc">One of the nation's largest independently owned grocery retailers — more than <strong>$50B</strong> in annual sales and 455+ stores across Texas and Mexico, with extensive warehouse, transportation, manufacturing, and retail operations.</p>
             <p class="xp-role">Lead P&amp;L Accounting Analyst</p>
             <ul class="xp-points">
-              <li>Owned warehouse and transportation P&amp;L analytics, labor modeling, and cost-driver reporting to improve financial transparency across large-scale logistics operations.</li>
-              <li>Developed executive dashboards that highlighted margin leakage, labor trends, and cost-optimization opportunities for leadership review.</li>
-              <li>Strengthened close governance and analytical controls, improving reporting reliability and decision support for operational stakeholders.</li>
+              <li>Owned warehouse &amp; transportation P&amp;L analytics, labor modeling, and cost-driver reporting across large-scale logistics.</li>
+              <li>Built executive dashboards that surfaced margin leakage, labor trends, and cost-optimization opportunities for leadership.</li>
+              <li>Strengthened close governance and analytical controls, improving reporting reliability for operational stakeholders.</li>
             </ul>
             <p class="xp-role xp-role-2">Cost Accounting Manager</p>
             <ul class="xp-points">
-              <li>Managed a <strong>$1.5M</strong> inventory portfolio and implemented cost controls that reduced shrinkage by <strong>92%</strong> and generated approximately <strong>$300K</strong> in annual facility savings through project implementations and process improvements.</li>
-              <li>Facilitated ERP implementation and cross-functional finance modernization initiatives that improved process consistency and reporting visibility.</li>
+              <li>Managed a <strong>$1.5M</strong> inventory portfolio; cut shrinkage <strong>92%</strong> and drove <strong>~$300K</strong>/yr in facility savings.</li>
+              <li>Led ERP implementation and cross-functional finance modernization that improved process consistency and reporting visibility.</li>
             </ul>
           </div>
         </article>
@@ -1264,8 +1288,8 @@
             <p class="xp-desc">Leading global investment-management and research firm — approximately <strong>$867B</strong> in assets under management, 4,468 employees, and operations across 53 locations in 27 countries (as of Dec 31, 2025).</p>
             <p class="xp-role">Proxy &amp; Securities Reference Associate</p>
             <ul class="xp-points">
-              <li>Maintained the integrity of global security-master data across equities, fixed income, derivatives, and class actions in a controlled environment.</li>
-              <li>Delivered accurate, compliance-sensitive reporting and reference-data support for institutional investment portfolios.</li>
+              <li>Maintained global security-master data integrity across equities, fixed income, derivatives, and class actions.</li>
+              <li>Delivered compliance-sensitive reporting and reference-data support for institutional investment portfolios.</li>
             </ul>
           </div>
         </article>
@@ -1274,7 +1298,7 @@
 
     <section class="section container section-tint" id="work">
       <p class="section-eyebrow">Selected Work</p>
-      <h2 class="section-title">Things I've built — finance &amp; ops tooling, plus a few experiments.</h2>
+      <h2 class="section-title">Finance &amp; ERP tooling I've designed and shipped.</h2>
 
       <div class="bento">
 
@@ -1282,7 +1306,7 @@
         <article class="bento-card flagship reveal" aria-label="D365 ERP Manager Web" style="transition-delay: 0ms">
           <p class="card-label">D365 / BLAZOR / .NET 8</p>
           <h3 class="card-title">D365 ERP Manager Web</h3>
-          <div class="swatch" aria-hidden="true"></div>
+          <img class="card-image" src="images/proj-d365web.png" alt="D365 ERP Manager Web — implementation roadmap with a six-phase Gantt timeline and phase-by-phase progress summary" loading="lazy" width="1440" height="900" />
           <p class="card-desc">
             Every D365 F&amp;O rollout reinvents the same planning spreadsheets. This Blazor app generates implementation timelines, project templates, and user stories on demand — <strong>reusable tooling that replaces the per-engagement spreadsheet rebuild</strong>.
           </p>
@@ -1315,8 +1339,9 @@
         <article class="bento-card reveal" aria-label="Agent Dashboard" style="transition-delay: 120ms">
           <p class="card-label">PYTHON / AGENTS</p>
           <h3 class="card-title">Agent Dashboard</h3>
+          <img class="card-image" src="images/proj-agent.png" alt="Agent Dashboard — agentic OS observability with workflow, skill, and token-spend metrics plus a recent-runs panel" loading="lazy" width="1440" height="900" />
           <p class="card-desc">
-            AI automations sprawl across tools with no single view. This agentic OS surfaces every workflow, skill usage, and token spend in one place — <strong>real observability for an AI-driven operation</strong>.
+            AI automations sprawl across tools with no single view. This agentic OS surfaces every workflow, skill, and token spend in one place — <strong>real observability for an AI-driven finance operation</strong>.
           </p>
           <div class="tag-row">
             <span class="tag">Python</span>
@@ -1432,19 +1457,6 @@
       </div>
     </section>
 
-    <section class="section container reveal" id="insights">
-      <p class="section-eyebrow">Connect</p>
-      <h2 class="section-title">Let's trade notes on FP&amp;A, AI in finance, and ERP.</h2>
-      <div class="insights-card">
-        <p>
-          I'm active on LinkedIn, comparing notes on AI-enabled reporting, standard costing, and multi-entity ERP rollouts &mdash; from inside the finance function. Follow along or say hello.
-        </p>
-        <a class="btn btn-primary" href="https://www.linkedin.com/in/keystone-marcy-a1040522b/" target="_blank" rel="noopener">
-          Connect on LinkedIn <span class="btn-arrow" aria-hidden="true">&#8599;</span>
-        </a>
-      </div>
-    </section>
-
     <!-- TESTIMONIALS — ready to publish. Replace the bracketed text with 2-4 REAL recommendations
          (e.g. pulled from your LinkedIn "Recommendations"), then delete these comment markers to
          make the section live. Do NOT ship fabricated quotes attributed to real people.
@@ -1493,10 +1505,10 @@
 
       <p class="contact-or">Prefer email, my résumé, or socials?</p>
       <div class="contact-ctas">
-        <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>
+        <a class="btn btn-ghost" href="Keystone-Marcy-Resume.pdf" download data-resume-download data-cta="contact_resume">
           Download résumé <span class="btn-arrow" aria-hidden="true">&darr;</span>
         </a>
-        <a class="btn btn-ghost" href="mailto:kmarcy@KMConsulting995.onmicrosoft.com?subject=Hello%20Keystone">
+        <a class="btn btn-ghost" href="mailto:kmarcy@KMConsulting995.onmicrosoft.com?subject=Hello%20Keystone" data-cta="contact_email">
           Email me <span class="btn-arrow" aria-hidden="true">&rarr;</span>
         </a>
         <a class="icon-btn" href="https://github.com/kmarcy95" target="_blank" rel="noopener" aria-label="GitHub">
@@ -1529,16 +1541,37 @@
   </footer>
 
   <div class="sticky-cta" id="stickyCta">
-    <span class="sticky-cta-text">Keystone Marcy — FP&amp;A &amp; strategic finance</span>
+    <span class="sticky-cta-text">Keystone Marcy — FP&amp;A &amp; Strategic Finance Leader</span>
     <span class="sticky-cta-actions">
-      <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download>Résumé</a>
-      <a class="btn btn-ghost" href="#contact">Contact</a>
+      <a class="btn btn-primary" href="Keystone-Marcy-Resume.pdf" download data-resume-download data-cta="sticky_resume">Résumé</a>
+      <a class="btn btn-ghost" href="#contact" data-cta="sticky_contact">Contact</a>
     </span>
   </div>
 
   <script>
     (function () {
       var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ===== Analytics: lead-event tracking (no-op if gtag absent) ===== */
+      function track(name, params) {
+        if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+      }
+      document.querySelectorAll('[data-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          track('select_content', { content_type: 'cta', content_id: el.dataset.cta });
+        });
+      });
+      document.querySelectorAll('[data-resume-download]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          track('file_download', { file_name: 'Keystone-Marcy-Resume.pdf' });
+        });
+      });
+      var contactFormEl = document.querySelector('form[name="contact"]');
+      if (contactFormEl) {
+        contactFormEl.addEventListener('submit', function () {
+          track('generate_lead', { method: 'contact_form' });
+        });
+      }
 
       /* ===== Reveal-on-scroll ===== */
       var targets = document.querySelectorAll('.reveal');
@@ -1624,6 +1657,24 @@
         spyIds.forEach(function (id) {
           var sec = document.getElementById(id);
           if (sec) spyIO.observe(sec);
+        });
+      }
+
+      /* ===== Mobile nav toggle ===== */
+      var navToggle = document.getElementById('navToggle');
+      var navLinks = document.getElementById('navLinks');
+      if (navToggle && navLinks) {
+        navToggle.addEventListener('click', function () {
+          var open = navLinks.classList.toggle('open');
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        });
+        navLinks.addEventListener('click', function (e) {
+          if (e.target.closest('a')) {
+            navLinks.classList.remove('open');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Open menu');
+          }
         });
       }
 
