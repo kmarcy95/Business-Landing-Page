@@ -1107,6 +1107,29 @@ h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
 .section-tint{ --surface:#16161a; --surface-2:#101013; --surface-translucent:rgba(16,16,20,.7); --border:#33333a;}
 .uv-stats{background:#16161a;border-color:#33333a;}
 
+
+/* ===== How I Work (personality dossier) ===== */
+.hiw-lead{max-width:70ch;color:var(--text-dim);font-size:1.1rem;margin:0 0 2.5rem;}
+.hiw-subhead{font-family:var(--font-mono);font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted);margin:2.75rem 0 1.25rem;}
+.hiw-supers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.hiw-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.6rem;box-shadow:var(--shadow-sm);}
+.hiw-card-num{font-family:var(--font-display);font-weight:700;color:var(--accent-1);font-size:1.05rem;margin:0 0 .5rem;}
+.hiw-card h3{font-size:1.15rem;margin:0 0 .6rem;}
+.hiw-card p{color:var(--text-dim);font-size:.95rem;margin:0;}
+.hiw-frameworks{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+.hiw-fw{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-md);padding:1.25rem;box-shadow:var(--shadow-sm);}
+.hiw-fw-head{display:flex;flex-direction:column;gap:.2rem;margin-bottom:1rem;}
+.hiw-fw-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;}
+.hiw-fw-type{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-1);}
+.hiw-bar{display:grid;grid-template-columns:6.5rem 1fr 1.8rem;align-items:center;gap:.6rem;margin:.5rem 0;font-size:.78rem;}
+.hiw-bar-label{color:var(--text-muted);}
+.hiw-bar-track{height:8px;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;overflow:hidden;}
+.hiw-bar-fill{display:block;height:100%;background:var(--grad-accent);border-radius:999px;}
+.hiw-bar-val{font-family:var(--font-mono);color:var(--text-dim);text-align:right;}
+.hiw-style{max-width:80ch;}
+.hiw-style p{color:var(--text-dim);margin:0;}
+.hiw-fits{margin-top:.25rem;}
+@media (max-width:820px){.hiw-supers,.hiw-frameworks{grid-template-columns:1fr;}}
 </style>
 
   <!-- Microsoft Clarity — free, privacy-friendly heatmaps & session replay to see where recruiters drop off.
@@ -1141,6 +1164,7 @@ h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
         <li><a href="#work">Work</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#how-i-work">How I Work</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a class="nav-cta" href="#contact" data-cta="nav_contact">Contact</a></li>
       </ul>
@@ -1524,6 +1548,77 @@ h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
             </div>
           </div>
         </aside>
+      </div>
+    </section>
+
+    <section class="section container" id="how-i-work">
+      <p class="section-eyebrow">How I Work</p>
+      <h2 class="section-title">Strategic Creator &mdash; where finance meets creative.</h2>
+      <p class="hiw-lead">I bridge analytical finance and creative storytelling &mdash; an ENTJ who turns complex datasets into visual narratives that drive decisions. I pair technical rigor with the creative drive to challenge the status quo and build the tools and AI workflows that move a business forward.</p>
+
+      <div class="hiw-supers">
+        <div class="hiw-card reveal">
+          <p class="hiw-card-num">01</p>
+          <h3>Visual Growth Architect</h3>
+          <p>I turn &ldquo;boring&rdquo; financial data into high-impact visual stories &mdash; spotting the trends others miss and using AI to automate the routine so I can focus on the strategic big picture.</p>
+        </div>
+        <div class="hiw-card reveal" style="transition-delay:60ms">
+          <p class="hiw-card-num">02</p>
+          <h3>Unconventional Challenger</h3>
+          <p>I&rsquo;m not afraid to speak up and fix inefficient systems &mdash; a catalyst for change that pushes strategic shifts serving long-term business health, not just short-term compliance.</p>
+        </div>
+        <div class="hiw-card reveal" style="transition-delay:120ms">
+          <p class="hiw-card-num">03</p>
+          <h3>Agile Strategist</h3>
+          <p>I hold a high bar for high-stakes work but stay pragmatic enough to ship and iterate when speed matters &mdash; balancing accuracy with the flexibility complex projects demand.</p>
+        </div>
+      </div>
+
+      <h3 class="hiw-subhead">Profile in numbers</h3>
+      <div class="hiw-frameworks">
+        <div class="hiw-fw reveal">
+          <div class="hiw-fw-head"><span class="hiw-fw-name">MBTI</span><span class="hiw-fw-type">ENTJ · Commander</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Thinking</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:75%"></span></span><span class="hiw-bar-val">75</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Intuition</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:73%"></span></span><span class="hiw-bar-val">73</span></div>
+        </div>
+        <div class="hiw-fw reveal">
+          <div class="hiw-fw-head"><span class="hiw-fw-name">DiSC</span><span class="hiw-fw-type">Developer · D</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Dominance</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:77%"></span></span><span class="hiw-bar-val">77</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Conscientious.</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:72%"></span></span><span class="hiw-bar-val">72</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Influence</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:68%"></span></span><span class="hiw-bar-val">68</span></div>
+        </div>
+        <div class="hiw-fw reveal">
+          <div class="hiw-fw-head"><span class="hiw-fw-name">Enneagram</span><span class="hiw-fw-type">Type 5w4</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Investigator</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:82%"></span></span><span class="hiw-bar-val">82</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Helper</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:90%"></span></span><span class="hiw-bar-val">90</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Individualist</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:80%"></span></span><span class="hiw-bar-val">80</span></div>
+        </div>
+        <div class="hiw-fw reveal">
+          <div class="hiw-fw-head"><span class="hiw-fw-name">Big Five</span><span class="hiw-fw-type">Balanced Visionary</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Openness</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:80%"></span></span><span class="hiw-bar-val">80</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Conscientious.</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:70%"></span></span><span class="hiw-bar-val">70</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Extraversion</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:55%"></span></span><span class="hiw-bar-val">55</span></div>
+        </div>
+        <div class="hiw-fw reveal">
+          <div class="hiw-fw-head"><span class="hiw-fw-name">Holland</span><span class="hiw-fw-type">AIE</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Artistic</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:82%"></span></span><span class="hiw-bar-val">82</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Investigative</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:78%"></span></span><span class="hiw-bar-val">78</span></div>
+          <div class="hiw-bar"><span class="hiw-bar-label">Enterprising</span><span class="hiw-bar-track"><span class="hiw-bar-fill" style="width:76%"></span></span><span class="hiw-bar-val">76</span></div>
+        </div>
+      </div>
+
+      <div class="hiw-style">
+        <h3 class="hiw-subhead">How I lead &amp; collaborate</h3>
+        <p>Lead from the front to set vision; partner on execution. Direct, logical, and forward-looking &mdash; I value competent, autonomous teammates and resolve disputes with data over emotion. I do my best work with clear goals and outcome-based measurement, remote or hybrid.</p>
+      </div>
+
+      <h3 class="hiw-subhead">Where I fit</h3>
+      <div class="skill-list hiw-fits">
+        <span class="skill">FinTech</span>
+        <span class="skill">AI + Finance</span>
+        <span class="skill">VC / PE</span>
+        <span class="skill">Data Visualization</span>
+        <span class="skill">Strategic Finance / BizOps</span>
       </div>
     </section>
 
