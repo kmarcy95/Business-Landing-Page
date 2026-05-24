@@ -19,3 +19,6 @@ lighthouse-report.report.json
 # Stray local databases / caches (must never be deployed publicly)
 *.db
 ruvector.db
+
+# Local brand-style preview demos (never commit or deploy)
+preview-*.html

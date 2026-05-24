@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#ffffff" />
+  <meta name="theme-color" content="#202024" />
   <meta name="description" content="Keystone Marcy — FP&A and strategic finance leader who builds finance tooling. Full P&L ownership, forecasting, and executive reporting across manufacturing, retail, and asset management, plus the apps, AI workflows, and Excel/ERP automation finance teams need." />
   <link rel="canonical" href="https://keystonemarcy.netlify.app/" />
   <link rel="preload" as="image" href="images/headshot-about.webp" type="image/webp" fetchpriority="high" />
@@ -56,7 +56,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
   /* ============ TOKENS ============ */
@@ -65,7 +65,7 @@
     --bg-0: #ffffff;
     --bg-1: #eceef3;
     --surface: #ffffff;
-    --surface-translucent: rgba(255,255,255,0.62);
+    --surface-translucent: rgba(42,42,47,0.62);
     --surface-2: #f3f4f7;
     --border: #e6e7ec;
     --border-strong: #d2d4dc;
@@ -125,9 +125,9 @@
   .bg-mesh {
     position: fixed; inset: 0; z-index: -2; pointer-events: none;
     background:
-      radial-gradient(900px 600px at 12% 10%, rgba(30,64,175,.10), transparent 60%),
-      radial-gradient(700px 500px at 88% 0%, rgba(30,64,175,.06), transparent 60%),
-      radial-gradient(800px 600px at 50% 100%, rgba(30,64,175,.05), transparent 60%),
+      radial-gradient(900px 600px at 12% 10%, rgba(245,197,24,.10), transparent 60%),
+      radial-gradient(700px 500px at 88% 0%, rgba(245,197,24,.06), transparent 60%),
+      radial-gradient(800px 600px at 50% 100%, rgba(245,197,24,.05), transparent 60%),
       linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 100%);
   }
   .bg-grain {
@@ -173,7 +173,7 @@
   .nav {
     position: sticky; top: 0; z-index: 50;
     backdrop-filter: blur(12px);
-    background: rgba(255,255,255,0.72);
+    background: rgba(42,42,47,0.72);
     border-bottom: 1px solid var(--border);
     box-shadow: var(--shadow-sm);
   }
@@ -228,7 +228,7 @@
     .nav-links {
       position: absolute; top: var(--nav-h); left: 0; right: 0;
       flex-direction: column; align-items: stretch; gap: 0;
-      background: rgba(255,255,255,0.97);
+      background: rgba(42,42,47,0.97);
       -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
       box-shadow: var(--shadow-md);
@@ -250,8 +250,8 @@
     display: inline-flex; align-items: center; gap: .5rem;
     padding: .35rem .75rem;
     border-radius: 999px;
-    background: rgba(30,64,175,0.07);
-    border: 1px solid rgba(30,64,175,0.20);
+    background: rgba(245,197,24,0.07);
+    border: 1px solid rgba(245,197,24,0.20);
     font-size: .8rem; color: var(--text-dim);
     margin-bottom: 1.5rem;
   }
@@ -556,7 +556,7 @@
   }
   .bento-card:hover {
     transform: translateY(-3px);
-    border-color: rgba(30,64,175,0.35);
+    border-color: rgba(245,197,24,0.35);
     box-shadow: var(--shadow-lg);
   }
   .bento-card:hover::before { opacity: 0.06; }
@@ -609,8 +609,8 @@
     text-transform: uppercase;
     padding: .25rem .55rem;
     border-radius: 999px;
-    background: rgba(30,64,175,0.10);
-    border: 1px solid rgba(30,64,175,0.28);
+    background: rgba(245,197,24,0.10);
+    border: 1px solid rgba(245,197,24,0.28);
     color: var(--accent-2);
   }
 
@@ -741,8 +741,8 @@
   .skill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
   .skill {
     padding: .45rem .8rem;
-    background: rgba(30,64,175,0.08);
-    border: 1px solid rgba(30,64,175,0.22);
+    background: rgba(245,197,24,0.08);
+    border: 1px solid rgba(245,197,24,0.22);
     border-radius: var(--r-sm);
     font-size: .85rem;
     font-weight: 500;
@@ -807,7 +807,7 @@
     top: .5rem;
     bottom: .5rem;
     width: 2px;
-    background: linear-gradient(var(--accent-1), rgba(30,64,175,0.15));
+    background: linear-gradient(var(--accent-1), rgba(245,197,24,0.15));
   }
   .xp-item {
     position: relative;
@@ -919,8 +919,8 @@
     font-family: var(--font-mono);
     font-size: .85rem;
     color: var(--accent-1);
-    background: rgba(30,64,175,0.08);
-    border: 1px solid rgba(30,64,175,0.22);
+    background: rgba(245,197,24,0.08);
+    border: 1px solid rgba(245,197,24,0.22);
     border-radius: 999px;
     padding: .5rem 1rem;
     margin: 0 auto 1.75rem auto;
@@ -962,7 +962,7 @@
   .contact-form textarea:focus {
     outline: none;
     border-color: var(--accent-1);
-    box-shadow: 0 0 0 3px rgba(30,64,175,0.15);
+    box-shadow: 0 0 0 3px rgba(245,197,24,0.15);
   }
   .contact-form textarea { resize: vertical; min-height: 110px; }
   .contact-form button { align-self: flex-start; margin-top: .25rem; }
@@ -1058,7 +1058,7 @@
     z-index: 60;
     display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     padding: .7rem clamp(1rem, 4vw, 2rem);
-    background: rgba(255,255,255,0.88);
+    background: rgba(42,42,47,0.88);
     -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
     border-top: 1px solid var(--border);
@@ -1079,6 +1079,34 @@
     .sticky-cta-text { display: none; }
     .sticky-cta { justify-content: center; }
   }
+
+
+/* ===== THEME: Charcoal gray + yellow (Apple-style layout) ===== */
+:root{
+  --bg-0:#202024; --bg-1:#1a1a1d;
+  --surface:#2a2a2f; --surface-translucent:rgba(42,42,47,0.6); --surface-2:#242428;
+  --border:#3a3a40; --border-strong:#4c4c54;
+  --text:#ececee; --text-dim:#c4c4c8; --text-muted:#9596a0;
+  --accent-1:#f5c518; --accent-2:#e0a800;
+  --grad-accent:linear-gradient(135deg,#ffd84d 0%,#f5b800 100%);
+  --accent-glow:245,197,24;
+  --font-display:-apple-system,'SF Pro Display','Segoe UI',system-ui,sans-serif; --font-body:-apple-system,'SF Pro Text','Segoe UI',system-ui,sans-serif;
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4); --shadow-md:0 8px 24px -10px rgba(0,0,0,.5); --shadow-lg:0 24px 60px -24px rgba(0,0,0,.6);
+  --r-sm:0.7rem; --r-md:1rem; --r-lg:1.25rem;
+}
+h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
+.bg-grain{opacity:0;}
+.btn,.nav-cta{border-radius:980px;}
+.btn-ghost{box-shadow:none;}
+.btn-primary{color:#111 !important;}
+.nav-cta{color:#111 !important;}
+.section{padding-block:clamp(4rem,11vw,8.5rem);}
+.bg-mesh{background:
+  radial-gradient(70% 55% at 50% -6%, rgba(245,197,24,.14), transparent 60%),
+  linear-gradient(180deg,#202024 0%,#1a1a1d 100%);}
+.section-tint{ --surface:#16161a; --surface-2:#101013; --surface-translucent:rgba(16,16,20,.7); --border:#33333a;}
+.uv-stats{background:#16161a;border-color:#33333a;}
+
 </style>
 
   <!-- Microsoft Clarity — free, privacy-friendly heatmaps & session replay to see where recruiters drop off.
