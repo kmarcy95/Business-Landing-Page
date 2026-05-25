@@ -1132,6 +1132,19 @@ h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
 @media (max-width:820px){.hiw-supers,.hiw-frameworks{grid-template-columns:1fr;}}
 </style>
 
+  <!-- Google Analytics 4 — measure traffic from your LinkedIn post (clicks, résumé downloads, leads).
+       The track() helper in the page JS already fires GA4 events once gtag is live.
+       1) Create a property at https://analytics.google.com   2) Copy the Measurement ID (looks like G-XXXXXXXXXX)
+       3) Replace BOTH instances of G-XXXXXXXXXX below, then delete these comment markers to activate.
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  -->
+
   <!-- Microsoft Clarity — free, privacy-friendly heatmaps & session replay to see where recruiters drop off.
        1) Create a project at https://clarity.microsoft.com   2) Copy your Project ID
        3) Replace CLARITY_PROJECT_ID below, then delete these comment markers to activate.
