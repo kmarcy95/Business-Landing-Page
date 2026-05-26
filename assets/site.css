@@ -1047,6 +1047,7 @@ h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
   linear-gradient(180deg,#0a0a0a 0%,#101012 100%);}
 .section-tint{ --surface:#1c1c20; --surface-2:#101012; --surface-translucent:rgba(20,20,22,.7); --border:#2f2f35;}
 .uv-stats{background:#141416;border-color:#2a2a2f;}
+.hero-portrait img{ border-radius:50%; box-shadow:0 0 0 1px var(--border), 0 0 0 6px var(--surface); }
 
 
 /* ===== How I Work (personality dossier) ===== */
