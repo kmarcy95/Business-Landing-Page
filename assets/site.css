@@ -1020,31 +1020,33 @@
   }
 
 
-/* ===== THEME: Charcoal gray + yellow (Apple-style layout) ===== */
+/* ===== THEME: Signal Cyan (near-black + cyan, Vercel-inflected) ===== */
 :root{
-  --bg-0:#202024; --bg-1:#1a1a1d;
-  --surface:#2a2a2f; --surface-translucent:rgba(42,42,47,0.6); --surface-2:#242428;
-  --border:#3a3a40; --border-strong:#4c4c54;
-  --text:#ececee; --text-dim:#c4c4c8; --text-muted:#9596a0;
-  --accent-1:#f5c518; --accent-2:#e0a800;
-  --grad-accent:linear-gradient(135deg,#ffd84d 0%,#f5b800 100%);
-  --accent-glow:245,197,24;
+  --bg-0:#0a0a0a; --bg-1:#101012;
+  --surface:#141416; --surface-translucent:rgba(20,20,22,0.65); --surface-2:#1c1c20;
+  --border:#2a2a2f; --border-strong:#3a3a40;
+  --text:#fafafa; --text-dim:#a3a3a3; --text-muted:#737373;
+  --accent-1:#00b8ff; --accent-2:#0090d4;
+  --grad-accent:linear-gradient(135deg,#00b8ff 0%,#0090d4 100%);
+  --accent-glow:0,184,255;
   --font-display:-apple-system,'SF Pro Display','Segoe UI',system-ui,sans-serif; --font-body:-apple-system,'SF Pro Text','Segoe UI',system-ui,sans-serif;
-  --shadow-sm:0 1px 2px rgba(0,0,0,.4); --shadow-md:0 8px 24px -10px rgba(0,0,0,.5); --shadow-lg:0 24px 60px -24px rgba(0,0,0,.6);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.45); --shadow-md:0 8px 24px -10px rgba(0,0,0,.55); --shadow-lg:0 24px 60px -24px rgba(0,0,0,.65);
   --r-sm:0.7rem; --r-md:1rem; --r-lg:1.25rem;
 }
 h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
 .bg-grain{opacity:0;}
 .btn,.nav-cta{border-radius:980px;}
-.btn-ghost{box-shadow:none;}
-.btn-primary{color:#111 !important;}
-.nav-cta{color:#111 !important;}
+.btn-ghost{box-shadow:none; border-color:var(--accent-1); color:var(--accent-1);}
+.btn-ghost:hover{background:rgba(0,184,255,0.08); border-color:var(--accent-1); color:var(--accent-1);}
+.btn-primary{color:#0a0a0a !important;}
+.nav-cta{color:#0a0a0a !important;}
+.skip-link{color:#0a0a0a !important;}
 .section{padding-block:clamp(4rem,11vw,8.5rem);}
 .bg-mesh{background:
-  radial-gradient(70% 55% at 50% -6%, rgba(245,197,24,.14), transparent 60%),
-  linear-gradient(180deg,#202024 0%,#1a1a1d 100%);}
-.section-tint{ --surface:#16161a; --surface-2:#101013; --surface-translucent:rgba(16,16,20,.7); --border:#33333a;}
-.uv-stats{background:#16161a;border-color:#33333a;}
+  radial-gradient(900px 500px at 50% -10%, rgba(0,184,255,.10), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%);}
+.section-tint{ --surface:#1c1c20; --surface-2:#101012; --surface-translucent:rgba(20,20,22,.7); --border:#2f2f35;}
+.uv-stats{background:#141416;border-color:#2a2a2f;}
 
 
 /* ===== How I Work (personality dossier) ===== */
