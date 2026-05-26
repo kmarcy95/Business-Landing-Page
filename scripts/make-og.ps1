@@ -8,15 +8,15 @@ $g = [System.Drawing.Graphics]::FromImage($bmp)
 $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 $g.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::ClearTypeGridFit
 
-# Background: white
-$g.Clear([System.Drawing.Color]::FromArgb(255, 255, 255))
+# Background: charcoal
+$g.Clear([System.Drawing.Color]::FromArgb(32, 32, 36))
 
-# Top accent band (navy)
-$g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(30, 64, 175))), 0, 0, $W, 14)
+# Top accent band (yellow)
+$g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 197, 24))), 0, 0, $W, 14)
 
-# Brand orb (gradient circle)
+# Brand orb (yellow gradient circle)
 $orb = New-Object System.Drawing.Rectangle(80, 86, 64, 64)
-$orbBrush = New-Object System.Drawing.Drawing2D.LinearGradientBrush($orb, [System.Drawing.Color]::FromArgb(47, 91, 224), [System.Drawing.Color]::FromArgb(30, 58, 138), 45)
+$orbBrush = New-Object System.Drawing.Drawing2D.LinearGradientBrush($orb, [System.Drawing.Color]::FromArgb(255, 216, 77), [System.Drawing.Color]::FromArgb(245, 184, 0), 45)
 $g.FillEllipse($orbBrush, $orb)
 
 # Fonts
@@ -26,12 +26,12 @@ $fLine = New-Object System.Drawing.Font("Segoe UI", 25, [System.Drawing.FontStyl
 $fUrl  = New-Object System.Drawing.Font("Consolas", 22, [System.Drawing.FontStyle]::Regular)
 
 # Brushes
-$ink  = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(22, 23, 28))
-$blue = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(30, 64, 175))
-$gray = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(91, 93, 104))
+$ink    = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(236, 236, 238))
+$yellow = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 197, 24))
+$gray   = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(149, 150, 160))
 
 $g.DrawString("Keystone Marcy", $fName, $ink, 76, 200)
-$g.DrawString("FP&A & Strategic Finance Leader", $fSub, $blue, 80, 300)
+$g.DrawString("FP&A & Strategic Finance Leader", $fSub, $yellow, 80, 300)
 $g.DrawString("Apps, AI workflows & Excel/ERP tooling for finance teams", $fLine, $gray, 80, 358)
 $g.DrawString("keystonemarcy.netlify.app", $fUrl, $gray, 80, 520)
 
