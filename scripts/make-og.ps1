@@ -9,14 +9,14 @@ $g.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
 $g.TextRenderingHint = [System.Drawing.Text.TextRenderingHint]::ClearTypeGridFit
 
 # Background: charcoal
-$g.Clear([System.Drawing.Color]::FromArgb(32, 32, 36))
+$g.Clear([System.Drawing.Color]::FromArgb(10, 10, 10))
 
 # Top accent band (yellow)
-$g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 197, 24))), 0, 0, $W, 14)
+$g.FillRectangle((New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(0, 184, 255))), 0, 0, $W, 14)
 
 # Brand orb (yellow gradient circle)
 $orb = New-Object System.Drawing.Rectangle(80, 86, 64, 64)
-$orbBrush = New-Object System.Drawing.Drawing2D.LinearGradientBrush($orb, [System.Drawing.Color]::FromArgb(255, 216, 77), [System.Drawing.Color]::FromArgb(245, 184, 0), 45)
+$orbBrush = New-Object System.Drawing.Drawing2D.LinearGradientBrush($orb, [System.Drawing.Color]::FromArgb(0, 184, 255), [System.Drawing.Color]::FromArgb(0, 144, 212), 45)
 $g.FillEllipse($orbBrush, $orb)
 
 # Fonts
@@ -26,8 +26,8 @@ $fLine = New-Object System.Drawing.Font("Segoe UI", 25, [System.Drawing.FontStyl
 $fUrl  = New-Object System.Drawing.Font("Consolas", 22, [System.Drawing.FontStyle]::Regular)
 
 # Brushes
-$ink    = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(236, 236, 238))
-$yellow = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(245, 197, 24))
+$ink    = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(250, 250, 250))
+$yellow = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(0, 184, 255))
 $gray   = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(149, 150, 160))
 
 $g.DrawString("Keystone Marcy", $fName, $ink, 76, 200)
