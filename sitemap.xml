@@ -5,4 +5,10 @@
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://keystonemarcy.netlify.app/work/d365.html</loc></url>
+  <url><loc>https://keystonemarcy.netlify.app/work/codex.html</loc></url>
+  <url><loc>https://keystonemarcy.netlify.app/work/agentic-os.html</loc></url>
+  <url><loc>https://keystonemarcy.netlify.app/work/creator.html</loc></url>
+  <url><loc>https://keystonemarcy.netlify.app/work/aurora.html</loc></url>
+  <url><loc>https://keystonemarcy.netlify.app/work/ml.html</loc></url>
 </urlset>
