@@ -1063,6 +1063,7 @@ h1,h2,h3{letter-spacing:-0.015em;font-weight:600;}
 .hiw-fw-head{display:flex;flex-direction:column;gap:.2rem;margin-bottom:1rem;}
 .hiw-fw-name{font-family:var(--font-display);font-weight:700;font-size:1.05rem;}
 .hiw-fw-type{font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--accent-1);}
+.hiw-fw-blurb{font-size:.82rem;line-height:1.55;color:var(--text-dim);margin:-.4rem 0 1rem;}
 .hiw-bar{display:grid;grid-template-columns:6.5rem 1fr 1.8rem;align-items:center;gap:.6rem;margin:.5rem 0;font-size:.78rem;}
 .hiw-bar-label{color:var(--text-muted);}
 .hiw-bar-track{height:8px;background:var(--surface-2);border:1px solid var(--border);border-radius:999px;overflow:hidden;}
