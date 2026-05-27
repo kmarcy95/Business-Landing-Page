@@ -56,7 +56,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/site.css" />
 
@@ -775,8 +775,14 @@
         var spyIO = new IntersectionObserver(function (entries) {
           entries.forEach(function (e) {
             if (!e.isIntersecting) return;
-            spyIds.forEach(function (id) { spyLinks[id].classList.remove('active'); });
-            if (spyLinks[e.target.id]) spyLinks[e.target.id].classList.add('active');
+            spyIds.forEach(function (id) {
+              spyLinks[id].classList.remove('active');
+              spyLinks[id].removeAttribute('aria-current');
+            });
+            if (spyLinks[e.target.id]) {
+              spyLinks[e.target.id].classList.add('active');
+              spyLinks[e.target.id].setAttribute('aria-current', 'page');
+            }
           });
         }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
         spyIds.forEach(function (id) {
