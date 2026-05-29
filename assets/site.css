@@ -746,7 +746,7 @@
     top: .5rem;
     bottom: .5rem;
     width: 2px;
-    background: linear-gradient(var(--accent-1), rgba(245,197,24,0.15));
+    background: linear-gradient(var(--accent-1), rgba(var(--accent-glow),0.15));
   }
   .xp-item {
     position: relative;
