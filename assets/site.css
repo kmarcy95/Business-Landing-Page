@@ -680,12 +680,12 @@
   .skill-list { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
   .skill {
     padding: .45rem .8rem;
-    background: rgba(245,197,24,0.08);
-    border: 1px solid rgba(245,197,24,0.22);
+    background: rgba(var(--accent-glow),0.10);
+    border: 1px solid rgba(var(--accent-glow),0.28);
     border-radius: var(--r-sm);
     font-size: .85rem;
     font-weight: 500;
-    color: var(--accent-2);
+    color: var(--accent-1);
   }
   .about-aside {
     display: grid;
