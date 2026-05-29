@@ -1285,3 +1285,59 @@ body.theme-green .bg-mesh{ background:
 .hiw-lead { padding: 1.5rem 1.7rem; }
 .detail-intro { padding: 1.6rem 1.75rem; }
 .consult-capabilities { padding: 1.5rem 1.75rem; }
+
+/* ===== Per-tab accent themes (extends body.theme-green) ===== */
+/* Each theme overrides the 4 accent tokens + the two hardcoded-cyan spots. */
+
+/* Work — Indigo */
+body.theme-indigo{ --accent-1:#6E7BE6; --accent-2:#5462C8;
+  --grad-accent:linear-gradient(135deg,#6E7BE6 0%,#5462C8 100%); --accent-glow:110,123,230; }
+body.theme-indigo .btn-ghost:hover{ background:rgba(110,123,230,0.10); }
+body.theme-indigo .bg-mesh{ background:
+  radial-gradient(900px 500px at 50% -10%, rgba(110,123,230,.12), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
+body.theme-indigo .btn-primary, body.theme-indigo .nav-cta{ color:#fff !important; }
+
+/* About — Bronze */
+body.theme-bronze{ --accent-1:#C2A14D; --accent-2:#A6863A;
+  --grad-accent:linear-gradient(135deg,#C2A14D 0%,#A6863A 100%); --accent-glow:194,161,77; }
+body.theme-bronze .btn-ghost:hover{ background:rgba(194,161,77,0.10); }
+body.theme-bronze .bg-mesh{ background:
+  radial-gradient(900px 500px at 50% -10%, rgba(194,161,77,.12), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
+
+/* How I Work — Amethyst */
+body.theme-amethyst{ --accent-1:#9A7BD0; --accent-2:#7E5FB8;
+  --grad-accent:linear-gradient(135deg,#9A7BD0 0%,#7E5FB8 100%); --accent-glow:154,123,208; }
+body.theme-amethyst .btn-ghost:hover{ background:rgba(154,123,208,0.10); }
+body.theme-amethyst .bg-mesh{ background:
+  radial-gradient(900px 500px at 50% -10%, rgba(154,123,208,.12), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
+body.theme-amethyst .btn-primary, body.theme-amethyst .nav-cta{ color:#fff !important; }
+
+/* Experience — Teal */
+body.theme-teal{ --accent-1:#159C92; --accent-2:#0E7E76;
+  --grad-accent:linear-gradient(135deg,#159C92 0%,#0E7E76 100%); --accent-glow:21,156,146; }
+body.theme-teal .btn-ghost:hover{ background:rgba(21,156,146,0.12); }
+body.theme-teal .bg-mesh{ background:
+  radial-gradient(900px 500px at 50% -10%, rgba(21,156,146,.12), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
+body.theme-teal .btn-primary, body.theme-teal .nav-cta{ color:#fff !important; }
+
+/* Contact — Clay */
+body.theme-clay{ --accent-1:#C9714E; --accent-2:#A85B3D;
+  --grad-accent:linear-gradient(135deg,#C9714E 0%,#A85B3D 100%); --accent-glow:201,113,78; }
+body.theme-clay .btn-ghost:hover{ background:rgba(201,113,78,0.12); }
+body.theme-clay .bg-mesh{ background:
+  radial-gradient(900px 500px at 50% -10%, rgba(201,113,78,.12), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
+body.theme-clay .btn-primary, body.theme-clay .nav-cta{ color:#fff !important; }
+
+/* Active nav link uses the page's accent */
+.nav-links a.active{ color:var(--accent-1); }
+
+/* Page header (subject pages) */
+.page-head{ margin:1.75rem 0 1.5rem; max-width:72ch; }
+.page-head .page-icon{ width:40px; height:40px; color:var(--accent-1); margin-bottom:.6rem; }
+.page-title{ font-family:var(--font-display); font-size:clamp(2rem,4.4vw,3rem); line-height:1.08; margin:.25rem 0 .5rem; }
+.page-intro{ color:var(--text-dim); font-size:1.2rem; line-height:1.55; margin:0; max-width:62ch; }
