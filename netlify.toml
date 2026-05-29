@@ -7,3 +7,16 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Consolidated the consulting page into /services (2026-05-28)
+[[redirects]]
+  from = "/consulting"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/consulting.html"
+  to = "/services"
+  status = 301
+  force = true
