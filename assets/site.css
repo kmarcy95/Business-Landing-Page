@@ -1288,13 +1288,17 @@ body.theme-green .bg-mesh{ background:
 
 /* ===== Home: section dividers + featured-work thumbnails ===== */
 .divider{ height:1px; max-width:220px; margin:0 auto; background:linear-gradient(90deg,transparent,var(--border-strong),transparent); }
-.home-roles{ list-style:none; margin:1.25rem 0 0; padding:0; display:flex; flex-direction:column; gap:.6rem; max-width:780px; }
-.home-roles li{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap;
-  padding:.95rem 1.15rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-md); box-shadow:var(--shadow-sm); }
+.home-roles{ list-style:none; margin:1.25rem 0 0; padding:0; display:flex; flex-direction:column; gap:.75rem; max-width:840px; }
+.home-roles > li{ padding:1.1rem 1.25rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-md); box-shadow:var(--shadow-sm); }
+.home-role-head{ display:flex; justify-content:space-between; align-items:baseline; gap:1rem; flex-wrap:wrap; margin-bottom:.7rem; }
 .home-role-main{ display:flex; flex-direction:column; gap:.15rem; }
-.home-role-co{ font-family:var(--font-display); font-weight:600; font-size:1.12rem; color:var(--text); }
+.home-role-co{ font-family:var(--font-display); font-weight:600; font-size:1.15rem; color:var(--text); }
 .home-role-title{ color:var(--text-dim); font-size:.98rem; }
 .home-role-date{ font-family:var(--font-mono); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent-1); white-space:nowrap; }
+.home-role-points{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:.45rem; }
+.home-role-points li{ position:relative; padding-left:1.25rem; color:var(--text-dim); font-size:1.02rem; line-height:1.55; }
+.home-role-points li::before{ content:''; position:absolute; left:0; top:.5em; width:.45rem; height:.45rem; border-radius:2px; background:var(--accent-1); }
+.home-role-points strong{ color:var(--accent-1); font-weight:700; }
 .home-feat-card .shot{ margin:0 0 1rem; }
 .home-feat-card .card-image{ height:auto; width:100%; aspect-ratio:16/10; object-fit:cover; }
 
