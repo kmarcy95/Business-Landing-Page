@@ -1286,6 +1286,11 @@ body.theme-green .bg-mesh{ background:
 .detail-intro { padding: 1.6rem 1.75rem; }
 .consult-capabilities { padding: 1.5rem 1.75rem; }
 
+/* ===== Home: section dividers + featured-work thumbnails ===== */
+.divider{ height:1px; max-width:220px; margin:0 auto; background:linear-gradient(90deg,transparent,var(--border-strong),transparent); }
+.home-feat-card .shot{ margin:0 0 1rem; }
+.home-feat-card .card-image{ height:auto; width:100%; aspect-ratio:16/10; object-fit:cover; }
+
 /* ===== Per-tab accent themes (extends body.theme-green) ===== */
 /* Each theme overrides the 4 accent tokens + the two hardcoded-cyan spots. */
 
