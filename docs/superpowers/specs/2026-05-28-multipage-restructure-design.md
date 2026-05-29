@@ -78,23 +78,25 @@ body.theme-violet .bg-mesh { background: radial-gradient(… rgba(<glow>,.10) �
 Because every component reads `var(--accent-*)`, the page's buttons, links, the active nav link, icons,
 chart fills, focus rings, brand orb, and `.bg-mesh` glow all pick up the page color automatically.
 
-**Proposed palette** (exact shades contrast-tuned during implementation):
+**Palette — refined / muted "executive" tones** (each distinct, all professional; exact shades
+contrast-tuned during implementation):
 
-| Theme | accent-1 | accent-2 | Notes |
-|---|---|---|---|
-| Cyan (Home) | `#00b8ff` | `#0090d4` | site default, unchanged |
-| Violet (Work) | `#a06bff` | `#7c4dff` | |
-| Green (Services) | `#22c55e` | `#16a34a` | existing |
-| Amber (About) | `#f5b324` | `#d99814` | |
-| Magenta (How I Work) | `#f062c0` | `#d23ea4` | |
-| Teal (Experience) | `#2dd4bf` | `#14b8a6` | |
-| Coral (Contact) | `#ff7a59` | `#f2542d` | |
+| Theme | accent-1 | accent-2 | Primary-btn text | Notes |
+|---|---|---|---|---|
+| Cyan (Home) | `#00b8ff` | `#0090d4` | dark `#0a0a0a` | brand signature, unchanged |
+| Indigo (Work) | `#6E7BE6` | `#5462C8` | white | muted indigo-blue (not neon violet) |
+| Emerald (Services) | `#22c55e` | `#16a34a` | dark `#0a0a0a` | already built/approved |
+| Bronze (About) | `#C2A14D` | `#A6863A` | dark `#0a0a0a` | muted gold/bronze (not neon amber) |
+| Amethyst (How I Work) | `#9A7BD0` | `#7E5FB8` | white | muted purple (not magenta) |
+| Teal (Experience) | `#159C92` | `#0E7E76` | white | deep professional teal |
+| Clay (Contact) | `#C9714E` | `#A85B3D` | white | muted terracotta (not bright coral) |
 
-**Contrast rule:** `.btn-primary`/`.nav-cta` use dark text (`#0a0a0a`) on the accent. For any accent
-whose gradient is too dark for AA with dark text (likely Violet, Magenta, Coral), add a per-theme
-override flipping that page's primary-button text to white (`.theme-X .btn-primary{color:#fff
-!important}`). All ghost-button/link text uses accent-on-near-black, which passes for every hue. The
-gray-box surface/border tokens stay neutral across all themes (only the accent changes per page).
+**Contrast rule:** `.btn-primary`/`.nav-cta` use dark text (`#0a0a0a`) on light accents (Cyan, Emerald,
+Bronze) and **white** text on the darker accents (Indigo, Amethyst, Teal, Clay) via a per-theme
+override (`.theme-X .btn-primary, .theme-X .nav-cta { color:#fff !important }`). All ghost-button/link
+text uses accent-on-near-black, which passes AA for every hue. The gray-box surface/border tokens
+stay neutral across all themes — only the accent changes per page, so the whole site reads as one
+refined family rather than a rainbow.
 
 ## Graphics plan (mix)
 
