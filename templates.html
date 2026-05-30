@@ -122,9 +122,19 @@
           <p class="card-desc">
             Weekly cash visibility with paste-and-categorize bank / AR / AP import, a liquidity covenant tracker, and forecast-vs-actual variance. Scenario toggle (Base / Conservative / Optimistic). Built for Excel 2016+.
           </p>
-          <p class="services-cta">
-            <a class="btn btn-primary" href="https://gumroad.com/l/PLACEHOLDER-13WEEK" target="_blank" rel="noopener noreferrer" data-cta="templates_get_13week">Get it on Gumroad <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
-          </p>
+          <form name="buy13week" action="https://api.web3forms.com/submit" method="POST" class="contact-form buy-form">
+            <input type="hidden" name="access_key" value="457f9dc9-76ba-4c91-b515-fdb1ffba7243" />
+            <input type="hidden" name="subject" value="Purchase request — 13-Week Cash Flow Forecast ($99)" />
+            <input type="hidden" name="from_name" value="KM Consulting Templates" />
+            <input type="hidden" name="cc" value="kmarcy@KMConsulting995.onmicrosoft.com" />
+            <input type="checkbox" name="botcheck" class="hidden-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="field">
+              <label for="buy13week-email">Email</label>
+              <input id="buy13week-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
+            </div>
+            <button type="submit" class="btn btn-primary" data-cta="templates_get_13week">Request to buy — $99 <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
+          </form>
+          <p class="card-fineprint" style="font-size:.85rem;color:var(--text-muted);margin-top:.6rem;">I'll email you a secure payment link and the file within 1 business day. Excel 2016+.</p>
         </div>
 
       </div>
@@ -203,6 +213,45 @@
                 starterFormEl.replaceChildren(msg);
                 var dl = document.getElementById('starter-download');
                 if (dl) dl.hidden = false;
+              } else {
+                showError('Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
+              }
+            })
+            .catch(function () {
+              showError('Network error. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
+            });
+        });
+      }
+
+      /* ===== Paid 13-Week purchase inquiry (Web3Forms) ===== */
+      var buyFormEl = document.querySelector('form[name="buy13week"]');
+      if (buyFormEl) {
+        buyFormEl.addEventListener('submit', function (e) {
+          e.preventDefault();
+          track('generate_lead', { method: 'buy13week_form' });
+          var btn = buyFormEl.querySelector('button[type="submit"]');
+          var btnKids = btn ? Array.prototype.slice.call(btn.childNodes) : null;
+          function resetBtn() { if (btn) { btn.disabled = false; btn.replaceChildren.apply(btn, btnKids); } }
+          function showError(text) {
+            var old = buyFormEl.querySelector('.form-status');
+            if (old) old.remove();
+            var msg = document.createElement('p');
+            msg.className = 'form-status form-status--err';
+            msg.setAttribute('role', 'alert');
+            msg.textContent = text;
+            buyFormEl.appendChild(msg);
+            resetBtn();
+          }
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(buyFormEl) })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (data.success) {
+                var msg = document.createElement('p');
+                msg.className = 'form-status form-status--ok';
+                msg.setAttribute('role', 'status');
+                msg.textContent = "Got it — I'll email your payment link and the file within 1 business day.";
+                buyFormEl.replaceChildren(msg);
               } else {
                 showError('Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
               }
