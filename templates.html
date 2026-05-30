@@ -89,8 +89,22 @@
           <p class="card-desc">
             Know exactly how many months of cash you have left. Monthly inflow/outflow, a 12-month runway projection, and a 3-scenario stress test. Works in Excel and Google Sheets.
           </p>
-          <p class="services-cta">
-            <a class="btn btn-primary" href="#get-starter" data-cta="templates_get_starter">Get the free tracker <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+
+          <form name="starter" action="https://api.web3forms.com/submit" method="POST" class="contact-form starter-form">
+            <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY" />
+            <input type="hidden" name="subject" value="New Cash Flow Starter download" />
+            <input type="hidden" name="from_name" value="KM Consulting Templates" />
+            <input type="hidden" name="cc" value="kmarcy@KMConsulting995.onmicrosoft.com" />
+            <input type="checkbox" name="botcheck" class="hidden-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="field">
+              <label for="starter-email">Email</label>
+              <input id="starter-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Email me the free tracker <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
+          </form>
+
+          <p class="starter-download" id="starter-download" hidden>
+            <a class="btn btn-ghost" href="downloads/KM-Consulting_SmallBiz-CashFlow-Runway-Starter_v1.0.xlsx" download data-cta="templates_starter_download">Download the Starter (.xlsx) <span class="btn-arrow" aria-hidden="true">&darr;</span></a>
           </p>
         </div>
 
@@ -157,6 +171,47 @@
           track('select_content', { content_type: 'cta', content_id: el.dataset.cta });
         });
       });
+
+      /* ===== Free Starter email capture (Web3Forms) ===== */
+      var starterFormEl = document.querySelector('form[name="starter"]');
+      if (starterFormEl) {
+        starterFormEl.addEventListener('submit', function (e) {
+          e.preventDefault();
+          track('generate_lead', { method: 'starter_form' });
+          var btn = starterFormEl.querySelector('button[type="submit"]');
+          var btnKids = btn ? Array.prototype.slice.call(btn.childNodes) : null;
+          function resetBtn() { if (btn) { btn.disabled = false; btn.replaceChildren.apply(btn, btnKids); } }
+          function showError(text) {
+            var old = starterFormEl.querySelector('.form-status');
+            if (old) old.remove();
+            var msg = document.createElement('p');
+            msg.className = 'form-status form-status--err';
+            msg.setAttribute('role', 'alert');
+            msg.textContent = text;
+            starterFormEl.appendChild(msg);
+            resetBtn();
+          }
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(starterFormEl) })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (data.success) {
+                var msg = document.createElement('p');
+                msg.className = 'form-status form-status--ok';
+                msg.setAttribute('role', 'status');
+                msg.textContent = "You're in — check your inbox. Your download is ready below too.";
+                starterFormEl.replaceChildren(msg);
+                var dl = document.getElementById('starter-download');
+                if (dl) dl.hidden = false;
+              } else {
+                showError('Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
+              }
+            })
+            .catch(function () {
+              showError('Network error. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
+            });
+        });
+      }
 
       /* ===== Reveal-on-scroll ===== */
       var targets = document.querySelectorAll('.reveal');
