@@ -1368,3 +1368,13 @@ body.theme-clay .bg-mesh{ background:
 .page-head .page-icon{ width:40px; height:40px; color:var(--accent-1); margin-bottom:.6rem; }
 .page-title{ font-family:var(--font-display); font-size:clamp(2rem,4.4vw,3rem); line-height:1.08; margin:.25rem 0 .5rem; }
 .page-intro{ color:var(--text-dim); font-size:1.2rem; line-height:1.55; margin:0; max-width:62ch; }
+
+.form-status {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 500;
+}

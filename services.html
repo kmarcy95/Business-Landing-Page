@@ -173,11 +173,12 @@
       <h2 class="contact-title">Tell me what you want automated.</h2>
       <p class="contact-sub">A few quick details and I&rsquo;ll come back with how I&rsquo;d approach it, a rough estimate, and next steps. No obligation.</p>
 
-      <form name="consulting-intake" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form consult-form">
-        <input type="hidden" name="form-name" value="consulting-intake" />
-        <p class="hidden-field" aria-hidden="true">
-          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-        </p>
+      <form name="consulting-intake" action="https://api.web3forms.com/submit" method="POST" class="contact-form consult-form">
+        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New consulting intake — keystonemarcy.pages.dev" />
+        <input type="hidden" name="from_name" value="KM Consulting site" />
+        <input type="hidden" name="cc" value="kmarcy@KMConsulting995.onmicrosoft.com" />
+        <input type="checkbox" name="botcheck" class="hidden-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="field">
           <label for="if-name">Name</label>
           <input id="if-name" type="text" name="name" autocomplete="name" required />
@@ -285,8 +286,32 @@
       });
       var intakeFormEl = document.querySelector('form[name="consulting-intake"]');
       if (intakeFormEl) {
-        intakeFormEl.addEventListener('submit', function () {
+        intakeFormEl.addEventListener('submit', function (e) {
+          e.preventDefault();
           track('generate_lead', { method: 'consulting_intake' });
+          var btn = intakeFormEl.querySelector('button[type="submit"]');
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(intakeFormEl) })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              var msg = document.createElement('p');
+              msg.className = 'form-status';
+              if (data.success) {
+                msg.textContent = "Got it — I'll review your project and come back with an approach and rough estimate shortly.";
+                intakeFormEl.replaceChildren(msg);
+              } else {
+                msg.textContent = 'Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.';
+                intakeFormEl.appendChild(msg);
+                if (btn) { btn.disabled = false; btn.textContent = 'Send request'; }
+              }
+            })
+            .catch(function () {
+              var msg = document.createElement('p');
+              msg.className = 'form-status';
+              msg.textContent = 'Network error. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.';
+              intakeFormEl.appendChild(msg);
+              if (btn) { btn.disabled = false; btn.textContent = 'Send request'; }
+            });
         });
       }
 
