@@ -1378,3 +1378,5 @@ body.theme-clay .bg-mesh{ background:
   color: var(--text);
   font-weight: 500;
 }
+.form-status--ok { border-color: #22c55e; color: #22c55e; }
+.form-status--err { border-color: #f87171; color: #f87171; }
