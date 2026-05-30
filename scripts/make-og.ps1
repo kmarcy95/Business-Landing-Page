@@ -33,7 +33,7 @@ $gray   = New-Object System.Drawing.SolidBrush([System.Drawing.Color]::FromArgb(
 $g.DrawString("Keystone Marcy", $fName, $ink, 76, 200)
 $g.DrawString("FP&A & Strategic Finance Leader", $fSub, $yellow, 80, 300)
 $g.DrawString("Apps, AI workflows & Excel/ERP tooling for finance teams", $fLine, $gray, 80, 358)
-$g.DrawString("keystonemarcy.netlify.app", $fUrl, $gray, 80, 520)
+$g.DrawString("keystonemarcy.pages.dev", $fUrl, $gray, 80, 520)
 
 $out = Join-Path $PSScriptRoot "..\images\og.png"
 $bmp.Save($out, [System.Drawing.Imaging.ImageFormat]::Png)

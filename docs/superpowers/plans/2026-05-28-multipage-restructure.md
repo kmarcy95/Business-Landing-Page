@@ -189,7 +189,7 @@ Body wrapper for all subpages: `<body class="theme-X">` → `<a class="skip-link
 **Files:**
 - Create: `work.html`
 
-- [ ] **Step 1: Scaffold** the page using the Task-2 shell with `<body class="theme-indigo">`, nav "Work" link `class="active" aria-current="page"`. Head: title `Work — Keystone Marcy | KM Consulting`, description about the project portfolio, canonical `https://keystonemarcy.netlify.app/work`, OG image `images/og.png`.
+- [ ] **Step 1: Scaffold** the page using the Task-2 shell with `<body class="theme-indigo">`, nav "Work" link `class="active" aria-current="page"`. Head: title `Work — Keystone Marcy | KM Consulting`, description about the project portfolio, canonical `https://keystonemarcy.pages.dev/work`, OG image `images/og.png`.
 
 - [ ] **Step 2: Page header** — icon (grid/layers), eyebrow `SELECTED WORK`, title `Things I've built.`, intro: "Finance tooling, AI systems, and apps I've designed and shipped — each one solving a real reporting or workflow gap. Click any project for the full walkthrough."
 
@@ -222,7 +222,7 @@ git commit -m "Add Work portfolio index page (indigo theme)"
 - Create: `services.html`
 - Reference: `consulting.html` (source of rate band, tiers, intake form), `index.html` lines 438–465 (the 3 service cards)
 
-- [ ] **Step 1: Scaffold** with `<body class="theme-green">`, nav "Services" link `active`. Head: title `Services — AI & Excel Automation | KM Consulting`, description (merge of consulting + services), canonical `https://keystonemarcy.netlify.app/services`, keep the `Service`/`Offer` JSON-LD from `consulting.html`, green favicon SVG (copy from `consulting.html`).
+- [ ] **Step 1: Scaffold** with `<body class="theme-green">`, nav "Services" link `active`. Head: title `Services — AI & Excel Automation | KM Consulting`, description (merge of consulting + services), canonical `https://keystonemarcy.pages.dev/services`, keep the `Service`/`Offer` JSON-LD from `consulting.html`, green favicon SVG (copy from `consulting.html`).
 
 - [ ] **Step 2: Page header** — icon (gear/sliders), eyebrow `SERVICES`, title `What I build, and how to hire me.`, intro: "AI automation, Excel automation, and the custom finance tooling teams actually need — available by the hour or as a scoped project."
 
@@ -594,7 +594,7 @@ git commit -m "Add SVG/CSS metric rings + dividers for Home graphics"
 Run: `pwsh -File scripts/make-page-graphics.ps1`
 Expected: PNGs written under `images/og/`.
 
-- [ ] **Step 2: Convert OG PNGs to keep size reasonable** (optional) and wire each page's `<head>` `og:image`/`twitter:image` to its `images/og/<page>.png` (absolute URL `https://keystonemarcy.netlify.app/images/og/<page>.png`).
+- [ ] **Step 2: Convert OG PNGs to keep size reasonable** (optional) and wire each page's `<head>` `og:image`/`twitter:image` to its `images/og/<page>.png` (absolute URL `https://keystonemarcy.pages.dev/images/og/<page>.png`).
 
 - [ ] **Step 3: Verify** — each `images/og/<page>.png` exists and is 1200×630; OG tags reference the right file per page.
 
@@ -642,7 +642,7 @@ Expected: 1 each.
 
 ## Task 15: Deploy to both Netlify sites + post-deploy checks
 
-- [ ] **Step 1: Push canonical** (auto-deploys keystonemarcy.netlify.app):
+- [ ] **Step 1: Push canonical** (auto-deploys keystonemarcy.pages.dev):
 
 ```bash
 git push origin main
@@ -661,7 +661,7 @@ mv /c/tmp/bl-stash/preview-*.html . 2>/dev/null; mv /c/tmp/bl-stash/ruvector.db 
 - [ ] **Step 3: Post-deploy URL checks** (both sites):
 
 ```bash
-for base in https://keystonemarcy.netlify.app https://keystonemarcykmconsulting.netlify.app; do
+for base in https://keystonemarcy.pages.dev https://keystonemarcykmconsulting.netlify.app; do
   echo "== $base =="
   for path in / /work /services /about /how-i-work /experience /contact /consulting /ruvector.db; do
     printf "%s%s -> " "$base" "$path"; curl -s -o /dev/null -w "%{http_code}\n" "$base$path"

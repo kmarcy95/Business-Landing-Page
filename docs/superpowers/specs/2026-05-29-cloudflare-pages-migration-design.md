@@ -54,7 +54,7 @@ Three independent units, each migrated and verifiable on its own.
   - Per form: remove Netlify-specific markup (`data-netlify`, `netlify-honeypot`, any hidden `form-name` input); set `action="https://api.web3forms.com/submit"` `method="POST"`; add hidden `access_key`; keep a honeypot field (`botcheck`); preserve existing field names; add a hidden `subject`/`from_name` for clean email subjects; set a `redirect` or handle the JSON response in the existing form JS (`contactFormEl` / `intakeFormEl` handlers already exist).
   - `preview-*.html` are gitignored scratch files — **ignore** (they also contain old Netlify forms but never deploy).
   - Web3Forms access key is registered to the user's email; configure recipients to match today's Netlify notifications (`kmarcy@KMconsulting995.onmicrosoft.com` and `marcy.keystone@outlook.com`).
-- **URL change:** strings hardcoded to `https://keystonemarcy.netlify.app` (canonical link, OG/Twitter image URLs, JSON-LD `url`/`image`, `sitemap.xml`) must be updated to the new `*.pages.dev` URL.
+- **URL change:** strings hardcoded to `https://keystonemarcy.pages.dev` (canonical link, OG/Twitter image URLs, JSON-LD `url`/`image`, `sitemap.xml`) must be updated to the new `*.pages.dev` URL.
 
 ### Unit B — Personal Landing Page (`keith-links-995` → Cloudflare Pages)
 - **Source:** GitHub `kmarcy95/Personal-Landing-Page`, single-file static HTML + `planner.html` + `gallery.json`, **no build step**.

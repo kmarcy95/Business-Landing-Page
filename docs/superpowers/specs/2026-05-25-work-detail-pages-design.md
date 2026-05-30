@@ -81,11 +81,11 @@ Every detail page has this exact structure (no per-page variation in skeleton):
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#202024" />
   <meta name="description" content="<per-page>" />
-  <link rel="canonical" href="https://keystonemarcy.netlify.app/work/<slug>.html" />
+  <link rel="canonical" href="https://keystonemarcy.pages.dev/work/<slug>.html" />
   <!-- OG: hero is the page's OG image -->
   <meta property="og:type" content="article" />
   <meta property="og:title" content="<per-page>" />
-  <meta property="og:image" content="https://keystonemarcy.netlify.app/images/work/<slug>/hero.webp" />
+  <meta property="og:image" content="https://keystonemarcy.pages.dev/images/work/<slug>/hero.webp" />
   <title><per-page> — Keystone Marcy</title>
   <link rel="stylesheet" href="../assets/site.css" />
   <!-- fonts preconnect same as index.html -->

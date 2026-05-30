@@ -817,7 +817,7 @@ Netlify auto-deploys from main; watch the dashboard or:
 netlify deploy --prod --dir .
 ```
 
-Open `https://keystonemarcy.netlify.app/` in an incognito window and walk the page one more time on the live deploy.
+Open `https://keystonemarcy.pages.dev/` in an incognito window and walk the page one more time on the live deploy.
 
 ---
 

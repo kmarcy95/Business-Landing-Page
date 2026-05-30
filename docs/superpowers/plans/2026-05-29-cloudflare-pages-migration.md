@@ -246,7 +246,7 @@ git commit -m "Convert consulting-intake form to Web3Forms + add form-status sty
 ### Task 4: Rewrite Business LP `netlify.app` URLs → `pages.dev`
 
 **Files:**
-- Modify: every tracked file containing `keystonemarcy.netlify.app` (16 files: `index.html`, `about.html`, `contact.html`, `experience.html`, `how-i-work.html`, `services.html`, `work.html`, `work/*.html`, `robots.txt`, `sitemap.xml`)
+- Modify: every tracked file containing `keystonemarcy.pages.dev` (16 files: `index.html`, `about.html`, `contact.html`, `experience.html`, `how-i-work.html`, `services.html`, `work.html`, `work/*.html`, `robots.txt`, `sitemap.xml`)
 
 - [ ] **Step 1: Replace the domain across all tracked files**
 

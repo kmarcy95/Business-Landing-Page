@@ -134,7 +134,7 @@ Business-Landing-Page/
 ## Hosting
 
 - **Repo:** new GitHub repo under `kmarcy95/Business-Landing-Page` (separate from `Personal-Landing-Page`)
-- **Host:** new Netlify site, proposed subdomain `keystonemarcy.netlify.app` (fallback `kmconsulting.netlify.app`)
+- **Host:** new Netlify site, proposed subdomain `keystonemarcy.pages.dev` (fallback `kmconsulting.netlify.app`)
 - **Deploy:** Netlify auto-deploys on push to `main`. No build command — publish directory `.`.
 - **Custom domain:** out of scope for v1; can be upgraded later.
 

@@ -370,7 +370,7 @@ Note: `C:\Users\keyst` is the home directory git repo (different from the Busine
 
 ## Task 7: Push canonical site and manual-deploy the sibling
 
-**Goal:** Deploy the rethemed site to both Netlify properties. Canonical (`keystonemarcy.netlify.app`) auto-deploys via push; sibling (`keystonemarcykmconsulting`) needs the known manual workaround per CLAUDE.md.
+**Goal:** Deploy the rethemed site to both Netlify properties. Canonical (`keystonemarcy.pages.dev`) auto-deploys via push; sibling (`keystonemarcykmconsulting`) needs the known manual workaround per CLAUDE.md.
 
 **Files:** none modified — this is a deploy task.
 
@@ -390,7 +390,7 @@ If retheme commits leaked them, STOP and clean up (`git reset HEAD~N` + re-commi
 git -C C:\Users\keyst\Business-Landing-Page push origin main
 ```
 
-Wait ~60 seconds, then visit `https://keystonemarcy.netlify.app` and confirm the new theme is live.
+Wait ~60 seconds, then visit `https://keystonemarcy.pages.dev` and confirm the new theme is live.
 
 - [ ] **Step 3: Move gitignored junk out of the repo dir for the manual sibling deploy**
 
@@ -429,7 +429,7 @@ Confirm the working tree is back to the same state as the end of Step 1.
 
 - [ ] **Step 6: Cross-check social preview**
 
-Open https://www.linkedin.com/post-inspector/inspect/https%3A%2F%2Fkeystonemarcy.netlify.app in a browser, click "Inspect," and verify the new cyan OG card renders. If LinkedIn shows the old card, click "Inspect" again (it forces a re-fetch). Twitter Card Validator (`https://cards-dev.twitter.com/validator`) is a useful second check.
+Open https://www.linkedin.com/post-inspector/inspect/https%3A%2F%2Fkeystonemarcy.pages.dev in a browser, click "Inspect," and verify the new cyan OG card renders. If LinkedIn shows the old card, click "Inspect" again (it forces a re-fetch). Twitter Card Validator (`https://cards-dev.twitter.com/validator`) is a useful second check.
 
 ---
 

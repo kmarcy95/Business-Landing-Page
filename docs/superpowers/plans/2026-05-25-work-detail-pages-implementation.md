@@ -393,19 +393,19 @@ Use the Write tool with the following content. The placeholder comments `<!-- CO
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#202024" />
   <meta name="description" content="D365 ERP Manager Web — a Blazor companion to the WPF desktop app that auto-drafts D365 F&O implementation roadmaps, risk logs, milestones, and AI-generated status reports." />
-  <link rel="canonical" href="https://keystonemarcy.netlify.app/work/d365.html" />
+  <link rel="canonical" href="https://keystonemarcy.pages.dev/work/d365.html" />
   <meta name="author" content="Keystone Marcy" />
 
   <meta property="og:type" content="article" />
   <meta property="og:title" content="D365 ERP Manager Web — Keystone Marcy" />
   <meta property="og:description" content="A Blazor companion to the WPF app that auto-drafts D365 F&O implementation roadmaps, risk logs, milestones, and AI-generated status reports." />
-  <meta property="og:image" content="https://keystonemarcy.netlify.app/images/work/d365/hero.webp" />
-  <meta property="og:url" content="https://keystonemarcy.netlify.app/work/d365.html" />
+  <meta property="og:image" content="https://keystonemarcy.pages.dev/images/work/d365/hero.webp" />
+  <meta property="og:url" content="https://keystonemarcy.pages.dev/work/d365.html" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="D365 ERP Manager Web — Keystone Marcy" />
   <meta name="twitter:description" content="A Blazor companion to the WPF app that auto-drafts D365 F&O implementation roadmaps, risk logs, milestones, and AI-generated status reports." />
-  <meta name="twitter:image" content="https://keystonemarcy.netlify.app/images/work/d365/hero.webp" />
+  <meta name="twitter:image" content="https://keystonemarcy.pages.dev/images/work/d365/hero.webp" />
 
   <title>D365 ERP Manager Web — Keystone Marcy</title>
 
@@ -639,7 +639,7 @@ git push origin main
 netlify deploy --prod --dir .
 ```
 
-Expected: a Production URL of `https://keystonemarcy.netlify.app` and a unique deploy URL.
+Expected: a Production URL of `https://keystonemarcy.pages.dev` and a unique deploy URL.
 
 - [ ] **Step 3: Restore junk to working dir**
 
@@ -653,16 +653,16 @@ rmdir /c/tmp/blp-deploy-stash/images /c/tmp/blp-deploy-stash
 - [ ] **Step 4: Verify the live detail page**
 
 ```bash
-curl -s -o /dev/null -w "d365.html -> HTTP %{http_code}\n" https://keystonemarcy.netlify.app/work/d365.html
-curl -s -o /dev/null -w "hero.webp -> HTTP %{http_code}\n" https://keystonemarcy.netlify.app/images/work/d365/hero.webp
-curl -s -o /dev/null -w "site.css  -> HTTP %{http_code}\n" https://keystonemarcy.netlify.app/assets/site.css
+curl -s -o /dev/null -w "d365.html -> HTTP %{http_code}\n" https://keystonemarcy.pages.dev/work/d365.html
+curl -s -o /dev/null -w "hero.webp -> HTTP %{http_code}\n" https://keystonemarcy.pages.dev/images/work/d365/hero.webp
+curl -s -o /dev/null -w "site.css  -> HTTP %{http_code}\n" https://keystonemarcy.pages.dev/assets/site.css
 ```
 
 Expected: all three HTTP 200.
 
 - [ ] **Step 5: User checkpoint**
 
-Open `https://keystonemarcy.netlify.app/work/d365.html` in the user's browser. **Pause execution and ask the user to review.** Specifically: does the layout feel right? Are the captions in the right voice? Is the depth right? Any visual adjustments needed?
+Open `https://keystonemarcy.pages.dev/work/d365.html` in the user's browser. **Pause execution and ask the user to review.** Specifically: does the layout feel right? Are the captions in the right voice? Is the depth right? Any visual adjustments needed?
 
 **Only proceed to Phase 3 after the user approves.** Apply any requested changes to `work/d365.html` and redeploy before continuing.
 
@@ -808,7 +808,7 @@ Use the Edit tool. Substitutions:
 |---|---|
 | `D365 ERP Manager Web — Keystone Marcy` (in `<title>` and OG/Twitter title) | `Agentic OS Dashboard — Keystone Marcy` |
 | Every `images/work/d365/` | `images/work/agentic-os/` |
-| `https://keystonemarcy.netlify.app/work/d365.html` (canonical + og:url) | `https://keystonemarcy.netlify.app/work/agentic-os.html` |
+| `https://keystonemarcy.pages.dev/work/d365.html` (canonical + og:url) | `https://keystonemarcy.pages.dev/work/agentic-os.html` |
 | `name="description" content="D365 ERP Manager Web — a Blazor companion to the WPF desktop app that auto-drafts D365 F&O implementation roadmaps, risk logs, milestones, and AI-generated status reports."` | `name="description" content="Agentic OS Dashboard — a self-built operations console for an AI-driven workflow with single-pane visibility into agents, skills, workflows, and token usage."` |
 | OG/Twitter description (same long string above, both occurrences) | Same Agentic OS description |
 | `D365 / BLAZOR / .NET 8` (in `.section-eyebrow`) | `PYTHON / AGENT OPS` |
@@ -1460,13 +1460,13 @@ Use Write. Content:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://keystonemarcy.netlify.app/</loc></url>
-  <url><loc>https://keystonemarcy.netlify.app/work/d365.html</loc></url>
-  <url><loc>https://keystonemarcy.netlify.app/work/codex.html</loc></url>
-  <url><loc>https://keystonemarcy.netlify.app/work/agentic-os.html</loc></url>
-  <url><loc>https://keystonemarcy.netlify.app/work/creator.html</loc></url>
-  <url><loc>https://keystonemarcy.netlify.app/work/aurora.html</loc></url>
-  <url><loc>https://keystonemarcy.netlify.app/work/ml.html</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/work/d365.html</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/work/codex.html</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/work/agentic-os.html</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/work/creator.html</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/work/aurora.html</loc></url>
+  <url><loc>https://keystonemarcy.pages.dev/work/ml.html</loc></url>
 </urlset>
 ```
 
@@ -1509,7 +1509,7 @@ git push origin main
 netlify deploy --prod --dir .
 ```
 
-Expected: deploy completes with a Production URL of `https://keystonemarcy.netlify.app`.
+Expected: deploy completes with a Production URL of `https://keystonemarcy.pages.dev`.
 
 - [ ] **Step 4: Restore junk**
 
@@ -1524,11 +1524,11 @@ rmdir /c/tmp/blp-deploy-stash/images /c/tmp/blp-deploy-stash
 
 ```bash
 for slug in d365 codex agentic-os creator aurora ml; do
-  curl -s -o /dev/null -w "work/${slug}.html -> HTTP %{http_code}\n" "https://keystonemarcy.netlify.app/work/${slug}.html"
-  curl -s -o /dev/null -w "  hero.webp     -> HTTP %{http_code}\n"   "https://keystonemarcy.netlify.app/images/work/${slug}/hero.webp"
+  curl -s -o /dev/null -w "work/${slug}.html -> HTTP %{http_code}\n" "https://keystonemarcy.pages.dev/work/${slug}.html"
+  curl -s -o /dev/null -w "  hero.webp     -> HTTP %{http_code}\n"   "https://keystonemarcy.pages.dev/images/work/${slug}/hero.webp"
 done
-curl -s -o /dev/null -w "assets/site.css -> HTTP %{http_code}\n" "https://keystonemarcy.netlify.app/assets/site.css"
-curl -s -o /dev/null -w "ruvector.db (should 404) -> HTTP %{http_code}\n" "https://keystonemarcy.netlify.app/ruvector.db"
+curl -s -o /dev/null -w "assets/site.css -> HTTP %{http_code}\n" "https://keystonemarcy.pages.dev/assets/site.css"
+curl -s -o /dev/null -w "ruvector.db (should 404) -> HTTP %{http_code}\n" "https://keystonemarcy.pages.dev/ruvector.db"
 ```
 
 Expected: all detail pages and CSS = 200, hero assets = 200 (Codex hero too), ruvector.db = 404.
@@ -1536,7 +1536,7 @@ Expected: all detail pages and CSS = 200, hero assets = 200 (Codex hero too), ru
 - [ ] **Step 6: Open the landing page in the user's browser and confirm clicks land on detail pages**
 
 ```bash
-start "" "https://keystonemarcy.netlify.app/#work"
+start "" "https://keystonemarcy.pages.dev/#work"
 ```
 
 User-facing sanity check: click each of the 6 cards and confirm each lands on its detail page; click "← Back to work" on each detail page and confirm it returns to the landing page at the `#work` anchor.
@@ -1544,7 +1544,7 @@ User-facing sanity check: click each of the 6 cards and confirm each lands on it
 - [ ] **Step 7: Report URLs**
 
 Report to the user:
-- Production URL: `https://keystonemarcy.netlify.app`
+- Production URL: `https://keystonemarcy.pages.dev`
 - All 6 detail page URLs (so they can spot-check)
 - This-deploy unique URL from the netlify CLI output
 

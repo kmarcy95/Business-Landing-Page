@@ -137,7 +137,7 @@ No changes required this round. If the favicon includes a brand color, leave it;
 ## Deploy steps (canonical + sibling)
 
 1. `git add` + commit (one commit per phase per the existing project convention).
-2. `git push origin main` — deploys canonical `keystonemarcy.netlify.app` automatically.
+2. `git push origin main` — deploys canonical `keystonemarcy.pages.dev` automatically.
 3. Move gitignored junk (`preview-*.html`, `*.db`) out of the repo dir temporarily.
 4. `netlify deploy --prod --dir . --site 55407d90-c8c3-4948-a7e4-644aeba1860a` — manually deploys the sibling site (whose auto-deploy is broken by design).
 5. Move the gitignored junk back.

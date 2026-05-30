@@ -1421,7 +1421,7 @@ Open <https://app.netlify.com/start>. Then:
 3. Pick **kmarcy95/Business-Landing-Page**
 4. Build settings — leave **Build command** blank, **Publish directory** = `.` (Netlify reads `netlify.toml` automatically)
 5. Click **Deploy site**
-6. Once live, Site settings → Domain management → Options → Edit site name → set to `keystonemarcy` (fallback: `kmconsulting`). Final URL becomes `https://keystonemarcy.netlify.app`.
+6. Once live, Site settings → Domain management → Options → Edit site name → set to `keystonemarcy` (fallback: `kmconsulting`). Final URL becomes `https://keystonemarcy.pages.dev`.
 
 Verify the live URL in a browser. The page should match the local version exactly.
 
