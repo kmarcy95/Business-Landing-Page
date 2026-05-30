@@ -74,11 +74,12 @@
     <section class="contact" aria-label="Contact">
       <p class="contact-availability">Open to Senior FP&amp;A &middot; Finance Manager &middot; Director roles &mdash; San Antonio or remote.</p>
 
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form">
-        <input type="hidden" name="form-name" value="contact" />
-        <p class="hidden-field" aria-hidden="true">
-          <label>Don't fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off" /></label>
-        </p>
+      <form name="contact" action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+        <input type="hidden" name="access_key" value="WEB3FORMS_ACCESS_KEY" />
+        <input type="hidden" name="subject" value="New contact — keystonemarcy.pages.dev" />
+        <input type="hidden" name="from_name" value="KM Consulting site" />
+        <input type="hidden" name="cc" value="kmarcy@KMConsulting995.onmicrosoft.com" />
+        <input type="checkbox" name="botcheck" class="hidden-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="field">
           <label for="cf-name">Name</label>
           <input id="cf-name" type="text" name="name" autocomplete="name" required />
@@ -154,8 +155,32 @@
       });
       var contactFormEl = document.querySelector('form[name="contact"]');
       if (contactFormEl) {
-        contactFormEl.addEventListener('submit', function () {
+        contactFormEl.addEventListener('submit', function (e) {
+          e.preventDefault();
           track('generate_lead', { method: 'contact_form' });
+          var btn = contactFormEl.querySelector('button[type="submit"]');
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(contactFormEl) })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              var msg = document.createElement('p');
+              msg.className = 'form-status';
+              if (data.success) {
+                msg.textContent = "Thanks — your message is on its way. I'll be in touch shortly.";
+                contactFormEl.replaceChildren(msg);
+              } else {
+                msg.textContent = 'Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.';
+                contactFormEl.appendChild(msg);
+                if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+              }
+            })
+            .catch(function () {
+              var msg = document.createElement('p');
+              msg.className = 'form-status';
+              msg.textContent = 'Network error. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.';
+              contactFormEl.appendChild(msg);
+              if (btn) { btn.disabled = false; btn.textContent = 'Send message'; }
+            });
         });
       }
 
