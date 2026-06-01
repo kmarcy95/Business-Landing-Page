@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1e3a5f" />
+    <meta name="description" content="Free browser tool: ASC 606 revenue recognition intake — reconcile contract vs. CRM vs. billing, identify performance obligations, document SSP, and generate an audit-ready deferred-revenue schedule." />
+    <link rel="canonical" href="https://keystonemarcy.pages.dev/contract-reconciler.html" />
+    <meta name="author" content="Keystone Marcy" />
+
+    <title>ASC 606 Contract Revenue Reconciler — KM Consulting</title>
+
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232c5282'/%3E%3Cstop offset='1' stop-color='%231e3a5f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='28' fill='url(%23g)'/%3E%3C/svg%3E" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <style>
+        /* ===== Standalone professional theme (light / navy-slate) — independent of the KM site ===== */
+        :root {
+            --bg-0: #eef2f7;
+            --bg-1: #e4eaf2;
+            --surface: #ffffff;
+            --surface-2: #f6f8fb;
+            --border: #e2e8f0;
+            --border-strong: #cbd5e1;
+            --text: #1a2433;
+            --text-dim: #475569;
+            --text-muted: #8b97a8;
+            --accent-1: #2c5282;
+            --accent-2: #1e3a5f;
+            --accent-glow: 44, 82, 130;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(160deg, var(--bg-0) 0%, var(--bg-1) 100%);
+            background-attachment: fixed;
+            color: var(--text);
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Slim brand / back bar */
+        .site-bar {
+            max-width: 1200px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 15px;
+        }
+        .brand-orb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-1), var(--accent-2));
+            box-shadow: 0 2px 8px rgba(var(--accent-glow), 0.35);
+        }
+        .back-link {
+            color: var(--accent-1);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 8px 14px;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            background: var(--surface);
+            transition: all .2s;
+        }
+        .back-link:hover {
+            border-color: var(--accent-1);
+            background: var(--surface-2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            box-shadow: 0 18px 48px -24px rgba(30, 58, 95, 0.35);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--accent-2) 0%, var(--accent-1) 100%);
+            color: #ffffff;
+            padding: 32px 30px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            letter-spacing: -0.01em;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .content {
+            padding: 40px;
+        }
+        .section {
+            margin-bottom: 40px;
+            border-left: 4px solid var(--accent-1);
+            padding-left: 20px;
+        }
+        .section h2 {
+            font-size: 18px;
+            color: var(--text);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--accent-1);
+            color: #ffffff;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: #ffffff;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            color: var(--text);
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        input::placeholder, textarea::placeholder { color: #aab4c2; }
+        select option { background: #ffffff; color: var(--text); }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-1);
+            box-shadow: 0 0 0 3px rgba(var(--accent-glow), 0.15);
+        }
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .help-text {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        .po-card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+        .po-card h3 {
+            font-size: 16px;
+            color: var(--accent-1);
+            margin-bottom: 16px;
+        }
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background: var(--accent-1);
+            color: #ffffff;
+        }
+        .btn-primary:hover {
+            background: var(--accent-2);
+        }
+        .btn-secondary {
+            background: #ffffff;
+            color: var(--accent-1);
+            border: 1px solid var(--accent-1);
+        }
+        .btn-secondary:hover {
+            background: rgba(var(--accent-glow), 0.08);
+        }
+        .btn-add {
+            background: #0e9f6e;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+        .btn-add:hover {
+            background: #057a55;
+        }
+        .btn-danger {
+            background: #e02424;
+            color: #fff;
+            padding: 8px 16px;
+            font-size: 12px;
+        }
+        .btn-danger:hover {
+            background: #c81e1e;
+        }
+        .results {
+            background: var(--surface-2);
+            border: 1px solid var(--border-strong);
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 20px;
+            display: none;
+        }
+        .results.show {
+            display: block;
+        }
+        .results h3 {
+            color: var(--text);
+            margin-bottom: 16px;
+        }
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .result-row.total {
+            font-weight: bold;
+            font-size: 16px;
+            border-top: 2px solid var(--accent-1);
+            border-bottom: none;
+            padding-top: 12px;
+            margin-top: 8px;
+        }
+        .alert {
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        .alert-warning {
+            background: #fff7e6;
+            border: 1px solid #ffe0a3;
+            color: #8a6100;
+        }
+        .alert-danger {
+            background: #fdecec;
+            border: 1px solid #f5b5b5;
+            color: #a12727;
+        }
+        .alert-info {
+            background: #ebf2fb;
+            border: 1px solid #bcd4ee;
+            color: #1e3a5f;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background: #f1f5f9;
+            font-weight: 600;
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+        td {
+            font-size: 14px;
+            color: var(--text);
+        }
+        tr.total td {
+            font-weight: bold;
+            border-top: 2px solid var(--accent-1);
+            color: var(--text);
+        }
+        .export-section {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+        .export-section h2 { color: var(--text); }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-success {
+            background: #def7ec;
+            color: #03543f;
+        }
+        .badge-warning {
+            background: #fdf6b2;
+            color: #723b13;
+        }
+        .site-foot {
+            max-width: 1200px;
+            margin: 22px auto 8px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 13px;
+        }
+        .site-foot a { color: var(--accent-1); text-decoration: none; }
+        .site-foot a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .content { padding: 20px; }
+            .header { padding: 22px; }
+        }
+        @media print {
+            body { background: #fff; color: #000; padding: 0; }
+            .site-bar, .site-foot, .btn-danger, .btn-add, .export-section { display: none; }
+            .container { box-shadow: none; border: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-bar">
+        <a class="brand" href="index.html#top" aria-label="KM Consulting — home">
+            <span class="brand-orb" aria-hidden="true"></span>
+            <span>KM Consulting</span>
+        </a>
+        <a class="back-link" href="templates.html#top">&larr; Back to Templates</a>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>ASC 606 Revenue Recognition Intake</h1>
+            <p>Audit-ready revenue recognition with explicit judgment calls and documentation</p>
+        </div>
+
+        <div class="content">
+            <!-- Section 1: Source Documents -->
+            <div class="section">
+                <h2><span class="section-number">1</span> Source Document Alignment</h2>
+                <div class="alert alert-info">
+                    Enter the contract value from each source system. The tool will flag misalignments that auditors will question.
+                </div>
+
+                <div class="form-group">
+                    <label>Customer / Contract Name</label>
+                    <input type="text" id="contractName" placeholder="e.g., Acme Corp - Cloud Platform Agreement">
+                </div>
+
+                <div class="form-group">
+                    <label>Signed Contract Total Price ($)</label>
+                    <input type="number" id="contractPrice" placeholder="100000" oninput="checkAlignment()">
+                </div>
+
+                <div class="form-group">
+                    <label>CRM Booking Amount ($)</label>
+                    <input type="number" id="crmAmount" placeholder="100000" oninput="checkAlignment()">
+                </div>
+
+                <div class="form-group">
+                    <label>Billing System Invoice - Year 1 ($)</label>
+                    <input type="number" id="billingAmount" placeholder="100000" oninput="checkAlignment()">
+                </div>
+
+                <div id="alignmentAlert"></div>
+            </div>
+
+            <!-- Section 2: Performance Obligations -->
+            <div class="section">
+                <h2><span class="section-number">2</span> Performance Obligations</h2>
+                <div class="alert alert-info">
+                    Identify each distinct promise. Don't bundle unless they're truly not separable.
+                </div>
+
+                <div id="poContainer"></div>
+
+                <button class="btn btn-add" onclick="addPO()">+ Add Performance Obligation</button>
+            </div>
+
+            <!-- Section 3: Allocation -->
+            <div class="section">
+                <h2><span class="section-number">3</span> Price Allocation</h2>
+                <div class="alert alert-info">
+                    Allocate the transaction price across POs based on standalone selling prices (SSP).
+                </div>
+                <button class="btn btn-primary" onclick="calculateAllocation()">Calculate Allocation</button>
+                <div id="allocationResults" class="results"></div>
+            </div>
+
+            <!-- Section 4: Revenue Schedule -->
+            <div class="section">
+                <h2><span class="section-number">4</span> Revenue Recognition Schedule</h2>
+                <div class="alert alert-info">
+                    Generate the month-by-month recognition schedule that ties to deferred revenue.
+                </div>
+                <button class="btn btn-primary" onclick="generateSchedule()">Generate Schedule</button>
+                <div id="scheduleResults" class="results"></div>
+            </div>
+
+            <!-- Export -->
+            <div class="export-section">
+                <h2 style="margin-bottom: 20px;">Export Documentation</h2>
+                <button class="btn btn-primary" onclick="exportJSON()">Export as JSON</button>
+                <button class="btn btn-secondary" onclick="window.print()">Print / Save as PDF</button>
+            </div>
+        </div>
+    </div>
+
+    <p class="site-foot">Runs entirely in your browser — nothing is uploaded. Built by <a href="index.html#top">KM Consulting</a>.</p>
+
+    <script>
+        let poCount = 0;
+
+        function addPO() {
+            poCount++;
+            const container = document.getElementById('poContainer');
+            const poDiv = document.createElement('div');
+            poDiv.className = 'po-card';
+            poDiv.id = `po-${poCount}`;
+            poDiv.innerHTML = `
+                <h3>Performance Obligation #${poCount}</h3>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" id="poDesc-${poCount}" placeholder="e.g., Cloud Storage Platform - SaaS License">
+                </div>
+                <div class="form-group">
+                    <label>Recognition Method</label>
+                    <select id="poMethod-${poCount}">
+                        <option value="over-time-linear">Over Time (Linear/Straight-line)</option>
+                        <option value="point-in-time">Point in Time</option>
+                        <option value="milestone">Milestone-based</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Standalone Selling Price - SSP ($)</label>
+                    <input type="number" id="poSSP-${poCount}" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label>SSP Source / Evidence</label>
+                    <select id="poSSPSource-${poCount}">
+                        <option value="">Select source...</option>
+                        <option value="observable">Observable market price</option>
+                        <option value="contract">Contract price (explicit)</option>
+                        <option value="cost-plus">Cost-plus estimate</option>
+                        <option value="residual">Residual method</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Service Period (months)</label>
+                    <input type="number" id="poMonths-${poCount}" placeholder="12" value="12">
+                </div>
+                <button class="btn btn-danger" onclick="removePO(${poCount})">Remove</button>
+            `;
+            container.appendChild(poDiv);
+        }
+
+        function removePO(id) {
+            const po = document.getElementById(`po-${id}`);
+            if (po) po.remove();
+        }
+
+        function checkAlignment() {
+            const contract = parseFloat(document.getElementById('contractPrice').value) || 0;
+            const crm = parseFloat(document.getElementById('crmAmount').value) || 0;
+            const billing = parseFloat(document.getElementById('billingAmount').value) || 0;
+            const alertDiv = document.getElementById('alignmentAlert');
+
+            if (contract === 0 && crm === 0 && billing === 0) {
+                alertDiv.innerHTML = '';
+                return;
+            }
+
+            const values = [contract, crm, billing].filter(v => v > 0);
+            const allMatch = values.every(v => v === values[0]);
+
+            if (allMatch && values.length >= 2) {
+                alertDiv.innerHTML = '<div class="alert alert-info" style="background:#d1fae5;border-color:#86efac;color:#166534;">✓ Source documents align. Good foundation for audit.</div>';
+            } else if (!allMatch) {
+                let maxDiff = Math.max(...values) - Math.min(...values);
+                alertDiv.innerHTML = `<div class="alert alert-danger">⚠ Misalignment detected: $${maxDiff.toLocaleString()} variance between source systems. Document the reason (e.g., multi-year CRM booking, onboarding fees in billing) before finalizing.</div>`;
+            }
+        }
+
+        function calculateAllocation() {
+            const contractPrice = parseFloat(document.getElementById('contractPrice').value) || 0;
+            if (contractPrice === 0) {
+                alert('Enter a contract price in Section 1 first.');
+                return;
+            }
+
+            const pos = [];
+            for (let i = 1; i <= poCount; i++) {
+                const descEl = document.getElementById(`poDesc-${i}`);
+                if (!descEl) continue;
+                const desc = descEl.value || `PO #${i}`;
+                const ssp = parseFloat(document.getElementById(`poSSP-${i}`).value) || 0;
+                const method = document.getElementById(`poMethod-${i}`).value;
+                const months = parseInt(document.getElementById(`poMonths-${i}`).value) || 12;
+                pos.push({ id: i, desc, ssp, method, months });
+            }
+
+            if (pos.length === 0) {
+                alert('Add at least one performance obligation in Section 2.');
+                return;
+            }
+
+            const totalSSP = pos.reduce((sum, po) => sum + po.ssp, 0);
+            if (totalSSP === 0) {
+                alert('Enter standalone selling prices for your POs.');
+                return;
+            }
+
+            const resultsDiv = document.getElementById('allocationResults');
+            let html = '<h3>Allocation Results</h3>';
+
+            if (Math.abs(totalSSP - contractPrice) > 0.01) {
+                const pct = ((totalSSP / contractPrice - 1) * 100).toFixed(1);
+                html += `<div class="alert alert-warning">Total SSP ($${totalSSP.toLocaleString()}) differs from contract price ($${contractPrice.toLocaleString()}) by ${pct}%. Allocation will be proportional.</div>`;
+            }
+
+            html += '<table><thead><tr><th>Performance Obligation</th><th>SSP</th><th>SSP %</th><th>Allocated Price</th></tr></thead><tbody>';
+
+            pos.forEach(po => {
+                const sspPct = (po.ssp / totalSSP * 100).toFixed(1);
+                const allocated = (po.ssp / totalSSP * contractPrice);
+                po.allocated = allocated;
+                html += `<tr><td>${po.desc}</td><td>$${po.ssp.toLocaleString()}</td><td>${sspPct}%</td><td>$${allocated.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>`;
+            });
+
+            html += `<tr class="total"><td>Total</td><td>$${totalSSP.toLocaleString()}</td><td>100%</td><td>$${contractPrice.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>`;
+            html += '</tbody></table>';
+
+            window.allocatedPOs = pos;
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.add('show');
+        }
+
+        function generateSchedule() {
+            if (!window.allocatedPOs || window.allocatedPOs.length === 0) {
+                alert('Calculate allocation in Section 3 first.');
+                return;
+            }
+
+            const contractPrice = parseFloat(document.getElementById('contractPrice').value) || 0;
+            const resultsDiv = document.getElementById('scheduleResults');
+
+            let maxMonths = Math.max(...window.allocatedPOs.map(po => po.months));
+            let schedule = [];
+
+            for (let m = 1; m <= maxMonths; m++) {
+                let monthRevenue = 0;
+                window.allocatedPOs.forEach(po => {
+                    if (po.method === 'point-in-time') {
+                        if (m === 1) monthRevenue += po.allocated;
+                    } else if (po.method === 'over-time-linear') {
+                        if (m <= po.months) monthRevenue += po.allocated / po.months;
+                    } else if (po.method === 'milestone') {
+                        if (m <= po.months) monthRevenue += po.allocated / po.months;
+                    }
+                });
+                schedule.push({ month: m, revenue: monthRevenue });
+            }
+
+            let html = '<h3>Revenue Recognition Schedule</h3>';
+            html += '<table><thead><tr><th>Month</th><th>Revenue Recognized</th><th>Cumulative</th><th>Deferred Balance</th></tr></thead><tbody>';
+
+            let cumulative = 0;
+            schedule.forEach(row => {
+                cumulative += row.revenue;
+                const deferred = contractPrice - cumulative;
+                html += `<tr><td>Month ${row.month}</td><td>$${row.revenue.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td><td>$${cumulative.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td><td>$${deferred.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</td></tr>`;
+            });
+
+            html += '</tbody></table>';
+            html += `<div class="alert alert-info" style="margin-top:16px;">Total recognized over ${maxMonths} months: $${cumulative.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>`;
+
+            resultsDiv.innerHTML = html;
+            resultsDiv.classList.add('show');
+        }
+
+        function exportJSON() {
+            const data = {
+                contractName: document.getElementById('contractName').value,
+                contractPrice: document.getElementById('contractPrice').value,
+                crmAmount: document.getElementById('crmAmount').value,
+                billingAmount: document.getElementById('billingAmount').value,
+                performanceObligations: [],
+                exportDate: new Date().toISOString()
+            };
+
+            for (let i = 1; i <= poCount; i++) {
+                const descEl = document.getElementById(`poDesc-${i}`);
+                if (!descEl) continue;
+                data.performanceObligations.push({
+                    description: descEl.value,
+                    method: document.getElementById(`poMethod-${i}`).value,
+                    ssp: document.getElementById(`poSSP-${i}`).value,
+                    sspSource: document.getElementById(`poSSPSource-${i}`).value,
+                    months: document.getElementById(`poMonths-${i}`).value
+                });
+            }
+
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `asc606-${data.contractName || 'contract'}-${Date.now()}.json`;
+            a.click();
+        }
+    </script>
+</body>
+</html>

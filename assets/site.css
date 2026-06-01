@@ -1344,6 +1344,15 @@ body.theme-amethyst .bg-mesh{ background:
   radial-gradient(900px 500px at 50% -10%, rgba(196,171,245,.16), transparent 60%),
   linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
 
+/* Templates — Orange (orange is light → keep dark button text) */
+body.theme-orange{ --accent-1:#f97316; --accent-2:#ea580c;
+  --grad-accent:linear-gradient(135deg,#f97316 0%,#ea580c 100%); --accent-glow:249,115,22; }
+body.theme-orange .btn-ghost:hover{ background:rgba(249,115,22,0.14); }
+body.theme-orange .bg-mesh{ background:
+  radial-gradient(900px 500px at 50% -10%, rgba(249,115,22,.16), transparent 60%),
+  linear-gradient(180deg,#0a0a0a 0%,#101012 100%); }
+body.theme-orange .btn-primary, body.theme-orange .nav-cta{ color:#0a0a0a !important; }
+
 /* Experience — Teal (brightened; dark button text) */
 body.theme-teal{ --accent-1:#24CFBB; --accent-2:#12B0A2;
   --grad-accent:linear-gradient(135deg,#24CFBB 0%,#12B0A2 100%); --accent-glow:36,207,187; }
