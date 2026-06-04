@@ -114,7 +114,7 @@ test('computeAll totals and reconciliation', () => {
 
 - [ ] **Step 2: Run the tests to verify they fail**
 
-Run: `node --test tests/`
+Run: `node --test tests/*.test.js`  (the bare `node --test tests/` directory form is broken on Node 24/Windows — use the glob)
 Expected: FAIL — `Cannot find module '../assets/cost-variance-engine.js'`.
 
 - [ ] **Step 3: Commit the failing test**
@@ -241,8 +241,8 @@ git commit -m "test: add failing variance-engine tests with worked example"
 
 - [ ] **Step 2: Run the tests to verify they pass**
 
-Run: `node --test tests/`
-Expected: PASS — `# pass 10`, `# fail 0`.
+Run: `node --test tests/*.test.js`
+Expected: PASS — `pass 10`, `fail 0`.
 
 - [ ] **Step 3: Commit**
 
@@ -763,7 +763,7 @@ git commit -m "chore: add standard-costing card cover image (webp)"
 
 ## Final verification
 
-- [ ] `node --test tests/` → all engine tests pass.
+- [ ] `node --test tests/*.test.js` → all engine tests pass.
 - [ ] Demo page totals = Standard $73,000 / Actual $77,490 / Total $4,490 U; bridge + reset + mobile all work (Task 4).
 - [ ] `.xlsx` Example grand totals tie out: Standard 110,250 / Actual 114,568 / Variance 4,318 U (Task 6).
 - [ ] `templates.html` shows both new cards; calculator launches; upsell anchors to the paid card; cover image renders.
