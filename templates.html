@@ -157,6 +157,47 @@
           </p>
         </div>
 
+        <!-- Card 4: Free interactive tool — standard costing -->
+        <div class="bento-card wide reveal" style="transition-delay: 180ms">
+          <p class="card-label">Free · Interactive tool</p>
+          <h3 class="card-title">Standard Costing Variance Calculator</h3>
+          <div class="shot">
+            <div class="shot-bar" aria-hidden="true">
+              <span class="shot-dots"><i></i><i></i><i></i></span>
+              <span class="shot-url">standard costing · variance bridge</span>
+            </div>
+            <img class="card-image" src="images/templates/standard-costing-cover.webp" alt="Standard costing variance calculator with a variance bridge" loading="lazy" width="1440" height="900" />
+          </div>
+          <p class="card-desc">
+            Enter standards and actuals; see material, labor, and overhead variances and a live bridge from standard to actual cost — each split into price/rate and quantity/efficiency, flagged favorable or unfavorable. Runs entirely in your browser.
+          </p>
+          <p>
+            <a class="btn btn-primary" href="cost-standard-costing.html" data-cta="templates_launch_stdcost">Launch the tool <span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+          </p>
+        </div>
+
+        <!-- Card 5: Paid — standard costing full model -->
+        <div class="bento-card wide reveal" id="buy-standard-costing" style="transition-delay: 240ms">
+          <p class="card-label">$129 · Premium</p>
+          <h3 class="card-title">Standard Costing &amp; Variance — Full Multi-Product Model</h3>
+          <p class="card-desc">
+            The complete workbook: unlimited products and material inputs; material mix &amp; yield, labor mix, and sales price/volume/mix variances; and a budgeted&rarr;actual operating-profit bridge. Built for Excel 2016+.
+          </p>
+          <form name="buy_stdcost" action="https://api.web3forms.com/submit" method="POST" class="contact-form buy-form">
+            <input type="hidden" name="access_key" value="457f9dc9-76ba-4c91-b515-fdb1ffba7243" />
+            <input type="hidden" name="subject" value="Purchase request — Standard Costing Full Model ($129)" />
+            <input type="hidden" name="from_name" value="KM Consulting Templates" />
+            <input type="hidden" name="cc" value="kmarcy@KMConsulting995.onmicrosoft.com" />
+            <input type="checkbox" name="botcheck" class="hidden-field" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="field">
+              <label for="buy-stdcost-email">Email</label>
+              <input id="buy-stdcost-email" type="email" name="email" autocomplete="email" placeholder="you@company.com" required />
+            </div>
+            <button type="submit" class="btn btn-primary" data-cta="templates_get_stdcost">Request to buy — $129 <span class="btn-arrow" aria-hidden="true">&rarr;</span></button>
+          </form>
+          <p class="card-fineprint" style="font-size:.85rem;color:var(--text-muted);margin-top:.6rem;">I'll email you a secure payment link and the file within 1 business day. Excel 2016+.</p>
+        </div>
+
       </div>
     </section>
   </main>
@@ -272,6 +313,45 @@
                 msg.setAttribute('role', 'status');
                 msg.textContent = "Got it — I'll email your payment link and the file within 1 business day.";
                 buyFormEl.replaceChildren(msg);
+              } else {
+                showError('Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
+              }
+            })
+            .catch(function () {
+              showError('Network error. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
+            });
+        });
+      }
+
+      /* ===== Standard Costing purchase inquiry (Web3Forms) ===== */
+      var buyStdEl = document.querySelector('form[name="buy_stdcost"]');
+      if (buyStdEl) {
+        buyStdEl.addEventListener('submit', function (e) {
+          e.preventDefault();
+          track('generate_lead', { method: 'buy_stdcost_form' });
+          var btn = buyStdEl.querySelector('button[type="submit"]');
+          var btnKids = btn ? Array.prototype.slice.call(btn.childNodes) : null;
+          function resetBtn() { if (btn) { btn.disabled = false; btn.replaceChildren.apply(btn, btnKids); } }
+          function showError(text) {
+            var old = buyStdEl.querySelector('.form-status');
+            if (old) old.remove();
+            var msg = document.createElement('p');
+            msg.className = 'form-status form-status--err';
+            msg.setAttribute('role', 'alert');
+            msg.textContent = text;
+            buyStdEl.appendChild(msg);
+            resetBtn();
+          }
+          if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+          fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(buyStdEl) })
+            .then(function (r) { return r.json(); })
+            .then(function (data) {
+              if (data.success) {
+                var msg = document.createElement('p');
+                msg.className = 'form-status form-status--ok';
+                msg.setAttribute('role', 'status');
+                msg.textContent = "Got it — I'll email your payment link and the file within 1 business day.";
+                buyStdEl.replaceChildren(msg);
               } else {
                 showError('Something went wrong. Please email kmarcy@KMConsulting995.onmicrosoft.com instead.');
               }
