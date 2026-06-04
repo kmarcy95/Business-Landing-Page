@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1e3a5f" />
+  <meta name="description" content="Free standard-costing variance calculator: material, labor, and overhead variances with a live variance bridge. By an in-seat FP&A leader." />
+  <link rel="canonical" href="https://keystonemarcy.pages.dev/cost-standard-costing.html" />
+  <title>Standard Costing Variance Calculator — KM Consulting</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='28' fill='%231e3a5f'/%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --navy:#1e3a5f; --slate:#2c5282; --ink:#1a202c; --muted:#5a6678;
+      --line:#e2e8f0; --bg:#f7f9fc; --card:#ffffff;
+      --fav:#15803d; --fav-bg:#dcfce7; --unfav:#b91c1c; --unfav-bg:#fee2e2;
+      --r:12px; --shadow:0 1px 3px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,-apple-system,"Segoe UI",system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+    a{color:var(--slate)}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.25rem;background:var(--card);border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:.5rem;font-weight:700;color:var(--navy);text-decoration:none}
+    .brand-orb{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--slate))}
+    .wrap{max-width:1080px;margin:0 auto;padding:1.5rem 1.25rem 4rem}
+    h1{font-size:1.8rem;margin:.2rem 0 .3rem;color:var(--navy)}
+    .lede{color:var(--muted);margin:0 0 1.5rem;max-width:60ch}
+    .grid{display:grid;grid-template-columns:minmax(300px,380px) 1fr;gap:1.5rem;align-items:start}
+    @media(max-width:820px){.grid{grid-template-columns:1fr}}
+    .panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:1.25rem}
+    .panel h2{font-size:1.05rem;margin:.1rem 0 1rem;color:var(--navy)}
+    fieldset{border:1px solid var(--line);border-radius:10px;padding:.75rem .9rem 1rem;margin:0 0 1rem}
+    legend{font-weight:600;font-size:.85rem;color:var(--slate);padding:0 .4rem}
+    .row{display:flex;gap:.75rem}
+    .row .field{flex:1}
+    .field{margin:.55rem 0}
+    .field label{display:block;font-size:.78rem;color:var(--muted);margin-bottom:.25rem}
+    .field input{width:100%;padding:.5rem .6rem;border:1px solid var(--line);border-radius:8px;font:inherit;background:#fff}
+    .field input:focus{outline:none;border-color:var(--slate);box-shadow:0 0 0 3px rgba(44,82,130,.15)}
+    .actions{display:flex;gap:.6rem;margin-top:.4rem}
+    .btn{display:inline-flex;align-items:center;gap:.4rem;border:none;border-radius:9px;padding:.6rem 1rem;font:inherit;font-weight:600;cursor:pointer;text-decoration:none}
+    .btn-primary{background:var(--navy);color:#fff}
+    .btn-ghost{background:#fff;color:var(--slate);border:1px solid var(--line)}
+    .totals{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-bottom:1.25rem}
+    .stat{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:.8rem}
+    .stat .k{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.03em}
+    .stat .v{font-size:1.25rem;font-weight:700;color:var(--navy);margin-top:.2rem}
+    .bridge{margin:0 0 1.25rem}
+    .step{display:grid;grid-template-columns:160px 1fr 92px;align-items:center;gap:.6rem;padding:.3rem 0}
+    .step .name{font-size:.85rem;color:var(--ink)}
+    .step .track{height:18px;background:#eef2f7;border-radius:5px;position:relative;overflow:hidden}
+    .step .fill{position:absolute;top:0;bottom:0;border-radius:5px}
+    .step .fill.u{background:var(--unfav)}
+    .step .fill.f{background:var(--fav)}
+    .step .amt{text-align:right;font-variant-numeric:tabular-nums;font-weight:600;font-size:.85rem}
+    .amt.u{color:var(--unfav)} .amt.f{color:var(--fav)}
+    .tag{display:inline-block;font-size:.68rem;font-weight:700;padding:.05rem .35rem;border-radius:4px;margin-left:.35rem}
+    .tag.u{background:var(--unfav-bg);color:var(--unfav)} .tag.f{background:var(--fav-bg);color:var(--fav)}
+    .readout{border-top:1px solid var(--line);padding-top:1rem}
+    .readout li{margin:.4rem 0;font-size:.9rem;color:var(--ink)}
+    .upsell{margin-top:1.5rem;background:linear-gradient(135deg,var(--navy),var(--slate));color:#fff;border-radius:var(--r);padding:1.4rem}
+    .upsell h2{color:#fff;margin:.1rem 0 .4rem}
+    .upsell p{margin:.2rem 0 1rem;opacity:.92;max-width:60ch}
+    .upsell .btn-primary{background:#fff;color:var(--navy)}
+    .upsell ul{margin:.4rem 0 1rem;padding-left:1.1rem;opacity:.95;font-size:.9rem}
+    .foot{max-width:1080px;margin:0 auto;padding:1.5rem 1.25rem;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line)}
+    .note{font-size:.78rem;color:var(--muted);margin-top:.6rem}
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <a class="brand" href="templates.html"><span class="brand-orb"></span> KM Consulting</a>
+    <a href="templates.html">&larr; All templates</a>
+  </div>
+
+  <main class="wrap">
+    <h1>Standard Costing Variance Calculator</h1>
+    <p class="lede">Enter your standards and actuals. See exactly where cost went off-plan — material, labor, and overhead — with a live variance bridge from standard to actual cost. Runs entirely in your browser; nothing is uploaded.</p>
+
+    <div class="grid">
+      <form class="panel" id="vform" autocomplete="off">
+        <h2>Inputs</h2>
+        <fieldset>
+          <legend>Direct material</legend>
+          <div class="row">
+            <div class="field"><label for="standardPrice">Std price / unit ($)</label><input id="standardPrice" type="number" step="any" value="5.00" /></div>
+            <div class="field"><label for="actualPrice">Actual price / unit ($)</label><input id="actualPrice" type="number" step="any" value="5.20" /></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="standardQty">Std quantity</label><input id="standardQty" type="number" step="any" value="3000" /></div>
+            <div class="field"><label for="actualQty">Actual quantity</label><input id="actualQty" type="number" step="any" value="3200" /></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Direct labor</legend>
+          <div class="row">
+            <div class="field"><label for="standardRate">Std rate / hr ($)</label><input id="standardRate" type="number" step="any" value="20.00" /></div>
+            <div class="field"><label for="actualRate">Actual rate / hr ($)</label><input id="actualRate" type="number" step="any" value="19.50" /></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="standardHours">Std hours</label><input id="standardHours" type="number" step="any" value="2000" /></div>
+            <div class="field"><label for="actualHours">Actual hours</label><input id="actualHours" type="number" step="any" value="2100" /></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Overhead (activity base = labor hours)</legend>
+          <div class="row">
+            <div class="field"><label for="standardVarRate">Std variable OH rate / hr ($)</label><input id="standardVarRate" type="number" step="any" value="4.00" /></div>
+            <div class="field"><label for="actualVOH">Actual variable OH ($)</label><input id="actualVOH" type="number" step="any" value="8600" /></div>
+          </div>
+          <div class="row">
+            <div class="field"><label for="budgetedFOH">Budgeted fixed OH ($)</label><input id="budgetedFOH" type="number" step="any" value="11000" /></div>
+            <div class="field"><label for="actualFOH">Actual fixed OH ($)</label><input id="actualFOH" type="number" step="any" value="11300" /></div>
+          </div>
+          <div class="field"><label for="standardFixedRate">Std fixed OH rate / hr ($)</label><input id="standardFixedRate" type="number" step="any" value="5.00" /></div>
+        </fieldset>
+        <div class="actions">
+          <button type="button" class="btn btn-ghost" id="resetBtn">Reset to example</button>
+        </div>
+        <p class="note">Sign convention: <strong>U</strong> = unfavorable (cost above standard), <strong>F</strong> = favorable. Fixed overhead uses absorption costing.</p>
+      </form>
+
+      <section class="panel" aria-live="polite">
+        <h2>Results</h2>
+        <div class="totals">
+          <div class="stat"><div class="k">Standard cost</div><div class="v" id="tStd">—</div></div>
+          <div class="stat"><div class="k">Actual cost</div><div class="v" id="tAct">—</div></div>
+          <div class="stat"><div class="k">Total variance</div><div class="v" id="tVar">—</div></div>
+        </div>
+        <div class="bridge" id="bridge"></div>
+        <ul class="readout" id="readout"></ul>
+      </section>
+    </div>
+
+    <section class="upsell">
+      <h2>Get the full multi-product Excel model — $129</h2>
+      <p>This calculator covers one product and the core variances. The paid workbook scales it to your whole operation:</p>
+      <ul>
+        <li>Unlimited products &amp; multiple material inputs</li>
+        <li>Material <strong>mix &amp; yield</strong> and labor <strong>mix</strong> variances</li>
+        <li>Sales price, volume &amp; mix variances</li>
+        <li>Full budgeted &rarr; actual <strong>operating-profit bridge</strong> dashboard</li>
+        <li>Pre-filled worked example + read-me; Excel 2016+</li>
+      </ul>
+      <a class="btn btn-primary" href="templates.html#buy-standard-costing">Get the Excel model &rarr;</a>
+    </section>
+  </main>
+
+  <footer class="foot">© 2026 KM Consulting · built by Keystone Marcy — FP&amp;A &amp; Strategic Finance Leader</footer>
+
+  <script src="assets/cost-variance-engine.js"></script>
+  <script>
+    (function () {
+      var FIELDS = ['standardPrice','actualPrice','standardQty','actualQty',
+        'standardRate','actualRate','standardHours','actualHours',
+        'standardVarRate','actualVOH','budgetedFOH','actualFOH','standardFixedRate'];
+      var DEFAULTS = {standardPrice:5,actualPrice:5.2,standardQty:3000,actualQty:3200,
+        standardRate:20,actualRate:19.5,standardHours:2000,actualHours:2100,
+        standardVarRate:4,actualVOH:8600,budgetedFOH:11000,actualFOH:11300,standardFixedRate:5};
+
+      var usd = function (n) {
+        return (n < 0 ? '-$' : '$') + Math.abs(n).toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+      };
+      function readInputs() {
+        var o = {};
+        FIELDS.forEach(function (id) { o[id] = parseFloat(document.getElementById(id).value) || 0; });
+        return o;
+      }
+
+      var BRIDGE = [
+        ['Material price', function (r) { return r.material.price; }],
+        ['Material quantity', function (r) { return r.material.quantity; }],
+        ['Labor rate', function (r) { return r.labor.rate; }],
+        ['Labor efficiency', function (r) { return r.labor.efficiency; }],
+        ['Variable OH spending', function (r) { return r.varOH.spending; }],
+        ['Variable OH efficiency', function (r) { return r.varOH.efficiency; }],
+        ['Fixed OH budget', function (r) { return r.fixedOH.budget; }],
+        ['Fixed OH volume', function (r) { return r.fixedOH.volume; }]
+      ];
+
+      function render() {
+        var r = VarianceEngine.computeAll(readInputs());
+        document.getElementById('tStd').textContent = usd(r.totals.standardCost);
+        document.getElementById('tAct').textContent = usd(r.totals.actualCost);
+        var totV = r.totals.totalVariance, tc = VarianceEngine.classify(totV);
+        var tVarEl = document.getElementById('tVar');
+        tVarEl.textContent = usd(Math.abs(totV)) + ' ' + tc.label;
+        tVarEl.style.color = tc.favorable === false ? 'var(--unfav)' : (tc.favorable ? 'var(--fav)' : 'var(--navy)');
+
+        var rows = BRIDGE.map(function (b) { return [b[0], b[1](r)]; });
+        var max = Math.max.apply(null, rows.map(function (x) { return Math.abs(x[1]); }).concat([1]));
+        var bridge = document.getElementById('bridge');
+        bridge.innerHTML = '';
+        rows.forEach(function (row) {
+          var amt = row[1], c = VarianceEngine.classify(amt), cls = c.favorable === false ? 'u' : (c.favorable ? 'f' : '');
+          var w = Math.round(Math.abs(amt) / max * 100);
+          var div = document.createElement('div');
+          div.className = 'step';
+          div.innerHTML = '<span class="name">' + row[0] + '</span>' +
+            '<span class="track"><span class="fill ' + cls + '" style="width:' + w + '%"></span></span>' +
+            '<span class="amt ' + cls + '">' + usd(Math.abs(amt)) + ' ' + c.label + '</span>';
+          bridge.appendChild(div);
+        });
+
+        var readout = document.getElementById('readout');
+        readout.innerHTML = '';
+        var items = explain(r);
+        items.forEach(function (txt) {
+          var li = document.createElement('li');
+          li.innerHTML = txt;
+          readout.appendChild(li);
+        });
+      }
+
+      function tag(amt) {
+        var c = VarianceEngine.classify(amt);
+        if (c.favorable === null) return '<span class="tag">flat</span>';
+        return '<span class="tag ' + (c.favorable ? 'f' : 'u') + '">' + (c.favorable ? 'Favorable' : 'Unfavorable') + '</span>';
+      }
+      function explain(r) {
+        var out = [];
+        out.push('Materials ' + tag(r.material.total) + ' — price vs. usage drove ' + dollars(r.material.total) + ' against standard.');
+        out.push('Labor ' + tag(r.labor.total) + ' — rate vs. efficiency netted ' + dollars(r.labor.total) + '.');
+        out.push('Variable overhead ' + tag(r.varOH.total) + ' — spending plus efficiency totaled ' + dollars(r.varOH.total) + '.');
+        out.push('Fixed overhead ' + tag(r.fixedOH.total) + ' — budget plus volume totaled ' + dollars(r.fixedOH.total) + '.');
+        return out;
+      }
+      function dollars(n) {
+        var c = VarianceEngine.classify(n);
+        return '<strong>' + (n < 0 ? '-$' : '$') + Math.abs(n).toLocaleString('en-US', {maximumFractionDigits: 0}) + ' ' + c.label + '</strong>';
+      }
+
+      document.getElementById('vform').addEventListener('input', render);
+      document.getElementById('resetBtn').addEventListener('click', function () {
+        FIELDS.forEach(function (id) { document.getElementById(id).value = DEFAULTS[id]; });
+        render();
+      });
+      render();
+    })();
+  </script>
+</body>
+</html>
