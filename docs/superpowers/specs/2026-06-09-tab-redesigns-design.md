@@ -34,3 +34,9 @@ Lead with an **archetype hero** (Operator / Strategic Creator · ENTJ) with the 
 - CSS additions are scoped + additive — no regression on other pages.
 - Headless screenshot per page confirms layout.
 - Deploy via `git push origin main` → GitHub Pages.
+
+## v2 — richer graphics (Services / About / How I Work)
+Second iteration adding more graphics + modern styling so each tab's takeaway lands. New CSS appended under a "TAB v2" block in `assets/site.css` (theme-token-driven). Approved from a second visual-companion gallery render.
+- **Services:** proof stat band (~$500K/yr · 33% · $2B, real in-seat metrics) after the page-head; the 3-step strip upgraded to a connected **process flow** (circular numbered nodes + icons + dashed connectors); **✓ checklists** added to each of the 3 tiers; "What I automate" list → a 2×2 **icon grid**.
+- **About:** dual-identity **badges** (📊 FP&A · ⚙ Builder) in the bio; the aside (skills-card + certs) replaced by full-width blocks — a **"Two sides of my work"** split (Reads the numbers + Builds the tools), an **industries** icon row (Manufacturing/Retail/Distribution/Asset Mgmt), competencies **grouped into 3 categories** with icons (all 14 skills kept), and credentials as **seal cards** (all 4 kept).
+- **How I Work:** archetype hero's score-bars replaced by an SVG **SoulTrace donut** (Black 40/Blue 25/Red 19/White 10/Green 6) + legend; new **personality radar** (SVG, 6 axes) under "How I show up"; framework bar-cards → compact **radial-gauge cards**.
