@@ -71,6 +71,12 @@
       <p class="page-intro">Built by an in-seat FP&amp;A leader — not a content creator. Excel tools that do real work.</p>
     </header>
 
+    <div class="tmpl-filter" role="group" aria-label="Filter templates by price">
+      <button type="button" class="tmpl-fpill" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="tmpl-fpill" data-filter="free" aria-pressed="false">Free</button>
+      <button type="button" class="tmpl-fpill" data-filter="premium" aria-pressed="false">Premium</button>
+    </div>
+
         <!-- ===================== GROUP 1: Demos & free downloads ===================== -->
     <section class="section" aria-labelledby="demos-heading">
       <div class="group-head reveal">
@@ -81,8 +87,9 @@
       <div class="bento">
 
         <!-- Card 1: Free lead magnet -->
-        <div class="bento-card wide reveal" id="get-starter" style="transition-delay: 0ms">
-          <p class="card-label">Free · Lead magnet</p>
+        <div class="bento-card wide reveal" id="get-starter" data-tier="free" style="transition-delay: 0ms">
+          <p class="card-label">Lead magnet</p>
+          <span class="tmpl-price">Free</span>
           <h3 class="card-title">Small-Business Cash Flow &amp; Runway Starter</h3>
           <div class="shot">
             <div class="shot-bar" aria-hidden="true">
@@ -114,8 +121,9 @@
         </div>
 
         <!-- Card 3: Free interactive tool -->
-        <div class="bento-card wide reveal" style="transition-delay: 60ms">
-          <p class="card-label">Free · Interactive tool</p>
+        <div class="bento-card wide reveal" data-tier="free" style="transition-delay: 60ms">
+          <p class="card-label">Interactive tool</p>
+          <span class="tmpl-price">Free</span>
           <h3 class="card-title">ASC 606 Contract Revenue Reconciler</h3>
           <div class="shot">
             <div class="shot-bar" aria-hidden="true">
@@ -133,8 +141,9 @@
         </div>
 
         <!-- Card 4: Free interactive tool — standard costing -->
-        <div class="bento-card wide reveal" style="transition-delay: 120ms">
-          <p class="card-label">Free · Interactive tool</p>
+        <div class="bento-card wide reveal" data-tier="free" style="transition-delay: 120ms">
+          <p class="card-label">Interactive tool</p>
+          <span class="tmpl-price">Free</span>
           <h3 class="card-title">Standard Costing Variance Calculator</h3>
           <div class="shot">
             <div class="shot-bar" aria-hidden="true">
@@ -164,8 +173,9 @@
       <div class="bento">
 
         <!-- Card 2: Paid — 13-Week Direct Cash Flow Forecast -->
-        <div class="bento-card wide reveal" style="transition-delay: 0ms">
-          <p class="card-label">$99 · Premium</p>
+        <div class="bento-card wide reveal" data-tier="premium" style="transition-delay: 0ms">
+          <p class="card-label">Premium</p>
+          <span class="tmpl-price">$99</span>
           <h3 class="card-title">13-Week Direct Cash Flow Forecast</h3>
           <div class="shot">
             <div class="shot-bar" aria-hidden="true">
@@ -194,8 +204,9 @@
         </div>
 
         <!-- Card 5: Paid — standard costing full model -->
-        <div class="bento-card wide reveal" id="buy-standard-costing" style="transition-delay: 60ms">
-          <p class="card-label">$129 · Premium</p>
+        <div class="bento-card wide reveal" id="buy-standard-costing" data-tier="premium" style="transition-delay: 60ms">
+          <p class="card-label">Premium</p>
+          <span class="tmpl-price">$129</span>
           <h3 class="card-title">Standard Costing &amp; Variance — Full Multi-Product Model</h3>
           <p class="card-desc">
             The complete workbook: unlimited products and material inputs; material mix &amp; yield, labor mix, and sales price/volume/mix variances; and a budgeted&rarr;actual operating-profit bridge. Built for Excel 2016+.
@@ -258,6 +269,26 @@
           track('select_content', { content_type: 'cta', content_id: el.dataset.cta });
         });
       });
+
+      /* ===== Templates price filter (All / Free / Premium) ===== */
+      var tmplPills = document.querySelectorAll('.tmpl-fpill');
+      var tmplCards = document.querySelectorAll('.bento-card[data-tier]');
+      if (tmplPills.length) {
+        var applyTmplFilter = function (f) {
+          tmplCards.forEach(function (c) { c.hidden = !(f === 'all' || c.dataset.tier === f); });
+          document.querySelectorAll('.section').forEach(function (sec) {
+            var cards = sec.querySelectorAll('.bento-card[data-tier]');
+            if (!cards.length) return;
+            sec.hidden = !Array.prototype.some.call(cards, function (c) { return !c.hidden; });
+          });
+        };
+        tmplPills.forEach(function (pill) {
+          pill.addEventListener('click', function () {
+            tmplPills.forEach(function (p) { p.setAttribute('aria-pressed', p === pill ? 'true' : 'false'); });
+            applyTmplFilter(pill.dataset.filter);
+          });
+        });
+      }
 
       /* ===== Free Starter email capture (Web3Forms) ===== */
       var starterFormEl = document.querySelector('form[name="starter"]');
