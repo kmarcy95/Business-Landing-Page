@@ -1475,3 +1475,51 @@ body.theme-clay .bg-mesh{ background:
   .hero-immersive .hi-portrait{ order:-1; }
   .hero-immersive .hi-portrait img{ max-width:240px; }
 }
+
+/* ============ WORK — case-study feed (work.html) ============ */
+/* Replaces the bento grid with large alternating image + story rows.
+   Reuses .shot / .card-image / .card-label / .card-title / .tag-row / .tag. */
+.case-feed{ display:flex; flex-direction:column; gap:2.5rem; }
+.case-row{
+  display:grid; grid-template-columns:1.1fr .9fr; gap:2.5rem; align-items:center;
+}
+.case-row.flip .case-media{ order:2; }
+.case-row.flip .case-body{ order:1; }
+.case-media{ text-decoration:none; }
+.case-media .shot{ margin:0; box-shadow:var(--shadow-md); transition:transform .25s ease, box-shadow .25s ease; }
+.case-media:hover .shot{ transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:rgba(var(--accent-glow),.35); }
+.case-media .card-image{ height:auto; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:top center; }
+.case-body{ display:flex; flex-direction:column; }
+.case-meta{ display:flex; align-items:center; flex-wrap:wrap; gap:.6rem; margin-bottom:.7rem; }
+.case-meta .card-label{ margin:0; }
+.case-cat{
+  font-size:.66rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  padding:.22rem .6rem; border-radius:999px;
+  background:rgba(var(--accent-glow),.10); border:1px solid rgba(var(--accent-glow),.28);
+  color:var(--accent-2);
+}
+.case-live{
+  font-size:.62rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  padding:.2rem .55rem; border-radius:999px; color:#fff; background:var(--accent-2);
+}
+.case-body .card-title{ font-size:1.7rem; }
+.case-impact{
+  display:inline-flex; align-items:center; gap:.5rem; align-self:flex-start;
+  font-size:.92rem; font-weight:700; color:var(--text);
+  margin:.2rem 0 .9rem;
+}
+.case-impact::before{ content:"◆"; color:var(--accent-2); font-size:.7em; }
+.case-body .card-desc{ flex:0; font-size:1.05rem; margin-bottom:1.1rem; }
+.case-view{
+  display:inline-flex; align-items:center; gap:.4rem; align-self:flex-start;
+  font-size:.95rem; font-weight:700; color:var(--accent-2); transition:gap .15s ease;
+}
+.case-media:hover ~ .case-body .case-view,
+.case-body:hover .case-view{ gap:.65rem; }
+
+@media (max-width:760px){
+  .case-row, .case-row.flip{ grid-template-columns:1fr; gap:1.25rem; }
+  .case-row.flip .case-media{ order:0; }
+  .case-row.flip .case-body{ order:0; }
+  .case-body .card-title{ font-size:1.4rem; }
+}

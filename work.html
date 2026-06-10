@@ -72,134 +72,177 @@
     </header>
 
     <section class="section">
-      <div class="bento">
+      <div class="case-feed">
 
-        <!-- Card 1: D365 ERP Manager Web (wide 2x1) — detail-page link -->
-        <a class="bento-card wide reveal" href="work/d365.html" aria-label="D365 ERP Manager Web — open detail page" style="transition-delay: 0ms" data-cta="work_d365">
-          <p class="card-label">D365 / BLAZOR / .NET 8</p>
-          <h3 class="card-title">D365 ERP Manager Web</h3>
-          <div class="shot">
-            <div class="shot-bar" aria-hidden="true">
-              <span class="shot-dots"><i></i><i></i><i></i></span>
-              <span class="shot-url">d365web · roadmap</span>
+        <!-- Row 1: D365 ERP Manager Web -->
+        <article class="case-row reveal" style="transition-delay: 0ms">
+          <a class="case-media" href="work/d365.html" aria-label="D365 ERP Manager Web — open detail page" data-cta="work_d365">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true">
+                <span class="shot-dots"><i></i><i></i><i></i></span>
+                <span class="shot-url">d365web · roadmap</span>
+              </div>
+              <img class="card-image" src="images/proj-d365web.webp" alt="D365 ERP Manager Web — implementation roadmap with a six-phase Gantt timeline and phase-by-phase progress summary" loading="lazy" width="1440" height="900" />
             </div>
-            <img class="card-image" src="images/proj-d365web.webp" alt="D365 ERP Manager Web — implementation roadmap with a six-phase Gantt timeline and phase-by-phase progress summary" loading="lazy" width="1440" height="900" />
+          </a>
+          <div class="case-body">
+            <div class="case-meta">
+              <p class="card-label">D365 / Blazor / .NET 8</p>
+              <span class="case-cat">Finance tooling</span>
+              <span class="case-live">Live demo</span>
+            </div>
+            <h3 class="card-title">D365 ERP Manager Web</h3>
+            <span class="case-impact">Replaces the per-engagement spreadsheet rebuild</span>
+            <p class="card-desc">Every D365 F&amp;O rollout reinvents the same planning spreadsheets. This Blazor app generates implementation timelines, project templates, and user stories on demand.</p>
+            <div class="tag-row">
+              <span class="tag">Blazor</span>
+              <span class="tag">C#</span>
+              <span class="tag">.NET 8</span>
+            </div>
+            <a class="case-view" href="work/d365.html" data-cta="work_d365_view">View walkthrough <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="card-desc">
-            Every D365 F&amp;O rollout reinvents the same planning spreadsheets. This Blazor app generates implementation timelines, project templates, and user stories on demand — <strong>reusable tooling that replaces the per-engagement spreadsheet rebuild</strong>.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Blazor</span>
-            <span class="tag">C#</span>
-            <span class="tag">.NET 8</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 2: Codex Job Tracking App (wide 2x1) — detail-page link -->
-        <a class="bento-card wide reveal" href="work/codex.html" aria-label="Codex Job Tracking App — open detail page" style="transition-delay: 60ms" data-cta="work_codex">
-          <p class="card-label">NEXT.JS / FASTAPI / CREWAI</p>
-          <h3 class="card-title">Codex Job Tracking App</h3>
-          <div class="shot">
-            <div class="shot-bar" aria-hidden="true">
-              <span class="shot-dots"><i></i><i></i><i></i></span>
-              <span class="shot-url">kmcaijobtracker.netlify.app</span>
+        <!-- Row 2: Codex Job Tracking App -->
+        <article class="case-row flip reveal" style="transition-delay: 60ms">
+          <a class="case-media" href="work/codex.html" aria-label="Codex Job Tracking App — open detail page" data-cta="work_codex">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true">
+                <span class="shot-dots"><i></i><i></i><i></i></span>
+                <span class="shot-url">kmcaijobtracker · cockpit</span>
+              </div>
+              <img class="card-image" src="images/proj-codex.webp" alt="AI Job Tracker dashboard — Job search cockpit with KPI cards (active jobs, average AI fit, approvals, recruiter replies), AI workflow command panel, and top nav covering Applications, Calendar, Opportunities, Analytics, Recruiter CRM, Agents, Task Runs" loading="lazy" width="1440" height="760" />
             </div>
-            <img class="card-image" src="images/proj-codex.webp" alt="AI Job Tracker dashboard — Job search cockpit with KPI cards (active jobs, average AI fit, approvals, recruiter replies), AI workflow command panel, and top nav covering Applications, Calendar, Opportunities, Analytics, Recruiter CRM, Agents, Task Runs" loading="lazy" width="1440" height="760" />
+          </a>
+          <div class="case-body">
+            <div class="case-meta">
+              <p class="card-label">Next.js / FastAPI / CrewAI</p>
+              <span class="case-cat">AI system</span>
+            </div>
+            <h3 class="card-title">Codex Job Tracking App</h3>
+            <span class="case-impact">Runs the job search end-to-end</span>
+            <p class="card-desc">Job hunting is fragmented across boards, inboxes, and trackers. This full-stack command center aggregates listings, ranks fit with OpenAI, tailors résumés, watches Gmail &amp; Outlook for recruiter replies, and runs approval-gated auto-apply via Playwright.</p>
+            <div class="tag-row">
+              <span class="tag">Next.js</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">CrewAI</span>
+            </div>
+            <a class="case-view" href="work/codex.html" data-cta="work_codex_view">View walkthrough <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="card-desc">
-            Job hunting is fragmented across boards, inboxes, and trackers. This full-stack command center aggregates listings, ranks fit with OpenAI, tailors résumés, watches Gmail &amp; Outlook for recruiter replies, and runs approval-gated auto-apply via Playwright — <strong>a CrewAI multi-agent system that runs the search end-to-end</strong>.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Next.js</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">CrewAI</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 3: Agentic OS Dashboard (wide 2x1) — detail-page link -->
-        <a class="bento-card wide reveal" href="work/agentic-os.html" aria-label="Agentic OS Dashboard — open detail page" style="transition-delay: 120ms" data-cta="work_agentic_os">
-          <p class="card-label">PYTHON / AGENT OPS</p>
-          <h3 class="card-title">Agentic OS Dashboard</h3>
-          <div class="shot">
-            <div class="shot-bar" aria-hidden="true">
-              <span class="shot-dots"><i></i><i></i><i></i></span>
-              <span class="shot-url">agentic-os · console</span>
+        <!-- Row 3: Agentic OS Dashboard -->
+        <article class="case-row reveal" style="transition-delay: 120ms">
+          <a class="case-media" href="work/agentic-os.html" aria-label="Agentic OS Dashboard — open detail page" data-cta="work_agentic_os">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true">
+                <span class="shot-dots"><i></i><i></i><i></i></span>
+                <span class="shot-url">agentic-os · console</span>
+              </div>
+              <img class="card-image" src="images/proj-agent.webp" alt="Agentic OS Dashboard — Slate-themed operations console showing a searchable roster of AI agents with a token-usage meter and quick-launch skills" loading="lazy" width="1440" height="900" />
             </div>
-            <img class="card-image" src="images/proj-agent.webp" alt="Agentic OS Dashboard — Slate-themed operations console showing a searchable roster of AI agents with a token-usage meter and quick-launch skills" loading="lazy" width="1440" height="900" />
+          </a>
+          <div class="case-body">
+            <div class="case-meta">
+              <p class="card-label">Python / Agent ops</p>
+              <span class="case-cat">AI system</span>
+            </div>
+            <h3 class="card-title">Agentic OS Dashboard</h3>
+            <span class="case-impact">Real observability for an AI-driven operation</span>
+            <p class="card-desc">AI automations sprawl across tools with no single view. This self-built operations console surfaces every agent, workflow, and skill in one place.</p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">Agents</span>
+              <span class="tag">Observability</span>
+            </div>
+            <a class="case-view" href="work/agentic-os.html" data-cta="work_agentic_os_view">View walkthrough <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="card-desc">
-            AI automations sprawl across tools with no single view. This self-built operations console surfaces every agent, workflow, and skill in one place — <strong>real observability for an AI-driven operation</strong>.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Python</span>
-            <span class="tag">Agents</span>
-            <span class="tag">Observability</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 4: Creator Dashboard (wide 2x1) — detail-page link -->
-        <a class="bento-card wide reveal" href="work/creator.html" aria-label="Creator Dashboard — open detail page" style="transition-delay: 180ms" data-cta="work_creator">
-          <p class="card-label">HTML / VANILLA JS</p>
-          <h3 class="card-title">Creator Dashboard</h3>
-          <div class="shot">
-            <div class="shot-bar" aria-hidden="true">
-              <span class="shot-dots"><i></i><i></i><i></i></span>
-              <span class="shot-url">creator-dashboard</span>
+        <!-- Row 4: Creator Dashboard -->
+        <article class="case-row flip reveal" style="transition-delay: 180ms">
+          <a class="case-media" href="work/creator.html" aria-label="Creator Dashboard — open detail page" data-cta="work_creator">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true">
+                <span class="shot-dots"><i></i><i></i><i></i></span>
+                <span class="shot-url">creator-dashboard</span>
+              </div>
+              <img class="card-image" src="images/proj-creator.webp" alt="Creator Dashboard interface — dark UI with KPI cards (streams logged, followers, tips, hours) and a growth-principles checklist" loading="lazy" width="1440" height="900" />
             </div>
-            <img class="card-image" src="images/proj-creator.webp" alt="Creator Dashboard interface — dark UI with KPI cards (streams logged, followers, tips, hours) and a growth-principles checklist" loading="lazy" width="1440" height="900" />
+          </a>
+          <div class="case-body">
+            <div class="case-meta">
+              <p class="card-label">HTML / Vanilla JS</p>
+              <span class="case-cat">Web app</span>
+            </div>
+            <h3 class="card-title">Creator Dashboard</h3>
+            <span class="case-impact">One lightweight cockpit, zero backend</span>
+            <p class="card-desc">Creators juggle scheduling, links, and analytics across half a dozen apps. This single-file shell app pulls scheduling, link-in-bio, analytics, and promo tools together.</p>
+            <div class="tag-row">
+              <span class="tag">HTML</span>
+              <span class="tag">JS</span>
+              <span class="tag">LocalStorage</span>
+            </div>
+            <a class="case-view" href="work/creator.html" data-cta="work_creator_view">View walkthrough <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="card-desc">
-            Creators juggle scheduling, links, and analytics across half a dozen apps. This single-file shell app pulls scheduling, link-in-bio, analytics, and promo tools together — <strong>one lightweight cockpit, zero backend</strong>.
-          </p>
-          <div class="tag-row">
-            <span class="tag">HTML</span>
-            <span class="tag">JS</span>
-            <span class="tag">LocalStorage</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 5: Aurora — Autonomous Marketing Agency (wide 2x1) — detail-page link -->
-        <a class="bento-card wide reveal" href="work/aurora.html" aria-label="Aurora — Marketing Agency — open detail page" style="transition-delay: 240ms" data-cta="work_aurora">
-          <p class="card-label">VANILLA JS / MULTI-AGENT</p>
-          <h3 class="card-title">Aurora — Marketing Agency</h3>
-          <div class="shot">
-            <div class="shot-bar" aria-hidden="true">
-              <span class="shot-dots"><i></i><i></i><i></i></span>
-              <span class="shot-url">aurora · mission control</span>
+        <!-- Row 5: Aurora — Autonomous Marketing Agency -->
+        <article class="case-row reveal" style="transition-delay: 240ms">
+          <a class="case-media" href="work/aurora.html" aria-label="Aurora — Marketing Agency — open detail page" data-cta="work_aurora">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true">
+                <span class="shot-dots"><i></i><i></i><i></i></span>
+                <span class="shot-url">aurora · mission control</span>
+              </div>
+              <img class="card-image" src="images/proj-aurora.webp" alt="Aurora autonomous marketing agency dashboard — dark mission control with campaign KPIs, a recruiter CRM pipeline kanban, live page visits, system health, and a live agent activity feed" loading="lazy" width="1440" height="900" />
             </div>
-            <img class="card-image" src="images/proj-aurora.webp" alt="Aurora autonomous marketing agency dashboard — dark mission control with campaign KPIs, a recruiter CRM pipeline kanban, live page visits, system health, and a live agent activity feed" loading="lazy" width="1440" height="900" />
+          </a>
+          <div class="case-body">
+            <div class="case-meta">
+              <p class="card-label">Vanilla JS / Multi-agent</p>
+              <span class="case-cat">AI system</span>
+            </div>
+            <h3 class="card-title">Aurora — Marketing Agency</h3>
+            <span class="case-impact">A self-driving marketing agency in a single file</span>
+            <p class="card-desc">Personal-brand marketing means juggling content, outreach, and analytics by hand. Aurora runs a roster of autonomous agents that plan campaigns, work a recruiter CRM, and track engagement from one mission control.</p>
+            <div class="tag-row">
+              <span class="tag">HTML</span>
+              <span class="tag">JS</span>
+              <span class="tag">Multi-Agent</span>
+            </div>
+            <a class="case-view" href="work/aurora.html" data-cta="work_aurora_view">View walkthrough <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="card-desc">
-            Personal-brand marketing means juggling content, outreach, and analytics by hand. Aurora runs a roster of autonomous agents that plan campaigns, work a recruiter CRM, and track engagement from one mission control — <strong>a self-driving marketing agency in a single file</strong>.
-          </p>
-          <div class="tag-row">
-            <span class="tag">HTML</span>
-            <span class="tag">JS</span>
-            <span class="tag">Multi-Agent</span>
-          </div>
-        </a>
+        </article>
 
-        <!-- Card 6: Housing-Price ML Models (wide 2x1) — detail-page link -->
-        <a class="bento-card wide reveal" href="work/ml.html" aria-label="Housing-Price ML Models — open detail page" style="transition-delay: 300ms" data-cta="work_ml">
-          <p class="card-label">DATA SCIENCE / SCIKIT-LEARN / XGBOOST</p>
-          <h3 class="card-title">Housing-Price ML Models</h3>
-          <div class="shot">
-            <div class="shot-bar" aria-hidden="true">
-              <span class="shot-dots"><i></i><i></i><i></i></span>
-              <span class="shot-url">housing-model · predicted vs actual</span>
+        <!-- Row 6: Housing-Price ML Models -->
+        <article class="case-row flip reveal" style="transition-delay: 300ms">
+          <a class="case-media" href="work/ml.html" aria-label="Housing-Price ML Models — open detail page" data-cta="work_ml">
+            <div class="shot">
+              <div class="shot-bar" aria-hidden="true">
+                <span class="shot-dots"><i></i><i></i><i></i></span>
+                <span class="shot-url">housing-model · predicted vs actual</span>
+              </div>
+              <img class="card-image" src="images/proj-ml.webp" alt="Predicted vs. actual sale price scatter plot for the Gradient Boosting model — points cluster tightly around the diagonal reference line, indicating accurate predictions" loading="lazy" width="1000" height="600" />
             </div>
-            <img class="card-image" src="images/proj-ml.webp" alt="Predicted vs. actual sale price scatter plot for the Gradient Boosting model — points cluster tightly around the diagonal reference line, indicating accurate predictions" loading="lazy" width="1000" height="600" />
+          </a>
+          <div class="case-body">
+            <div class="case-meta">
+              <p class="card-label">Data science / scikit-learn / XGBoost</p>
+              <span class="case-cat">Data science</span>
+            </div>
+            <h3 class="card-title">Housing-Price ML Models</h3>
+            <span class="case-impact">Predicted-vs-actual diagnostics that pick the winning model</span>
+            <p class="card-desc">Which model actually predicts home prices best? Compared XGBoost, Gradient Boosting, and Linear Regression head-to-head with full feature engineering and EDA.</p>
+            <div class="tag-row">
+              <span class="tag">Python</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">EDA</span>
+            </div>
+            <a class="case-view" href="work/ml.html" data-cta="work_ml_view">View walkthrough <span aria-hidden="true">&rarr;</span></a>
           </div>
-          <p class="card-desc">
-            Which model actually predicts home prices best? Compared XGBoost, Gradient Boosting, and Linear Regression head-to-head with full feature engineering and EDA — <strong>predicted-vs-actual diagnostics that pick the winning model</strong>.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Python</span>
-            <span class="tag">XGBoost</span>
-            <span class="tag">scikit-learn</span>
-            <span class="tag">EDA</span>
-          </div>
-        </a>
+        </article>
 
       </div>
     </section>
