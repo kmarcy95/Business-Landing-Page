@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Meridian — Beyond D365. An enterprise cost-accounting &amp; controlling platform: 71 registers, a governed double-entry GL engine, ~160 AI command bars, and a continuous-controls Control Tower, in one Node process." />
+  <link rel="canonical" href="https://keystonemarcy.pages.dev/work/meridian.html" />
+  <meta name="author" content="Keystone Marcy" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Meridian — Beyond D365 | Keystone Marcy" />
+  <meta property="og:description" content="An enterprise cost-accounting platform that out-grew the system it emulated: 71 registers, a governed GL engine, AI on every screen — in one Node process." />
+  <meta property="og:image" content="https://keystonemarcy.pages.dev/images/work/meridian/hero.webp" />
+  <meta property="og:url" content="https://keystonemarcy.pages.dev/work/meridian.html" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Meridian — Beyond D365 | Keystone Marcy" />
+  <meta name="twitter:description" content="An enterprise cost-accounting platform that out-grew the system it emulated: 71 registers, a governed GL engine, AI on every screen — in one Node process." />
+  <meta name="twitter:image" content="https://keystonemarcy.pages.dev/images/work/meridian/hero.webp" />
+
+  <title>Meridian — Beyond D365 | Keystone Marcy</title>
+
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg" />
+  <link rel="preload" as="image" type="image/webp" href="../images/work/meridian/hero.webp" />
+
+  <style>
+    :root {
+      --navy: #0d1b2e;
+      --blue: #2563eb;
+      --blue-lt: #4f8df9;
+      --cyan: #22ccf5;
+      --txt: #f5f5f7;
+      --dim: #a1a1a6;
+      --mut: #6e6e73;
+      --hair: rgba(255, 255, 255, .12);
+      --grad: linear-gradient(100deg, #4f8df9 0%, #22ccf5 60%, #7fd9f7 100%);
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #000;
+      color: var(--txt);
+      font-family: -apple-system, 'SF Pro Display', 'Segoe UI', Inter, system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    .container { max-width: 1020px; margin: 0 auto; padding: 0 24px; }
+
+    .skip-link { position: absolute; left: -9999px; top: 0; background: var(--cyan); color: #04121f; font-weight: 700; padding: 10px 18px; border-radius: 0 0 8px 0; z-index: 200; }
+    .skip-link:focus { left: 0; }
+
+    /* ===== Nav ===== */
+    .nav-wrap { position: sticky; top: 0; z-index: 100; background: rgba(0, 0, 0, .82); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--hair); }
+    .nav-inner { display: flex; align-items: center; gap: 20px; padding: 12px 24px; max-width: 1180px; margin: 0 auto; }
+    .brand img { height: 40px; width: auto; }
+    .nav-links { margin-left: auto; display: flex; gap: 22px; list-style: none; padding: 0; align-items: center; }
+    .nav-links a { font-size: 14px; color: var(--dim); text-decoration: none; transition: color .15s; }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #fff; }
+    .nav-cta { background: var(--blue); color: #fff !important; font-weight: 600; padding: 8px 18px; border-radius: 8px; }
+    .nav-cta:hover { background: var(--blue-lt); }
+    .nav-toggle { display: none; margin-left: auto; background: none; border: 1px solid var(--hair); border-radius: 8px; padding: 9px 10px; cursor: pointer; }
+    .nav-toggle-bar { display: block; width: 20px; height: 2px; background: #fff; margin: 4px 0; border-radius: 2px; }
+
+    /* ===== Hero ===== */
+    .hero { text-align: center; padding: 88px 24px 56px; }
+    .eyebrow { font-size: 13px; letter-spacing: 2.5px; font-weight: 600; color: var(--mut); }
+    .cube {
+      margin: 30px auto 20px; width: 88px; height: 88px; border-radius: 22px;
+      background: #0a1426;
+      box-shadow: 0 0 56px rgba(34, 204, 245, .35), inset 0 0 0 1px rgba(255, 255, 255, .07);
+      display: flex; align-items: center; justify-content: center;
+    }
+    h1.name { font-size: clamp(56px, 10vw, 92px); font-weight: 800; letter-spacing: -.035em; line-height: 1; color: #fff; }
+    .tagline { font-size: clamp(28px, 5.4vw, 48px); font-weight: 800; letter-spacing: -.025em; margin-top: 10px; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero-sub { font-size: 19px; color: var(--dim); max-width: 600px; margin: 24px auto 0; }
+    .hero-ctas { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-block; font-weight: 600; font-size: 15px; padding: 12px 26px; border-radius: 99px; text-decoration: none; transition: transform .15s, background .15s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-w { background: #fff; color: #000; }
+    .btn-o { border: 1px solid rgba(255, 255, 255, .35); color: #fff; }
+    .btn-o:hover { border-color: rgba(255, 255, 255, .7); }
+
+    /* ===== Screenshot frames ===== */
+    .shot { border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 1px rgba(255, 255, 255, .09), 0 30px 80px rgba(34, 204, 245, .16); background: #0b1322; }
+    .shot .bar { height: 28px; background: #101c33; display: flex; align-items: center; gap: 6px; padding: 0 14px; }
+    .shot .bar i { width: 9px; height: 9px; border-radius: 50%; background: #2a3f66; display: block; }
+    .shot .url { font-size: 11.5px; color: #5c769e; margin-left: 8px; font-family: Consolas, 'Cascadia Code', monospace; }
+    .hero .shot { max-width: 900px; margin: 56px auto 0; }
+
+    /* ===== Stat strip ===== */
+    .stats { display: flex; justify-content: center; gap: clamp(28px, 6vw, 64px); padding: 64px 24px; flex-wrap: wrap; border-bottom: 1px solid var(--hair); }
+    .stat { text-align: center; }
+    .stat b { display: block; font-size: clamp(38px, 5.5vw, 54px); font-weight: 800; letter-spacing: -.03em; background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .stat span { font-size: 14px; color: var(--mut); }
+
+    /* ===== Intro ===== */
+    .intro { max-width: 740px; margin: 0 auto; padding: 84px 24px 16px; text-align: center; }
+    .intro h2 { font-size: clamp(28px, 4.5vw, 36px); font-weight: 800; letter-spacing: -.025em; margin-bottom: 18px; }
+    .intro p { font-size: 17px; color: var(--dim); line-height: 1.65; }
+    .intro p b { color: #fff; font-weight: 600; }
+
+    /* ===== Scenes ===== */
+    .scene { padding: 96px 24px 24px; text-align: center; }
+    .scene .k { font-size: 13px; letter-spacing: 2px; font-weight: 700; color: var(--cyan); }
+    .scene h2 { font-size: clamp(32px, 6vw, 46px); font-weight: 800; letter-spacing: -.028em; margin: 12px 0 14px; }
+    .scene h2 .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .scene > p { font-size: 16.5px; color: var(--dim); max-width: 660px; margin: 0 auto; line-height: 1.62; }
+    .scene .shot { max-width: 900px; margin: 42px auto 0; }
+
+    /* ===== Capability wall ===== */
+    .wall { max-width: 920px; margin: 0 auto; padding: 110px 24px 20px; }
+    .wall h2 { font-size: clamp(32px, 6vw, 44px); font-weight: 800; letter-spacing: -.028em; text-align: center; }
+    .wall .sub { text-align: center; color: var(--dim); font-size: 16px; margin: 12px 0 38px; }
+    .modgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; }
+    .mod { border: 1px solid var(--hair); border-radius: 11px; padding: 14px; background: #0a0a0c; transition: border-color .15s; }
+    .mod:hover { border-color: rgba(34, 204, 245, .45); }
+    .mod b { display: block; font-size: 13px; color: var(--txt); margin-bottom: 4px; }
+    .mod span { font-size: 11px; color: var(--mut); line-height: 1.5; display: block; }
+    .wall h3.diff-title { text-align: center; font-size: clamp(22px, 3.6vw, 28px); font-weight: 800; letter-spacing: -.02em; margin: 64px 0 8px; }
+    .wall .diff-sub { text-align: center; color: var(--dim); font-size: 15px; margin-bottom: 26px; }
+    .diffstrip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; }
+    .diff { border-radius: 13px; padding: 20px; background: linear-gradient(160deg, #0e1c33, #0a0f1c); border: 1px solid #1c2c4a; }
+    .diff .ic { font-size: 20px; }
+    .diff b { display: block; font-size: 15px; margin: 9px 0 6px; color: #fff; }
+    .diff span { font-size: 12.5px; color: var(--dim); line-height: 1.55; }
+
+    /* ===== Specs ===== */
+    .specs { max-width: 900px; margin: 0 auto; padding: 110px 24px 50px; }
+    .specs h2 { font-size: clamp(30px, 5vw, 40px); font-weight: 800; letter-spacing: -.028em; text-align: center; margin-bottom: 44px; }
+    .spec-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--hair); border: 1px solid var(--hair); border-radius: 14px; overflow: hidden; }
+    .spec { background: #0a0a0c; padding: 24px 20px; }
+    .spec .h { font-size: 11.5px; letter-spacing: 1.5px; color: var(--mut); font-weight: 700; margin-bottom: 7px; }
+    .spec .v { font-size: 16px; font-weight: 600; color: var(--txt); }
+    .spec .v small { display: block; font-weight: 400; font-size: 12.5px; color: var(--dim); margin-top: 4px; }
+
+    /* ===== QA pills ===== */
+    .qa { text-align: center; padding: 16px 24px 96px; }
+    .qa .pill { display: inline-block; border: 1px solid var(--hair); border-radius: 99px; padding: 10px 19px; font-size: 13.5px; color: var(--dim); margin: 5px; }
+    .qa .pill b { color: var(--cyan); font-weight: 700; }
+
+    /* ===== Closing ===== */
+    .closing { text-align: center; padding: 96px 24px 116px; border-top: 1px solid var(--hair); }
+    .closing h2 { font-size: clamp(34px, 6.5vw, 50px); font-weight: 800; letter-spacing: -.03em; line-height: 1.12; }
+    .closing h2 span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .closing p { color: var(--dim); font-size: 16px; margin: 16px auto 30px; max-width: 540px; }
+
+    /* ===== Footer ===== */
+    footer { border-top: 1px solid var(--hair); padding: 30px 24px; }
+    .footer-inner { max-width: 1020px; margin: 0 auto; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+    .footer-inner img { height: 34px; width: auto; }
+    .footer-links { display: flex; gap: 18px; margin-left: auto; }
+    .footer-links a { font-size: 13.5px; color: var(--mut); text-decoration: none; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { max-width: 1020px; margin: 14px auto 0; font-size: 12.5px; color: var(--mut); }
+
+    .back-link { max-width: 1020px; margin: 22px auto 0; padding: 0 24px; font-size: 14px; }
+    .back-link a { color: var(--dim); text-decoration: none; }
+    .back-link a:hover { color: #fff; }
+
+    /* ===== Reveal ===== */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .5s ease-out, transform .5s ease-out; }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 880px) {
+      .modgrid { grid-template-columns: repeat(2, 1fr); }
+      .diffstrip { grid-template-columns: repeat(2, 1fr); }
+      .spec-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; background: rgba(0, 0, 0, .96); flex-direction: column; padding: 16px 24px; gap: 14px; border-bottom: 1px solid var(--hair); }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .diffstrip { grid-template-columns: 1fr; }
+      .spec-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <div class="nav-wrap">
+    <nav class="nav-inner" aria-label="Primary">
+      <a class="brand" href="../index.html#top" aria-label="Keystone Marcy — home">
+        <img src="../images/km2-white.png" alt="KM&sup2; Consulting" width="1000" height="383" />
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="Open menu">
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+        <span class="nav-toggle-bar" aria-hidden="true"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../experience.html">Experience</a></li>
+        <li><a class="active" aria-current="page" href="../work.html">Work</a></li>
+        <li><a href="../services.html">Services</a></li>
+        <li><a href="../templates.html">Templates</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../how-i-work.html">How I Work</a></li>
+        <li><a class="nav-cta" href="../contact.html" data-cta="nav_contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <p class="back-link"><a href="../work.html" data-cta="detail_back">&larr; Back to work</a></p>
+
+  <main id="main">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="top">
+      <p class="eyebrow">KM&sup2; &middot; FLAGSHIP BUILD</p>
+      <div class="cube" aria-hidden="true">
+        <svg width="58" height="58" viewBox="0 0 80 80">
+          <polygon points="40,10 68,26 40,42 12,26" fill="#3b82f6"/>
+          <polygon points="12,26 40,42 40,72 12,56" fill="#1d4ed8"/>
+          <polygon points="68,26 40,42 40,72 68,56" fill="#22ccf5"/>
+          <rect x="66" y="14" width="7" height="7" rx="1.6" fill="#22ccf5"/>
+          <rect x="58" y="6" width="5" height="5" rx="1.3" fill="#2563eb"/>
+        </svg>
+      </div>
+      <h1 class="name">Meridian</h1>
+      <p class="tagline">Beyond D365.</p>
+      <p class="hero-sub">The enterprise cost-accounting platform that out-grew the system it emulated. 71 registers, a governed double-entry ledger, and AI on every screen &mdash; in one Node process.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-w" href="#platform" data-cta="meridian_explore">Explore the build</a>
+        <a class="btn btn-o" href="#specs" data-cta="meridian_specs">Tech specs &darr;</a>
+      </div>
+      <figure class="shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; executive overview</span></div>
+        <img src="../images/work/meridian/hero.webp" alt="Meridian Executive Overview — deep-navy sidebar with 19 module groups, KPI cards for inventory value, cost center actuals, budget and net production variance, and a variance exceptions table" width="1600" height="900" loading="eager" />
+      </figure>
+    </section>
+
+    <!-- ===== Stat strip ===== -->
+    <section class="stats" aria-label="Build statistics">
+      <div class="stat"><b>71</b><span>register kinds</span></div>
+      <div class="stat"><b>19</b><span>modules</span></div>
+      <div class="stat"><b>~160</b><span>AI command bars</span></div>
+      <div class="stat"><b>42.7k</b><span>lines of TypeScript</span></div>
+      <div class="stat"><b>$0.00</b><span>out of balance, ever</span></div>
+    </section>
+
+    <!-- ===== Why it exists ===== -->
+    <section class="intro reveal">
+      <h2>Why it exists</h2>
+      <p>Microsoft Dynamics 365 Finance &amp; Operations is the system most manufacturers run their books on &mdash; and the system most finance teams wish they could change. Meridian started as a faithful D365 cost-accounting workspace and kept going: <b>32 features across eight enhancement waves</b>, a governed GL posting engine, continuous-controls monitoring, and a local AI insight layer no ERP ships with. Built end-to-end by one person, as one TypeScript codebase.</p>
+    </section>
+
+    <!-- ===== Scene 1: platform ===== -->
+    <section class="scene reveal" id="platform">
+      <p class="k">SCENE 1 / THE PLATFORM</p>
+      <h2>The whole ledger. <span class="g">One workspace.</span></h2>
+      <p>AP, AR, General Ledger, Fixed Assets, Cash &amp; Bank, Tax, Budgeting, Credit &amp; Collections, plus full manufacturing cost accounting &mdash; every register a working page with filters, saved views, conditional formatting, watchlists, and export.</p>
+      <figure class="shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; vendor invoices</span></div>
+        <img src="../images/work/meridian/register.webp" alt="Vendor Invoices register — grid with three-way-match flags, status chips, advanced filters, and the section command bar with Details, Edit, AI Insights, CSV, and Pin actions" width="1600" height="900" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- ===== Scene 2: engine ===== -->
+    <section class="scene reveal">
+      <p class="k">SCENE 2 / THE ENGINE</p>
+      <h2>Every journal balances. <span class="g">Always.</span></h2>
+      <p>Every money-moving action &mdash; 22 transaction types across every module &mdash; funnels through one governed posting engine: balanced debits and credits, fiscal-period guards, multi-currency with FX, dimension validation, and a $50k approval threshold with segregation of duties.</p>
+      <figure class="shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; journal entries</span></div>
+        <img src="../images/work/meridian/journals.webp" alt="Journal Entries workspace — the journal composer with balanced debit and credit lines, currency selection, auto-reverse option, and cost-center dimensions" width="1600" height="900" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- ===== Scene 3: AI ===== -->
+    <section class="scene reveal">
+      <p class="k">SCENE 3 / THE AI LAYER</p>
+      <h2>AI on <span class="g">every section.</span></h2>
+      <p>~160 command bars &mdash; one above every KPI strip, chart, and table &mdash; each opening a floating AI Insights window: a deterministic local engine that explains scale, concentration, outliers, pipeline health, and time drift in plain English. Offline. Instant. On every screen.</p>
+      <figure class="shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; ai insights</span></div>
+        <img src="../images/work/meridian/ai.webp" alt="Floating AI Insights window over the Vendors register — narrative cards covering what the numbers mean, concentration in raw material, outlier checks, and work waiting in the pipeline" width="1600" height="900" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- ===== Scene 4: governance ===== -->
+    <section class="scene reveal">
+      <p class="k">SCENE 4 / GOVERNANCE</p>
+      <h2>The <span class="g">Control Tower.</span></h2>
+      <p>Continuous controls a Big-4 auditor would recognize: Benford's-Law screening of posted amounts, duplicate-payment detection with dollars-at-risk, a journal approval queue with segregation of duties, and a data-quality scoreboard across ten registers.</p>
+      <figure class="shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; control tower</span></div>
+        <img src="../images/work/meridian/controls.webp" alt="Control Tower governance dashboard — anomaly watchdog findings, Benford's Law first-digit distribution chart, duplicate payment detector, and the journal approval queue" width="1600" height="900" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- ===== Scene 5: close ===== -->
+    <section class="scene reveal">
+      <p class="k">SCENE 5 / THE CLOSE</p>
+      <h2>Close with <span class="g">confidence.</span></h2>
+      <p>Fiscal-period control, auto-reversing accruals, allocation cascades you can see, year-end close to retained earnings, and financial statements rendered live from the trial balance. Bank statements import and auto-match; journal CSVs post through the full validation stack.</p>
+      <figure class="shot">
+        <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; ledger allocations</span></div>
+        <img src="../images/work/meridian/allocations.webp" alt="Ledger Allocations — allocation rules with basis percentages and the posting flow from source cost pools to target accounts" width="1600" height="900" loading="lazy" />
+      </figure>
+    </section>
+
+    <!-- ===== Capability wall ===== -->
+    <section class="wall reveal">
+      <h2>Everything inside.</h2>
+      <p class="sub">Nineteen modules. Every one a working set of pages, not a menu stub.</p>
+      <div class="modgrid">
+        <div class="mod"><b>Enterprise</b><span>Executive Overview &middot; My Workspace &middot; Plant Consolidation &middot; Profitability Cube</span></div>
+        <div class="mod"><b>Accounts Payable</b><span>Vendors &middot; POs &middot; Invoices (3-way match) &middot; Aging &middot; Payment runs &amp; calendar</span></div>
+        <div class="mod"><b>Accounts Receivable</b><span>Customers &middot; Orders &middot; Invoices &middot; Aging / DSO &middot; Cash application &middot; Collections</span></div>
+        <div class="mod"><b>General Ledger</b><span>Dimensions &middot; Recurring &middot; Trial balance &middot; Intercompany &middot; Fiscal periods &middot; Allocations</span></div>
+        <div class="mod"><b>Cash &amp; Bank</b><span>Accounts &middot; Reconciliation + statement import &middot; Cash forecast &middot; Settlements</span></div>
+        <div class="mod"><b>Fixed Assets</b><span>Register &middot; Depreciation books + projector &middot; Acquisitions &amp; disposals &middot; Proposals</span></div>
+        <div class="mod"><b>Tax</b><span>Sales tax &amp; VAT &middot; Tax authorities &middot; posting to liability accounts</span></div>
+        <div class="mod"><b>Budgeting &amp; Reporting</b><span>Budget cycles &middot; Commitments &middot; FX revaluation &middot; Expenses &middot; Statement designer</span></div>
+        <div class="mod"><b>Credit &amp; Collections</b><span>Credit management &middot; Collection letters &middot; Payment proposals &middot; Discounts</span></div>
+        <div class="mod"><b>Product Cost</b><span>Standard costing &middot; BOM cost roll-up &middot; Cost components</span></div>
+        <div class="mod"><b>Operations</b><span>Job &amp; WIP aging &middot; Inventory valuation &middot; Production variances</span></div>
+        <div class="mod"><b>Controlling</b><span>Cost centers &middot; Overhead / ABC &middot; Budget vs actual analytics</span></div>
+        <div class="mod"><b>Cost Tools</b><span>Costing sheet builder &middot; Rate tables &middot; Allocation rules</span></div>
+        <div class="mod"><b>Production</b><span>Work orders &middot; Routings &middot; Capacity</span></div>
+        <div class="mod"><b>Governance</b><span>Control Tower &middot; Approvals &middot; Audit trail &middot; Policies</span></div>
+        <div class="mod"><b>Tools</b><span>Journal composer &middot; Period close critical path &middot; Reconciliation auto-match</span></div>
+        <div class="mod"><b>Finance Modules</b><span>GL accounts &middot; Cost ledger &middot; Allocations ledger</span></div>
+        <div class="mod"><b>Project Management</b><span>Program dashboard &middot; Milestones &middot; Deliverables kanban &middot; RACI &middot; Budget</span></div>
+        <div class="mod"><b>Migration (GP&rarr;SAP)</b><span>Workplan gantt &middot; Field mapping &middot; CoA crosswalk &middot; RAID log</span></div>
+      </div>
+
+      <h3 class="diff-title">What separates it.</h3>
+      <p class="diff-sub">The parts no ERP demo &mdash; and few ERPs &mdash; ship with.</p>
+      <div class="diffstrip">
+        <div class="diff"><span class="ic" aria-hidden="true">&#129504;</span><b>Offline AI engine</b><span>Six deterministic analyzers narrate every dataset &mdash; no API key, no cloud, no latency.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#9878;&#65039;</span><b>Governed posting</b><span>Balance enforcement, period guards, FX, dimension validation, approval thresholds, segregation of duties.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#128508;</span><b>Continuous controls</b><span>Benford screening, duplicate detection, anomaly watchdog &mdash; built in, not bolted on.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#129695;</span><b>Floating windows</b><span>Details and AI windows drag, pin, and minimize &mdash; the app stays fully usable behind them.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#128204;</span><b>My Workspace</b><span>Pin any section from anywhere into a personal pinboard with live insight cards.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#128230;</span><b>One process</b><span>Express + React + SQLite ship as a single Node process. No cluster, no cloud bill.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#128229;</span><b>Data in</b><span>Bank-statement import with auto-match; journal CSV import through the full validation stack.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#128202;</span><b>Analytics depth</b><span>WIP aging, slow movers, DSO by segment, customer value &amp; risk, profitability cube.</span></div>
+        <div class="diff"><span class="ic" aria-hidden="true">&#128257;</span><b>Real close</b><span>Auto-reversing accruals, year-end close to retained earnings, live statements, allocation Sankey.</span></div>
+      </div>
+    </section>
+
+    <!-- ===== Specs ===== -->
+    <section class="specs reveal" id="specs">
+      <h2>Tech specs</h2>
+      <div class="spec-grid">
+        <div class="spec"><div class="h">LANGUAGE</div><div class="v">TypeScript 5.6<small>141 source files, strict</small></div></div>
+        <div class="spec"><div class="h">FRONTEND</div><div class="v">React 18 + Vite 7<small>Tailwind &middot; Radix &middot; Recharts</small></div></div>
+        <div class="spec"><div class="h">BACKEND</div><div class="v">Express 5<small>one Node process serves everything</small></div></div>
+        <div class="spec"><div class="h">DATA</div><div class="v">SQLite + Drizzle ORM<small>generic record store, 71 kinds</small></div></div>
+        <div class="spec"><div class="h">STATE</div><div class="v">TanStack Query 5<small>server-backed UI preferences</small></div></div>
+        <div class="spec"><div class="h">EXPORT</div><div class="v">PDF &middot; XLSX &middot; CSV<small>board-pack &amp; statement output</small></div></div>
+      </div>
+    </section>
+
+    <!-- ===== QA pills ===== -->
+    <section class="qa reveal" aria-label="Quality assurance">
+      <span class="pill"><b>0</b> type errors at every commit</span>
+      <span class="pill"><b>$0.00</b> out-of-balance, verified via API</span>
+      <span class="pill"><b>0</b> console errors shipped</span>
+      <span class="pill"><b>8</b> enhancement waves, QA'd live</span>
+    </section>
+
+    <!-- ===== Closing ===== -->
+    <section class="closing reveal">
+      <h2>Built by one person.<br /><span>Run by one process.</span></h2>
+      <p>Meridian is the flagship of the KM&sup2; build portfolio &mdash; proof that modern finance tooling doesn't need a vendor.</p>
+      <a class="btn btn-w" href="../contact.html" data-cta="meridian_contact">Get in touch</a>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <a href="../index.html#top" aria-label="KM Consulting — back to top">
+        <img src="../images/km2-white.png" alt="KM&sup2; Consulting" width="1000" height="383" />
+      </a>
+      <nav class="footer-links" aria-label="Footer">
+        <a href="../work.html">Work</a>
+        <a href="../services.html">Services</a>
+        <a href="../experience.html">Experience</a>
+        <a href="../about.html">About</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="footer-copy">&copy; 2026 KM Consulting &middot; built by Keystone</div>
+  </footer>
+
+  <script>
+    (function () {
+      var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      /* ===== Analytics: lead-event tracking (no-op if gtag absent) ===== */
+      function track(name, params) {
+        if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+      }
+      document.querySelectorAll('[data-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          track('select_content', { content_type: 'cta', content_id: el.dataset.cta });
+        });
+      });
+
+      /* ===== Reveal-on-scroll ===== */
+      var targets = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        targets.forEach(function (el) { el.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in');
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+        targets.forEach(function (el) { io.observe(el); });
+      }
+
+      /* ===== Mobile nav toggle ===== */
+      var navToggle = document.getElementById('navToggle');
+      var navLinks = document.getElementById('navLinks');
+      if (navToggle && navLinks) {
+        var setMenu = function (open) {
+          navLinks.classList.toggle('open', open);
+          navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+          navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        };
+        navToggle.addEventListener('click', function () {
+          setMenu(!navLinks.classList.contains('open'));
+        });
+        navLinks.addEventListener('click', function (e) {
+          if (e.target.closest('a')) setMenu(false);
+        });
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && navLinks.classList.contains('open')) {
+            setMenu(false);
+            navToggle.focus();
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
