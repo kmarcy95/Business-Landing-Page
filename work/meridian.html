@@ -112,6 +112,18 @@
     .scene > p { font-size: 16.5px; color: var(--dim); max-width: 660px; margin: 0 auto; line-height: 1.62; }
     .scene .shot { max-width: 900px; margin: 42px auto 0; }
 
+    /* ===== Demo videos ===== */
+    .demos { max-width: 900px; margin: 0 auto; padding: 110px 24px 24px; text-align: center; }
+    .demos .k { font-size: 13px; letter-spacing: 2px; font-weight: 700; color: var(--cyan); }
+    .demos h2 { font-size: clamp(32px, 6vw, 46px); font-weight: 800; letter-spacing: -.028em; margin: 12px 0 14px; }
+    .demos h2 .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .demos > p { font-size: 16.5px; color: var(--dim); max-width: 660px; margin: 0 auto; line-height: 1.62; }
+    .demo { margin-top: 46px; text-align: left; }
+    .demo .tag { display: inline-block; font-size: 12px; letter-spacing: 1.5px; font-weight: 700; color: var(--cyan); margin-bottom: 8px; }
+    .demo h3 { font-size: clamp(21px, 3.4vw, 26px); font-weight: 800; letter-spacing: -.02em; margin-bottom: 6px; }
+    .demo p.cap { color: var(--dim); font-size: 15px; margin-bottom: 18px; max-width: 680px; }
+    .demos video { display: block; width: 100%; height: auto; background: #000; }
+
     /* ===== Capability wall ===== */
     .wall { max-width: 920px; margin: 0 auto; padding: 110px 24px 20px; }
     .wall h2 { font-size: clamp(32px, 6vw, 44px); font-weight: 800; letter-spacing: -.028em; text-align: center; }
@@ -308,6 +320,43 @@
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; ledger allocations</span></div>
         <img src="../images/work/meridian/allocations.webp" alt="Ledger Allocations — allocation rules with basis percentages and the posting flow from source cost pools to target accounts" width="1600" height="900" loading="lazy" />
       </figure>
+    </section>
+
+    <!-- ===== Demo videos ===== -->
+    <section class="demos reveal" id="demos">
+      <p class="k">SEE IT IN MOTION</p>
+      <h2>Three workflows, <span class="g">start to post.</span></h2>
+      <p>Not a slideshow &mdash; real transactions recorded live in the app: a balanced journal posted to the ledger, an inventory reserve routed for approval, and a customer payment applied and posted.</p>
+
+      <div class="demo">
+        <span class="tag">01 / GENERAL LEDGER</span>
+        <h3>Create &amp; post a journal entry</h3>
+        <p class="cap">The governed composer &mdash; balanced double-entry, period-checked and dimension-validated before it posts to the GL.</p>
+        <figure class="shot">
+          <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; journal entries</span></div>
+          <video src="../images/work/meridian/demo-journal.mp4" poster="../images/work/meridian/demo-journal.jpg" controls muted playsinline preload="none" width="1280" height="720"></video>
+        </figure>
+      </div>
+
+      <div class="demo">
+        <span class="tag">02 / INVENTORY &amp; COSTING</span>
+        <h3>Book an inventory reserve</h3>
+        <p class="cap">Reserve slow-moving stock against obsolescence, document the reason, and route it to the disposition queue for approval.</p>
+        <figure class="shot">
+          <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; inventory reserve</span></div>
+          <video src="../images/work/meridian/demo-reserve.mp4" poster="../images/work/meridian/demo-reserve.jpg" controls muted playsinline preload="none" width="1280" height="720"></video>
+        </figure>
+      </div>
+
+      <div class="demo">
+        <span class="tag">03 / ACCOUNTS RECEIVABLE</span>
+        <h3>Apply a customer payment</h3>
+        <p class="cap">Cash Application matches receipts to open invoices &mdash; one click posts Dr Cash / Cr A/R and marks the invoice paid.</p>
+        <figure class="shot">
+          <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; cash application</span></div>
+          <video src="../images/work/meridian/demo-cash.mp4" poster="../images/work/meridian/demo-cash.jpg" controls muted playsinline preload="none" width="1280" height="720"></video>
+        </figure>
+      </div>
     </section>
 
     <!-- ===== Capability wall ===== -->
