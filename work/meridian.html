@@ -105,12 +105,18 @@
     .intro p b { color: #fff; font-weight: 600; }
 
     /* ===== Scenes ===== */
-    .scene { padding: 96px 24px 24px; text-align: center; }
+    .scene { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); gap: clamp(32px, 5vw, 64px); align-items: center; max-width: 1140px; margin: 0 auto; padding: 84px 24px 24px; }
+    .scene .scene-copy { max-width: 460px; }
+    .scene.flip .scene-copy { order: 2; }
     .scene .k { font-size: 13px; letter-spacing: 2px; font-weight: 700; color: var(--cyan); }
-    .scene h2 { font-size: clamp(32px, 6vw, 46px); font-weight: 800; letter-spacing: -.028em; margin: 12px 0 14px; }
+    .scene h2 { font-size: clamp(30px, 4.4vw, 42px); font-weight: 800; letter-spacing: -.028em; margin: 12px 0 16px; }
     .scene h2 .g { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .scene > p { font-size: 16.5px; color: var(--dim); max-width: 660px; margin: 0 auto; line-height: 1.62; }
-    .scene .shot { max-width: 900px; margin: 42px auto 0; }
+    .scene .scene-copy p:not(.k) { font-size: 16.5px; color: var(--dim); margin: 0; line-height: 1.62; }
+    .scene .shot { max-width: none; margin: 0; }
+    @media (max-width: 880px) {
+      .scene { grid-template-columns: 1fr; gap: 26px; max-width: 760px; padding-top: 64px; }
+      .scene.flip .scene-copy { order: 0; }
+    }
 
     /* ===== Demo videos ===== */
     .demos { max-width: 900px; margin: 0 auto; padding: 110px 24px 24px; text-align: center; }
@@ -269,9 +275,11 @@
 
     <!-- ===== Scene 1: platform ===== -->
     <section class="scene reveal" id="platform">
-      <p class="k">SCENE 1 / THE PLATFORM</p>
-      <h2>The whole ledger. <span class="g">One workspace.</span></h2>
-      <p>AP, AR, General Ledger, Fixed Assets, Cash &amp; Bank, Tax, Budgeting, Credit &amp; Collections, plus full manufacturing cost accounting &mdash; every register a working page with filters, saved views, conditional formatting, watchlists, and export.</p>
+      <div class="scene-copy">
+        <p class="k">SCENE 1 / THE PLATFORM</p>
+        <h2>The whole ledger. <span class="g">One workspace.</span></h2>
+        <p>AP, AR, General Ledger, Fixed Assets, Cash &amp; Bank, Tax, Budgeting, Credit &amp; Collections, plus full manufacturing cost accounting &mdash; every register a working page with filters, saved views, conditional formatting, watchlists, and export.</p>
+      </div>
       <figure class="shot">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; vendor invoices</span></div>
         <img src="../images/work/meridian/register.webp" alt="Vendor Invoices register — grid with three-way-match flags, status chips, advanced filters, and the section command bar with Details, Edit, AI Insights, CSV, and Pin actions" width="1600" height="900" loading="lazy" />
@@ -279,10 +287,12 @@
     </section>
 
     <!-- ===== Scene 2: engine ===== -->
-    <section class="scene reveal">
-      <p class="k">SCENE 2 / THE ENGINE</p>
-      <h2>Every journal balances. <span class="g">Always.</span></h2>
-      <p>Every money-moving action &mdash; 22 transaction types across every module &mdash; funnels through one governed posting engine: balanced debits and credits, fiscal-period guards, multi-currency with FX, dimension validation, and a $50k approval threshold with segregation of duties.</p>
+    <section class="scene reveal flip">
+      <div class="scene-copy">
+        <p class="k">SCENE 2 / THE ENGINE</p>
+        <h2>Every journal balances. <span class="g">Always.</span></h2>
+        <p>Every money-moving action &mdash; 22 transaction types across every module &mdash; funnels through one governed posting engine: balanced debits and credits, fiscal-period guards, multi-currency with FX, dimension validation, and a $50k approval threshold with segregation of duties.</p>
+      </div>
       <figure class="shot">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; journal entries</span></div>
         <img src="../images/work/meridian/journals.webp" alt="Journal Entries workspace — the journal composer with balanced debit and credit lines, currency selection, auto-reverse option, and cost-center dimensions" width="1600" height="900" loading="lazy" />
@@ -291,9 +301,11 @@
 
     <!-- ===== Scene 3: AI ===== -->
     <section class="scene reveal">
-      <p class="k">SCENE 3 / THE AI LAYER</p>
-      <h2>AI on <span class="g">every section.</span></h2>
-      <p>~160 command bars &mdash; one above every KPI strip, chart, and table &mdash; each opening a floating AI Insights window: a deterministic local engine that explains scale, concentration, outliers, pipeline health, and time drift in plain English. Offline. Instant. On every screen.</p>
+      <div class="scene-copy">
+        <p class="k">SCENE 3 / THE AI LAYER</p>
+        <h2>AI on <span class="g">every section.</span></h2>
+        <p>~160 command bars &mdash; one above every KPI strip, chart, and table &mdash; each opening a floating AI Insights window: a deterministic local engine that explains scale, concentration, outliers, pipeline health, and time drift in plain English. Offline. Instant. On every screen.</p>
+      </div>
       <figure class="shot">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; ai insights</span></div>
         <img src="../images/work/meridian/ai.webp" alt="Floating AI Insights window over the Vendors register — narrative cards covering what the numbers mean, concentration in raw material, outlier checks, and work waiting in the pipeline" width="1600" height="900" loading="lazy" />
@@ -301,10 +313,12 @@
     </section>
 
     <!-- ===== Scene 4: governance ===== -->
-    <section class="scene reveal">
-      <p class="k">SCENE 4 / GOVERNANCE</p>
-      <h2>The <span class="g">Control Tower.</span></h2>
-      <p>Continuous controls a Big-4 auditor would recognize: Benford's-Law screening of posted amounts, duplicate-payment detection with dollars-at-risk, a journal approval queue with segregation of duties, and a data-quality scoreboard across ten registers.</p>
+    <section class="scene reveal flip">
+      <div class="scene-copy">
+        <p class="k">SCENE 4 / GOVERNANCE</p>
+        <h2>The <span class="g">Control Tower.</span></h2>
+        <p>Continuous controls a Big-4 auditor would recognize: Benford's-Law screening of posted amounts, duplicate-payment detection with dollars-at-risk, a journal approval queue with segregation of duties, and a data-quality scoreboard across ten registers.</p>
+      </div>
       <figure class="shot">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; control tower</span></div>
         <img src="../images/work/meridian/controls.webp" alt="Control Tower governance dashboard — anomaly watchdog findings, Benford's Law first-digit distribution chart, duplicate payment detector, and the journal approval queue" width="1600" height="900" loading="lazy" />
@@ -313,9 +327,11 @@
 
     <!-- ===== Scene 5: close ===== -->
     <section class="scene reveal">
-      <p class="k">SCENE 5 / THE CLOSE</p>
-      <h2>Close with <span class="g">confidence.</span></h2>
-      <p>Fiscal-period control, auto-reversing accruals, allocation cascades you can see, year-end close to retained earnings, and financial statements rendered live from the trial balance. Bank statements import and auto-match; journal CSVs post through the full validation stack.</p>
+      <div class="scene-copy">
+        <p class="k">SCENE 5 / THE CLOSE</p>
+        <h2>Close with <span class="g">confidence.</span></h2>
+        <p>Fiscal-period control, auto-reversing accruals, allocation cascades you can see, year-end close to retained earnings, and financial statements rendered live from the trial balance. Bank statements import and auto-match; journal CSVs post through the full validation stack.</p>
+      </div>
       <figure class="shot">
         <div class="bar" aria-hidden="true"><i></i><i></i><i></i><span class="url">meridian &middot; ledger allocations</span></div>
         <img src="../images/work/meridian/allocations.webp" alt="Ledger Allocations — allocation rules with basis percentages and the posting flow from source cost pools to target accounts" width="1600" height="900" loading="lazy" />
